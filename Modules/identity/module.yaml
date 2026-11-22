@@ -1,0 +1,41 @@
+# Module card for `identity`. Format and rules: PLAN.md §1.4–1.5.
+id: identity
+kind: identity
+runs_in: game
+summary: 'Metadata-only GPU-name setup and native-device discovery with per-class original lookup; Independent mobile-interface matching and immutable launch-scoped retries; existing identity preset retains its mobile-interface behavior without changing the saved choice; Compatibility reports carry the engine-owned session marker; shared device catalog and opt-in mobile identity with one immutable M4/M5 CPU/RAM launch variant; readonly device-string, platform-flag and GPU-name table diagnostics without extra getter calls or Metal device creation; option-scoped getter retries in ordinary and compatibility modes, XNU short-buffer lengths, native available-memory callers and registry property types preserved; startup publication barrier, configured-table comparisons and valid zero CPU subfamilies; game-scoped identity imports with native framework providers preserved; game-only machine/model/RAM and device-string answers in compatibility mode, native inactive fallback, ABI-checked retryable getters with retained immutable values and process-bound coverage; platform, battery, volume and existing known SDK checks'
+status: stable
+default: 'on'
+depends_on:
+- engine
+- contracts
+- bridge
+owns:
+  paths:
+  settings:
+  - iosDeviceModel
+  - bypass
+  - identity.*
+  hooks:
+  - uname (machine game-only in identity.environmentBypass; nodename for game callers when identity.genericDeviceName; version SoC for game callers when identity.presentAsIPad)
+  - sysctl (explicit game-image import; native framework imports preserved)
+  - sysctlbyname (explicit game-image import; native framework imports preserved)
+  - NSProcessInfo.isMacCatalystApp (active identity, game callers only; ABI checked, retryable)
+  - NSProcessInfo.isiOSAppOnMac (active identity, game callers only; ABI checked, retryable)
+  - UIDevice.userInterfaceIdiom and UITraitCollection.userInterfaceIdiom (identity.matchMobileInterface, included by identity.environmentBypass; game callers; NSInteger ABI checked)
+  - UIDevice battery (isBatteryMonitoringEnabled, batteryState, batteryLevel)
+  - AVAudioSession.outputVolume, MPVolumeSlider, MPMusicPlayerController volume
+  - ATTrackingManager (requestTrackingAuthorization, trackingAuthorizationStatus)
+  - KRDeclaredAgeRangeService.isAgeRangeRequestAvailable
+  - Third-party jailbreak checks (upstream's list; per game, identity.environmentBypass or `bypass` setting or USE_EXTRA_ANTIJB=1)
+  - 'UIViewController.presentViewController:animated:completion: (Arknights: Endfield only)'
+  - hw.memsize and NSProcessInfo.physicalMemory (capped at the device's memory; game-only in identity.environmentBypass; getter ABI checked, retryable)
+  - UIDevice.name, model, localizedModel, systemName (active identity; game-only in identity.environmentBypass; ABI checked, retryable)
+  - MTLDevice.name (active identity.reportDeviceGPUName, game callers only; wrapper keeps the actual GPU identity; ABI checked, retryable)
+  - MGCopyAnswer (ProductType, HWModelStr, DeviceClass, DeviceName, HardwarePlatform, UserAssignedDeviceName, ChipID, DeviceClassNumber, main-screen-width/height/scale; game callers only)
+  - IORegistryEntryCreateCFProperty, IORegistryEntrySearchCFProperty and IORegistryEntryCreateCFProperties (IOPlatformExpertDevice model, compatible, target-type, platform-name; game callers only, Mac only)
+  - NSProcessInfo.hostName (identity.genericDeviceName, game callers only; ABI checked, retryable)
+  - hw.targettype, machdep.cpu.brand_string, kern.hostname and kern.version (game callers only)
+  - gethostname (explicit game-image import; identity.genericDeviceName, game callers only)
+  - hw.ncpu, hw.activecpu, hw.physicalcpu, hw.logicalcpu, machdep.cpu.core_count, hw.nperflevels, hw.perflevel0/1 core counts, hw.cpufamily, hw.cpusubfamily (identity.matchDeviceCPU, game callers only)
+  - sysconf (_SC_NPROCESSORS_CONF/ONLN; identity.matchDeviceCPU, game callers only)
+  - NSProcessInfo.processorCount and activeProcessorCount (identity.matchDeviceCPU, game callers only; ABI checked, retryable)

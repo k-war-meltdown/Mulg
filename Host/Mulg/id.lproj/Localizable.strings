@@ -1,0 +1,385 @@
+/* (No Comment) */
+"alert.app.delete" = "Semua data aplikasi akan dihapus. Anda mungkin perlu mengunduh file aplikasi lagi. Apakah anda ingin melanjutkan?";
+
+/* (No Comment) */
+"alert.app.preferences" = "Semua preferensi dalam aplikasi akan dihapus. Apakah anda ingin melanjutkan?";
+
+/* (No Comment) */
+"alert.appCacheCleared" = "Data aplikasi telah dihapus!";
+
+/* (No Comment) */
+"alert.error" = "Terjadi kesalahan!";
+
+/* (No Comment) */
+"alert.errorImportKm" = "Error ketika sedang impor!";
+
+/* (No Comment) */
+"alert.kmImported" = "Pemetaan kontrol terimpor!";
+
+/* (No Comment) */
+"alert.moveAppToApplications.move" = "Pindah ke folder aplikasi";
+
+/* (No Comment) */
+"alert.restart" = "Mohon mulai ulang Mulg.";
+
+/* (No Comment) */
+"alert.success" = "Berhasil";
+
+/* (No Comment) */
+"button.Cancel" = "Batal";
+
+/* (No Comment) */
+"button.Close" = "Tutup";
+
+/* (No Comment) */
+"button.Install" = "Instalasi";
+
+/* (No Comment) */
+"button.OK" = "Oke";
+
+/* (No Comment) */
+"button.Proceed" = "Lanjutkan";
+
+/* (No Comment) */
+"error.corruptedIPA" = "File .ipa ini rusak. File tidak berisi \"Info.plist\".";
+
+/* (No Comment) */
+"error.waitInstallation" = "Harap tunggu hingga penginstalan selesai!";
+
+/* (No Comment) */
+"menubar.checkForUpdates" = "Periksa untuk pembaruan...";
+
+/* (No Comment) */
+"menubar.discord" = "Discord";
+
+/* (No Comment) */
+"menubar.documentation" = "Dokumentasi";
+
+/* (No Comment) */
+"menubar.exportToSideloady" = "Ekspor ke Sideloadly";
+
+/* (No Comment) */
+"menubar.github" = "GitHub";
+
+/* (No Comment) */
+"menubar.log.copy" = "Salin Log";
+
+/* (No Comment) */
+"menubar.website" = "Situs";
+
+/* (No Comment) */
+"notification.appInstalled" = "Aplikasi terpasang!";
+
+/* (No Comment) */
+"notification.appInstalled.message" = "Lihat di Mulg!";
+
+/* (No Comment) */
+"mulggame.clearCache" = "Hapus data app";
+
+/* (No Comment) */
+"mulggame.clearPreferences" = "Hapus preferensi aplikasi";
+
+/* (No Comment) */
+"mulggame.delete" = "Uninstall aplikasi";
+
+/* (No Comment) */
+"mulggame.exportKm" = "Ekspor pemetaan kontrol";
+
+/* (No Comment) */
+"mulggame.importKm" = "Impor pemetaan kontrol";
+
+/* (No Comment) */
+"mulggame.install.addToLib" = "Menambah aplikasi ke perpustakaan...";
+
+/* (No Comment) */
+"mulggame.install.copy" = "Menyalin aplikasi...";
+
+/* (No Comment) */
+"mulggame.install.createWrapper" = "Membuat pembungkus aplikasi...";
+
+/* (No Comment) */
+"mulggame.progress.finished" = "Selesai";
+
+/* (No Comment) */
+"mulggame.install.installMulgKit" = "Menginstall MulgKit...";
+
+/* (No Comment) */
+"mulggame.install.signing" = "Mendaftarkan aplikasi...";
+
+/* (No Comment) */
+"mulggame.install.unzip" = "Mengekstrak aplikasi dari file .ipa...";
+
+/* (No Comment) */
+"mulggame.openCache" = "Buka data app";
+
+/* (No Comment) */
+"mulggame.settings" = "Pengaturan";
+
+/* (No Comment) */
+"mulggame.showInFinder" = "Tunjukan di Finder";
+
+/* (No Comment) */
+"preferences.button.checkForUpdates" = "Periksa pembaruan";
+
+/* (No Comment) */
+"preferences.tab.updates" = "Pembaruan";
+
+/* (No Comment) */
+"preferences.toggle.automaticUpdates" = "Periksa pembaruan secara otomatis";
+
+/* (No Comment) */
+"settings.button.discord" = "Aktivitas Discord khusus";
+
+/* (No Comment) */
+"settings.button.clearActivity" = "Hapus aktivitas khusus";
+
+/* (No Comment) */
+"settings.picker.iosDevice" = "Perangkat iOS:";
+
+/* %.f */
+"settings.slider.mouseSensitivity" = "Sensitivitas mouse: %.f";
+
+/* (No Comment) */
+"settings.text.applicationID" = "ID aplikasi";
+
+/* (No Comment) */
+"settings.text.customHeight" = "Tinggi";
+
+/* (No Comment) */
+"settings.text.customWidth" = "Lebar";
+
+/* (No Comment) */
+"settings.text.details" = "Rincian";
+
+/* (No Comment) */
+"settings.text.details.help" = "Baris pertama di bawah judul";
+
+/* (No Comment) */
+"settings.text.image" = "Gambar";
+
+/* (No Comment) */
+"settings.text.image.help" = "Tautan ke gambar atau nama aset portal Dev";
+
+/* (No Comment) */
+"settings.text.state" = "Katakan";
+
+/* (No Comment) */
+"settings.text.state.help" = "Baris kedua di bawah judul";
+
+/* (No Comment) */
+"settings.toggle.disableDisplaySleep" = "Nonaktifkan tampilan tidur";
+
+/* (No Comment) */
+"settings.toggle.discord" = "Aktifkan aktivitas Discord";
+
+/* (No Comment) */
+"settings.toggle.jbBypass" = "Aktifkan Lewati Jailbreak (Alpha)";
+
+/* (No Comment) */
+"settings.toggle.km" = "Pemetaan kontrol";
+
+/* (No Comment) */
+"soundAlert.failureText" = "Gagal menyetel laju sampel perangkat keluaran saat ini ke 48 KHz. Anda dapat mengatur sample rate secara manual di aplikasi 'Audio MIDI Setup'";
+
+/* (No Comment) */
+"soundAlert.informativeText" = "Perangkat keluaran Anda saat ini tidak memiliki laju sampel 48 atau 44,1 KHz! Kesalahan mungkin terjadi. Apakah Anda ingin mengubah laju sampel perangkat keluaran Anda saat ini menjadi 48 KHz?";
+
+/* (No Comment) */
+"soundAlert.messageText" = "Pengaturan audio salah terdeteksi!";
+
+/* (No Comment) */
+"soundAlert.successText" = "Laju sampel perangkat keluaran saat ini disetel ke 48 KHz";
+
+/* (No Comment) */
+"settings.tab.misc" = "Lain-lain";
+"mulggame.exportKmPanel.fieldLabel" = "nama PetaMain:";
+"sidebar.appLibrary" = "Perpustakaan aplikasi";
+"sidebar.ipaLibrary" = "Perpustakaan IPA";
+"alert.moveAppToApplications.title" = "Pindah ke folder aplikasi?";
+"alert.moveAppToApplications.subtitle" = "Mulg harus berada di folder aplikasi agar dapat berjalan dengan benar. Tekan tombol di bawah untuk memindahkan Mulg secara otomatis.";
+"button.Quit" = "Keluar";
+"error.appEncrypted" = "Aplikasi ini dienkripsi! Harap gunakan IPA yang didekripsi. iMazing IPA tidak didukung!";
+"error.appCorrupted" = "Ada yang salah dengan IPA ini. Coba gunakan file IPA lain.";
+"error.appProhibited" = "Menggunakan aplikasi ini melalui Mulg kemungkinan akan mengakibatkan ban!";
+"settings.title" = "Pengaturan";
+"settings.tab.info" = "Informasi";
+"settings.tab.km" = "Pemetaan kontrol";
+"settings.toggle.km.help" = "Tambahkan dukungan keyboard ke game hanya sentuh. Gunakan Command + K untuk membuka menu editor.";
+"settings.tab.graphics" = "Grafis";
+"settings.picker.adaptiveRes" = "Resolusi:";
+"settings.picker.adaptiveRes.help" = "Mengubah resolusi jendela aplikasi";
+"settings.picker.adaptiveRes.0" = "Aplikasi default";
+"settings.picker.adaptiveRes.1" = "Otomatis (Berdasarkan Tampilan)";
+"settings.picker.adaptiveRes.5" = "Kustom";
+"settings.picker.aspectRatio" = "Rasio aspek:";
+"settings.toggle.disableDisplaySleep.help" = "Cegah tampilan mati saat aplikasi ini berjalan";
+"settings.toggle.jbBypass.help" = "Upaya untuk melewati Deteksi Jailbreak di beberapa game (Tidak dijamin selalu berfungsi)";
+"settings.info.displayName" = "Nama tampilan:";
+"settings.info.bundleName" = "Nama paket:";
+"settings.info.bundleIdentifier" = "Pengidentifikasi paket:";
+"settings.info.executableName" = "Nama yang dapat dieksekusi:";
+"settings.info.minimumOSVersion" = "Versi OS minimal:";
+"settings.info.url" = "URL :";
+"settings.resetSettings" = "Setel ulang pengaturan";
+"settings.resetKm" = "Setel ulang pemetaan kontrol";
+"settings.resetSettingsCompleted" = "Pengaturan telah dikembalikan ke default!";
+"settings.resetKmCompleted" = "Pemetaan kontrol telah disetel ulang!";
+"settings.toggle.hud" = "HUD Logam";
+"settings.info.bundleVersion" = "Versi paket:";
+"mulggame.deleteConfirm" = "Uninstall";
+"mulggame.deleteMessage" = "Apakah kamu yakin kamu ingin uninstall %@?";
+"alert.legacyImport.title" = "Pengaturan aplikasi lama terdeksi!";
+"alert.legacyImport.subtitle" = "Setelan lama dan file pemetaan kontrol terdeteksi. Apakah Anda ingin mengonversi file ini ke format baru?";
+"button.Convert" = "Ubah";
+"settings.text.detectedResolution" = "Resolusi terdeteksi:";
+"mulggame.add" = "Tambah Aplikasi";
+"alert.wrongFileType.title" = "Jenis file salah!";
+"alert.wrongFileType.subtitle" = "Mulg hanya dapat menginstal file .ipa yang valid.";
+"mulggame.addSource" = "Tambah sumber";
+"ipaLibrary.noSources.title" = "Tidak ada sumber IPA ditambahkan";
+"ipaLibrary.noSources.subtitle" = "Anda tidak memiliki sumber IPA yang ditambahkan. Klik tombol di bawah untuk menambahkan satu.";
+"ipaLibrary.noSources.button" = "Tambahkan sumber";
+"ipaLibrary.noNetworkConnection.toast" = "Tidak ada koneksi internet!";
+"preferences.tab.ipasource" = "Sumber IPA";
+"preferences.button.addSource" = "Tambah sumber";
+"preferences.button.deleteSource" = "Hapus sumber";
+"preferences.button.moveSourceUp" = "Pindah sumber keatas";
+"preferences.button.moveSourceDown" = "Pindah sumber kebawah";
+"preferences.popover.valid" = "Tautan valid";
+"preferences.popover.badurl" = "URL tidak valid!";
+"preferences.popover.badjson" = "JSON tidak valid atau tidak ditemukan!";
+"preferences.textfield.url" = "Sumber URL...";
+"mulggame.download.downloading" = "Mengunduh";
+"error.waitDownload" = "Harap tunggu hingga unduhan selesai!";
+"preferences.tab.uninstall" = "Hapus instalan";
+"preferences.whenUninstalling" = "Ketika uninstall:";
+"preferences.toggle.showUninstall" = "Tampilkan munculan peringatan";
+"preferences.toggle.clearAppData" = "Hapus data";
+"preferences.toggle.removeKeymap" = "Hapus keymap";
+"preferences.toggle.removeSetting" = "Hapus pengaturan";
+"preferences.toggle.removeEntitlements" = "Hapus hak";
+"preferences.button.pruneFiles" = "Pangkas file";
+"preferences.prune.alert" = "Apakah anda yakin ingin memangkas semua file?";
+"preferences.prune.message" = "Ini akan menghapus semua file yang tidak digunakan termasuk pengaturan, pemetaan kontrol, hak, dan data aplikasi";
+"mulggame.progress.failed" = "Gagal";
+"alert.supression" = "Anda dapat mengubah ini di preferensi Mulg";
+"menubar.clearCache" = "Hapus data gambar";
+"alert.install.injectMulgKit" = "Masukkan MulgKit";
+"preferences.tab.install" = "Install";
+"preferences.toggle.showInstallPopup" = "Tampilkan install MulgKit popup";
+"preferences.toggle.alwaysInstallMulgKit" = "Selalu install MulgKit";
+"button.Yes" = "Iya";
+"button.No" = "Tidak";
+"settings.noMulgKit" = "MulgKit tidak diinstal di aplikasi ini";
+"settings.removeMulgKit" = "Hapus MulgKit";
+"settings.info.mulgKit" = "MulgKit terpasang:";
+"mulggame.refreshSources" = "Menyegarkan sumber";
+"error.appMaliciousProhibited" = "Aplikasi ini berperilaku dengan jahat di Mac, dan menggunakannya dapat membuat perangkat Anda tidak dapat dinyalakan, oleh karena itu diblokir dari Mulg. (Menghapus Instalan...)";
+"alert.install.injectMulgKitQuestion" = "Apakah Anda ingin menyuntikkan MulgKit ke dalam aplikasi ini?";
+"alert.install.mulgKitInformative" = "MulgKit adalah alat yang memungkinkan Anda untuk mengikat tombol ke sentuhan layar, resolusi tampilan khusus, dan banyak lagi, tetapi dapat merusak aplikasi tertentu";
+"button.Help" = "Bantuan";
+"button.Dismiss" = "Abaikan";
+"state.enabled" = "Diaktifkan";
+"state.disabled" = "Nonaktif";
+"configSigning.header" = "Configure Package Signing";
+"configSigning.info.SIP" = "SIP is required to be fully to partially disabled in order for AMFI to be turned off.";
+"configSigning.subtext" = "Package Signing helps fixing issues with apps that rely on \ncorrect Team IDs for operations like authorization. \nThere may be security risks associated with enabling this feature.\n\n As such, we recommend disabling it when it's not necessary";
+"configSigning.info.SIPHeader" = "System Integrity Protection";
+"configSigning.info.AMFI" = "AMFI is required to be turned off in order to allow fake signing of apps, allowing them to run with the correct Team ID";
+"configSigning.info.AMFIHeader" = "Apple Mobile File Integrity";
+"configSigning.action.shutdown" = "Shut down my Mac";
+"configSigning.action.copyCommand" = "Copy Command to Clipboard";
+"configSigning.action.restart" = "Restart my Mac";
+"configSigning.step.disableSIP" = "Please disable SIP from Recovery Mode";
+"configSigning.step.disableAMFI" = "Please disable AMFI";
+"configSigning.step.AMFIreboot" = "AMFI Disabled. Please reboot";
+"configSigning.step.complete" = "Package Signing has been configured successfully";
+"configSigning.alert.copied" = "Command Copied!";
+"configSigning.alert.info" = "Please paste and run the command in Terminal.app. Your Mac will reboot after";
+"state.pendingReboot" = "Menunggu Menyalakan Ulang";
+"menubar.configSigning" = "Configure Signing";
+"ipaLibrary.version.older" = "Versi ini lebih tua dari versi yang telah Anda instal";
+"ipaLibrary.version.same" = "Aplikasi sudah diinstal";
+"ipaLibrary.version.newer" = "Versi ini lebih baru daripada versi yang telah Anda instal";
+"ipaLibrary.alert.download" = "Apakah Anda yakin ingin mengunduh versi %@ ini?";
+"ipaLibrary.download" = "Unduh";
+"alert.differentBundleIdKeymap.message" = "Keymap mungkin telah dibuat untuk aplikasi lain.";
+"alert.differentBundleIdKeymap.text" = "Apakah Anda yakin ingin mengimpor keymap ini?";
+"settings.text.debugger" = "Debugger:";
+"settings.toggle.lldb" = "Open with LLDB";
+"settings.toggle.lldbWithTerminal" = "Open in terminal";
+"settings.mulgChain.enable" = "Enable MulgChain (experimental)";
+"settings.mulgChain.help" = "Enable MulgChain support for this application, allowing it to (partially) use Apple Keychain Services";
+"settings.mulgChain.debugging" = "MulgChain debugging";
+"error.failedToStripBinary" = "Tidak dapat menemukan arsitektur ARM64 dalam fat binary!";
+"mulggame.noSources.title" = "Tidak ada IPA yang Diinstal";
+"mulggame.noSources.subtitle" = "Saat ini Anda belum memiliki IPA yang terinstal. Klik tombol di bawah ini untuk mengimpornya.";
+"settings.tab.bypasses" = "Bypasses";
+"mulggame.download.integrityCheck" = "Memverifikasi integritas file:";
+"mulggame.download.differentChecksum" = "Checksum yang berbeda! Apakah Anda ingin melanjutkan penginstalan?";
+"mulggame.download.differentChecksumDesc" = "Diharapkan \"%@\", yang didapat adalah \"%@\"";
+"mulggame.progress.canceled" = "Dibatalkan";
+"mulggame.importIPA" = "Impor IPA";
+"ipaLibrary.noNetworkConnection.required" = "IPA Library membutuhkan koneksi internet";
+"preferences.toggle.removeMulgChain" = "Hapus MulgChain";
+"preferences.popover.duplicate" = "Tautan Duplikat";
+"mulggame.clearMulgChain" = "Bersihkan Data MulgChain";
+"alert.app.clearMulgChain" = "Semua data MulgChain akan dihapus. Anda mungkin perlu masuk ke aplikasi lagi. Apakah Anda ingin melanjutkan?";
+"button.Reload" = "Muat ulang";
+"settings.highResolution" = "High resolution may cause crashing";
+"settings.picker.windowFix" = "Fix window display issues";
+"settings.picker.windowFixMethod.0" = "Normal";
+"settings.picker.windowFixMethod.1" = "Alternate";
+"settings.picker.windowFix.help" = "Apply window fixes that may helps your apps display normally";
+"preferences.popover.checking" = "Memeriksa URL";
+"settings.toggle.introspection" = "Insert Introspection libraries";
+"settings.toggle.introspection.help" = "Add the system introspection libraries to the app. Known to fix issues with some apps not starting correctly";
+"settings.picker.scaler" = "Resolution Scaler";
+"button.Enable" = "Aktifkan";
+"button.Reset" = "Atur ulang";
+"button.Unlock" = "Buka";
+"settings.toggle.rootWorkDir" = "Start app at root directory";
+"mulgvault.masterPassword" = "Master Password";
+"mulgvault.alert.content" = "Keychain access has been disabled for the current session";
+"settings.toggle.rootWorkDir.help" = "Change the working directory of the app to / just like on iOS. Turn this off if the app misbehave";
+"mulgvault.confirmMasterPassword" = "Confirm Master Password";
+"mulgvault.oldMasterPassword" = "Current Master Password";
+"mulgvault.error.blankPassword" = "Password cannot be blank";
+"mulgvault.error.notMatch" = "Passwords do not match";
+"mulgvault.error.incorrectPassword" = "Incorrect Password";
+"mulgvault.status.title" = "MulgVault Status:";
+"mulgvault.status.managedPassword" = "Enabled with Managed Password";
+"mulgvault.status.userPassword" = "Enabled with User Password";
+"mulgvault.status.chainCount" = "MulgVault Chain Status: ";
+"mulgvault.status.unlockedCount %@ %@" = "%@ unlocked chains in %@ total";
+"mulgvault.button.lockAll" = "Lock All Chains";
+"mulgvault.button.changePassword" = "Change Master Password";
+"mulgvault.toggle.startupPrompt" = "Prompt for MulgVault at startup";
+"mulgvault.toggle.startupPrompt.help" = "MulgVault will prompt for your master password when you launch the application. If this is disabled, it will be prompted when you launch an app that uses MulgChain.";
+"mulgvault.setup.useGeneratedKey" = "Managed Automatically";
+"mulgvault.setup.useUserKey" = "Use my own key";
+"mulgvault.setup.encryptionKey" = "Encryption Key: ";
+"mulgvault.setupPrompt.title" = "Enter a master password to use for MulgVault";
+"mulgvault.changePasswordPrompt.title" = "Enter your old master password and a new one to update your MulgVault encryption key";
+"mulgvault.removePrompt.title" = "Enter your master password to remove MulgVault encryption";
+"mulgvault.unlockPrompt.title" = "Enter your master password to unlock MulgVault";
+"mulgvault.alert.title" = "Keychain was not unlocked";
+"settings.toggle.autoKM" = "Keymap Pintar";
+"settings.toggle.autoKM.help" = "Menonaktifkan pemetaan kunci secara otomatis ketika input teks terdeteksi.";
+"settings.applicationCategoryType" = "Application Type";
+"settings.toggle.iosFrameworks" = "Force Insert iOS Frameworks";
+"settings.info.alias" = "Alias:";
+"settings.toggle.enableScrollWheel.help" = "Enable scroll wheel in keymapping";
+"settings.toggle.iosFrameworks.help" = "Add the system ios libraries to the app. Known to fix issues with some apps cannot find ios framework";
+"settings.toggle.enableScrollWheel" = "Enable Scroll Wheel";
+"ipaLibrary.info.checksum.none" = "None provided";
+"ipaLibrary.info.itunes" = "ITunes Lookup:";
+"ipaLibrary.info.checksum" = "Checksum:";
+"ipaLibrary.info.notAvailable" = "Link not valid for this app";
+"ipaLibrary.info" = "App Info";
+"ipaLibrary.info.title" = "%@ Info";
+"ipaLibrary.unavailable" = "The link is unavailable";
+"ipaLibrary.AlphabeticalSort" = "Sort source apps alphabetically";
+"alert.open.appstore" = "Open Mac App Store";
+"macos.version" = "This app can be installed from Mac App Store";
+"alert.install.anyway" = "Install Anyway";

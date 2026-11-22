@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager and Xcode
+.build/
+.swiftpm/
+xcuserdata/
+DerivedData/
+*.xcscmblueprint
+
+# Build products
+Host/RuntimeBuild/
+results/probe-build/
+results/runtime-probe.json
+*.dSYM
+*.dSYM.zip
+Mulg-test.zip
+*.xcarchive
+
+# Games are never committed.
+*.ipa
+
+# Local tool settings
+.claude/settings.local.json

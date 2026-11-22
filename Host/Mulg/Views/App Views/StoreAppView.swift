@@ -1,0 +1,271 @@
+//
+//  StoreAppView.swift
+//  Mulg
+//
+//  Created by Isaac Marovitz on 07/08/2022.
+//
+
+import SwiftUI
+@preconcurrency import DataCache
+@preconcurrency import CachedAsyncImage
+
+struct StoreAppView: View {
+    @Binding var selectedBackgroundColor: Color
+    @Binding var selectedTextColor: Color
+    @Binding var selected: SourceAppsData?
+
+    @State var app: SourceAppsData
+    @State var isList: Bool
+    @State var observation: NSKeyValueObservation?
+    @State var showInfo = false
+
+    @State var warningSymbol: String?
+    @State var warningMessage: String?
+
+    @EnvironmentObject var downloadVM: DownloadVM
+    @EnvironmentObject var installVM: InstallVM
+
+    var body: some View {
+        StoreAppConditionalView(selectedBackgroundColor: $selectedBackgroundColor,
+                                selectedTextColor: $selectedTextColor,
+                                selected: $selected,
+                                app: app,
+                                isList: isList,
+                                warningSymbol: $warningSymbol,
+                                warningMessage: $warningMessage)
+        .gesture(TapGesture(count: 2).onEnded {
+            if let url = URL(string: app.link) {
+                if downloadVM.inProgress {
+                    Log.shared.error(MulgError.waitDownload)
+                } else {
+                    Task { @MainActor in
+                        DownloadApp(url: await RedirectHandler.resolve(url), app: app,
+                                    warning: warningMessage).start()
+                    }
+                }
+            }
+        })
+        .contextMenu {
+            Button("ipaLibrary.info", systemImage: "info", action: {
+                showInfo.toggle()
+            })
+        }
+        .simultaneousGesture(TapGesture().onEnded {
+            selected = app
+        })
+        .sheet(isPresented: $showInfo) {
+            StoreInfoAppView(viewModel: StoreAppVM(data: app))
+                .environmentObject(downloadVM)
+        }
+        .environmentObject(downloadVM)
+        .task(priority: .background) {
+            if let sourceApp = AppsVM.shared.apps.first(where: { $0.info.bundleIdentifier == app.bundleID }) {
+                switch app.version.compare(sourceApp.info.bundleVersion, options: .numeric) {
+                case .orderedAscending:
+                    warningSymbol = "checkmark.circle.badge.xmark"
+                    warningMessage = "ipaLibrary.version.older"
+                case .orderedSame:
+                    warningSymbol = "checkmark.circle"
+                    warningMessage = "ipaLibrary.version.same"
+                case .orderedDescending:
+                    warningSymbol = "checkmark.circle.trianglebadge.exclamationmark"
+                    warningMessage = "ipaLibrary.version.newer"
+                default:
+                    warningSymbol = "arrow.down.circle"
+                    warningMessage = "ipaLibrary.download"
+                }
+            }
+        }
+    }
+}
+
+struct StoreAppConditionalView: View {
+    @Binding var selectedBackgroundColor: Color
+    @Binding var selectedTextColor: Color
+    @Binding var selected: SourceAppsData?
+
+    @State var app: SourceAppsData
+    @State var itunesResponse: ITunesResponse?
+    @State var onlineIcon: String?
+    @State var localIcon: NSImage?
+    @State var loadingLocalIcon: Bool = true
+    @State var isList: Bool
+
+    @Binding var warningSymbol: String?
+    @Binding var warningMessage: String?
+
+    @EnvironmentObject var downloadVM: DownloadVM
+
+    @State private var cache = DataCache.instance
+
+    @Sendable private func waitForIconLoad() async {
+        loadingLocalIcon = true
+        try? await Task.sleep(nanoseconds: 6_000_000_000)
+        loadingLocalIcon = false
+    }
+
+    var body: some View {
+        Group {
+            if isList {
+                HStack(alignment: .center, spacing: 0) {
+                    Image(systemName: warningSymbol ?? "arrow.down.circle")
+                        .help(NSLocalizedString(warningMessage ?? "ipaLibrary.download", comment: ""))
+                        .padding(.leading, 15)
+                    ZStack {
+                        Group {
+                            CachedAsyncImageWrapper(
+                                url: onlineIcon,
+                                placeholder: { _ in
+                                    if let image = localIcon {
+                                        Image(nsImage: image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                    } else {
+                                        Rectangle()
+                                             .fill(.regularMaterial)
+                                             .overlay {
+                                                 if loadingLocalIcon {
+                                                     ProgressView()
+                                                         .progressViewStyle(.circular)
+                                                         .controlSize(.small)
+                                                 } else {
+                                                     Image(systemName: "exclamationmark.triangle")
+                                                         .opacity(0.5)
+                                                 }
+                                             }
+                                             .task(self.waitForIconLoad)
+                                    }
+                                },
+                                image: {
+                                    Image(nsImage: $0)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                },
+                                error: { _, retry in
+                                    Rectangle()
+                                        .fill(.regularMaterial)
+                                        .overlay {
+                                            Image(systemName: "exclamationmark.triangle")
+                                                .opacity(0.5)
+                                        }
+                                        .task {
+                                            retry()
+                                        }
+                                }
+                            )
+                        }
+                        .frame(width: 30, height: 30)
+                        .cornerRadius(7.5)
+                        .shadow(radius: 1)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+                        if downloadVM.inProgress && downloadVM.storeAppData == app {
+                            ProgressView(value: downloadVM.progress)
+                                .progressViewStyle(.circular)
+                        }
+                    }
+                    Text(app.name)
+                        .foregroundColor(selected?.bundleID == app.bundleID ?
+                                         selectedTextColor : Color.primary)
+                    Spacer()
+                    Text(app.version)
+                        .padding(.horizontal, 15)
+                        .foregroundColor(.secondary)
+                }
+                .contentShape(Rectangle())
+                .background(RoundedRectangle(cornerRadius: 4)
+                        .fill(selected?.bundleID == app.bundleID ?
+                              selectedBackgroundColor : Color.clear)
+                        .brightness(-0.2))
+            } else {
+                LazyVStack {
+                    ZStack {
+                        Group {
+                            CachedAsyncImageWrapper(
+                                url: onlineIcon,
+                                placeholder: { _ in
+                                    if let image = localIcon {
+                                        Image(nsImage: image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                    } else {
+                                        Rectangle()
+                                             .fill(.regularMaterial)
+                                             .overlay {
+                                                 if loadingLocalIcon {
+                                                     ProgressView()
+                                                         .progressViewStyle(.circular)
+                                                         .controlSize(.small)
+                                                 } else {
+                                                     Image(systemName: "exclamationmark.triangle")
+                                                         .font(.system(size: 24))
+                                                         .opacity(0.5)
+                                                 }
+                                             }
+                                             .task(self.waitForIconLoad)
+                                    }
+                                },
+                                image: {
+                                    Image(nsImage: $0)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                },
+                                error: { _, retry in
+                                    Rectangle()
+                                        .fill(.regularMaterial)
+                                        .overlay {
+                                            Image(systemName: "exclamationmark.triangle")
+                                                .font(.system(size: 24))
+                                                .opacity(0.5)
+                                        }
+                                        .task {
+                                            retry()
+                                        }
+                                }
+                            )
+                        }
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(15)
+                        .shadow(radius: 1)
+                        if downloadVM.inProgress && downloadVM.storeAppData == app {
+                            VStack {
+                                Spacer()
+                                ProgressView(value: downloadVM.progress)
+                                    .padding(.horizontal, 5)
+                            }
+                            .frame(width: 60, height: 60)
+                        }
+                    }
+                    Text("\(Image(systemName: warningSymbol ?? "arrow.down.circle"))  \(app.name)")
+                        .lineLimit(1)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 4)
+                        .padding(.vertical, 2)
+                        .foregroundColor(selected?.bundleID == app.bundleID ?
+                                         selectedTextColor : Color.primary)
+                        .background(
+                            RoundedRectangle(cornerRadius: 4)
+                                .fill(selected?.bundleID == app.bundleID ?
+                                      selectedBackgroundColor : Color.clear)
+                                .brightness(-0.2)
+                        )
+                        .help(NSLocalizedString(warningMessage ?? "ipaLibrary.download", comment: ""))
+                        .frame(width: 130, height: 20)
+                }
+                .frame(width: 130, height: 130)
+            }
+        }
+        .task(priority: .background) {
+            if !cache.hasData(forKey: app.itunesLookup) {
+                await Cacher.shared.resolveITunesData(app.itunesLookup)
+            }
+            itunesResponse = try? cache.readCodable(forKey: app.itunesLookup)
+            // A game missing from the US store answers with no results.
+            if let result = itunesResponse?.results.first {
+                onlineIcon = result.artworkUrl512
+            } else {
+                localIcon = Cacher.shared.getLocalIcon(bundleId: app.bundleID)
+            }
+        }
+    }
+}

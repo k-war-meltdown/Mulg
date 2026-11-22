@@ -1,0 +1,13 @@
+id: keymaps
+kind: contract
+runs_in: both
+summary: 'Camera motion bindings cannot be silently converted to keyboard-grab drags; The shared editing rules and canvas metrics every control editor uses (KeymapEditorModel, ScreenMetrics); Automatic and optional manual HUD patches, binding-checked addresses and bounded local/regional confidence/ambiguity matching shared by existing and imported maps; shared channel-aware binding graph, immutable HUD baselines, evidence-based group translation, capability-based context policies, direct pointer profiles, generated aspect layouts, sample interpolation, persistent calibration and metadata-preserving imports'
+status: experimental
+default: always
+depends_on: []
+owns:
+  paths: []
+# Automatic discovery/masked matching use the same binding addresses as imported maps.
+# Optional captureAspect metadata preserves old references while adapting stretched surfaces.
+# HUDAutomaticDiscovery is game-independent and never infers keys or scans arbitrary scenes.
+# Optional group regions reuse the same patch matcher with bounded work and cancellation.

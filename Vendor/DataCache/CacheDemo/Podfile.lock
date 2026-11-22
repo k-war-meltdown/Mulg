@@ -1,0 +1,16 @@
+PODS:
+  - DataCache (1.4)
+
+DEPENDENCIES:
+  - DataCache (from `../`)
+
+EXTERNAL SOURCES:
+  DataCache:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DataCache: 58345b1a6c12fed9919fe4c00716ede7bc7e8142
+
+PODFILE CHECKSUM: 173aa6faeefae7d64a11c9fa0c3b367ba970633a
+
+COCOAPODS: 1.6.1

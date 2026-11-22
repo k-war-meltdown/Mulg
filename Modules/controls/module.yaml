@@ -1,0 +1,43 @@
+# Module card for `controls`. Format and rules: PLAN.md §1.4–1.5.
+id: controls
+kind: controls
+runs_in: game
+summary: 'TFT virtual mouse uses the engine-owned observer transform seam and a software cursor independent of native pointer hiding; TFT-family stable virtual GameController mouse with direct ordered callbacks and native hover; Native capture preserved at startup and motion from unbound HID mouse collections relayed on the game owner queue; Native cursor shortcuts consume their AppKit press and release without consuming gameplay clicks; Disabled/recovering mapping preserves native game mouse and keyboard delivery; cursor shortcuts change visibility without forced touch conversion or wrapper warping; Native cursor access survives disabled mapping and recovery, with metadata-checked game controller pointer-lock handling and native keyboard and controller passthrough; Persistent mouse-view dispatch parallel to gameplay drags with layer-safe camera contacts and reserved middle-click cursor control; Binding-based HUD backoff survives reference regeneration; derived-cache writes and report encoding leave the main actor; Hosts the control editor session through the engine ControlEditing seam (the mapper overlay, or the built-in editor when the mapper is off): profile list, switch, create and save with a backup before every overwrite, the active profile remembered; a decluttered Controls menu (Edit Controls, Profiles, pointer, Advanced); Frame-driven controller camera steps, delivery-driven tap/joystick starts, HUD rechecks that back off while unchanged, crash-report notes; Backend-owned presses and held layers, atomic movement transfer, token-owned drags, mode-aware real-controller replay and output-aspect editor reflow retaining calibration/drafts; Adaptive map/layer camera-pointer policy, live cursor override, current-context menus and exact drag-release positions with resize suspension; shared eight-direction digital joysticks, immutable per-contact movement frames and coherent native D-pad publication; resolution-independent native PC controls with owned chords, aim modes and frame-sampled mouse input; keyboard, mouse and controller mapping with a shared adaptive reference canvas, two-axis anchors, delivered-neutral joystick origins, atomic viewport-wide resize recovery from stable output-pixel aspect with independent axis projection, published Genshin HUD samples, built-in Star Rail keyboard/mouse defaults, shared keymaps interpolation and editor calibration for all controls and arbitrary-key movement calibration in every layer, resize-safe gestures and live tuning, focused cursor capture, wrapper raw-mouse access, synchronized controller snapshots, retained editor drafts, bounded motion and ABI-gated per-window touch snapshots with independent monotonic contact identities, delivered-position deltas, frozen gesture transforms, resize cancellation, direct keyboard/mouse isolation and one-shot character taps'
+status: stable
+default: 'on'
+depends_on:
+- control-layout
+- engine
+- contracts
+- bridge
+owns:
+  # Automatic native/visual HUD tracking integrates measured group layouts with the existing
+  # stable viewport transaction, visibility/order regimes and contact-safe atomic adoption.
+  # Original bindings, joystick vectors and camera behavior retain their existing ownership.
+  # Pure control-layout consumes the same selected viewport/output aspect as the existing
+  # canvas; complete verified HUD groups commit only between contacts. It owns no hooks.
+  # HUDAnchorTracker defaults to automatic discovery/retracking without replacing bindings.
+  # Native weak hitboxes need two stable probes; visual enrollment needs three clear frames.
+  # Cache fingerprinting, ambiguity rejection and contact-safe fallback protect all maps.
+  # See HUD-ANCHORS.md for automatic learning, optional overrides and OS permissions.
+  paths:
+  exclude:
+  settings:
+  - controls.interactionStyle
+  - controls.automaticHUDAnchoring
+  - keymapping
+  - sensitivity
+  - noKMOnInput
+  - enableScrollWheel
+  - disableBuiltinMouse
+  - limitMotionUpdateFrequency
+  hooks:
+  - 'CMMotionManager.attitudeReferenceFrame, +availableAttitudeReferenceFrames (virtual gyro supports an arbitrary horizontal heading)'
+  - 'UIViewController subclass prefersPointerLocked (game-owned implementations; native cursor access without touch injection)'
+  - "+GCMouse.current, mice (game-caller hiding or TFT virtual device, wrapper raw-mouse access)"
+
+  - '+GCKeyboard.coalescedKeyboard (gameplay-only touch isolation; native UI and wrapper retain access)'
+  - 'WKWebView.didMoveToWindow (weak list of on-screen web views for the native interface check)'
+events:
+  publishes:
+  - DiagnosticNote

@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a launch, graphics, performance, or control issue.
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Mulg commit or build, Mac model and chip, and macOS version.
+      placeholder: 3.1.0, Mac mini M4, macOS 27.2
+    validations:
+      required: true
+  - type: input
+    id: game
+    attributes:
+      label: Game and version
+      description: Include the region or edition if relevant. Enter N/A for launcher issues.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the game scene or menu and whether the issue happens every time.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: performance
+    attributes:
+      label: Performance and display settings
+      description: For performance issues, include output and render resolution, graphics preset, FPS target, MetalFX mode, and measured FPS or frame times.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Logs or screenshots
+      description: Attach relevant excerpts and remove usernames, account details, tokens, and private file paths before posting.

@@ -1,0 +1,29 @@
+# Module card for `gui`. Format and rules: PLAN.md §1.4–1.5.
+id: gui
+kind: gui
+runs_in: host
+summary: 'Desktop-resolution 120 FPS defaults without automatic saving or downscaling, with one-time per-game migration preserving unrelated preferences; Protected login-storage explanation alongside the shared Sign-in controls; Per-game Sign-in section with independent restart-scoped login support, canonical browser callback registration and process/session-bound provider outcomes; Compatibility coverage retained for prepared/degraded modules and effective identity restart badges; Independent per-game Match mobile interface option in Compatibility, with restart/reset handling and preset-held effective state; Per-game Compatibility bypasses page with recovery-disabled identity status, stale-session report suppression and shared per-game recovery toggle; shared device/configuration picker, restart badges, scoped reset, configured identity readback, installed-hook counts and profile-table mismatches, off-by-default environment mode, preserved legacy settings, native-launch-bound evidence and scoped reset; accepted-launch menu-bar mode without Dock/Command-Tab presence and per-game verified audio output settings; daily-use game details and six-section settings with process-bound configuration badges, scoped preference resets, storage measurements and observable save failures; one regular Graphite light/dark app icon in the main sidebar; app-wide System/Light/Dark propagation, native Liquid Glass with accessible solid fallbacks and quiet semantic surfaces; recorded/learned/projected layout evidence; adaptive mouse policy and layout evidence UI, bundled ZZZ City/Combat/Hollow contexts and original TFT/Arknights pointer maps with user-preserving seeding; hardware CPU reporting and parallel shader controls, Mulg windows and backend/module-aware settings, current-session option availability, merged GUI/CLI actions, reversible FPS profiles, visible storage failures and coordinated launches and bundled Genshin/Star Rail keymaps'
+status: stable
+default: always
+depends_on:
+- contracts
+- library
+- store
+- updater
+owns:
+  # GameMenuBarController restores the regular library after the last accepted game exits,
+  # including recreating closed library windows, while preserving multiple-game sessions.
+  paths:
+  - Host/Mulg/Views/**
+  - Host/Mulg/ViewModel/*.swift
+  - Host/Mulg/Utils/Cacher.swift
+  - Host/Mulg/Utils/ModifierKeyObserver.swift
+  - Host/Mulg/Utils/URLHandler.swift
+  - Host/Mulg/Utils/Extensions/ViewExtensions.swift
+  - Host/Mulg/Services/NotifyService.swift
+  exclude:
+  - Host/Mulg/Views/Sparkle.swift
+  - Host/Mulg/ViewModel/Log.swift
+  - Host/Mulg/ViewModel/StoreVM.swift
+  - Host/Mulg/ViewModel/DownloadVM.swift
+  - Host/Mulg/ViewModel/NetworkVM.swift

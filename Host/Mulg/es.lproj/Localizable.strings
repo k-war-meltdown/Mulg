@@ -1,0 +1,385 @@
+/* (No Comment) */
+"alert.app.delete" = "Se borrarán todos los datos de la aplicación. Es posible que deba descargar los archivos de la aplicación nuevamente. ¿Continuar?";
+
+/* (No Comment) */
+"alert.app.preferences" = "Se eliminarán todas las preferencias dentro de la aplicación. ¿Continuar?";
+
+/* (No Comment) */
+"alert.appCacheCleared" = "¡Se borraron los datos de la aplicación!";
+
+/* (No Comment) */
+"alert.error" = "¡Se ha producido un error!";
+
+/* (No Comment) */
+"alert.errorImportKm" = "¡Ocurrió un error al importar!";
+
+/* (No Comment) */
+"alert.kmImported" = "¡Asignación de teclas importada!";
+
+/* (No Comment) */
+"alert.moveAppToApplications.move" = "Mover a /Applications";
+
+/* (No Comment) */
+"alert.restart" = "Reinicie Mulg.";
+
+/* (No Comment) */
+"alert.success" = "Operación completada";
+
+/* (No Comment) */
+"button.Cancel" = "Cancelar";
+
+/* (No Comment) */
+"button.Close" = "Cerrar";
+
+/* (No Comment) */
+"button.Install" = "Instalar";
+
+/* (No Comment) */
+"button.OK" = "Aceptar";
+
+/* (No Comment) */
+"button.Proceed" = "Continuar";
+
+/* (No Comment) */
+"error.corruptedIPA" = "Este archivo .ipa está dañado. No contiene un archivo «Info.plist».";
+
+/* (No Comment) */
+"error.waitInstallation" = "¡Por favor espere a que finalice la instalación!";
+
+/* (No Comment) */
+"menubar.checkForUpdates" = "Buscar actualizaciones...";
+
+/* (No Comment) */
+"menubar.discord" = "Discord";
+
+/* (No Comment) */
+"menubar.documentation" = "Documentación";
+
+/* (No Comment) */
+"menubar.exportToSideloady" = "Exportar a Sideloadly";
+
+/* (No Comment) */
+"menubar.github" = "GitHub";
+
+/* (No Comment) */
+"menubar.log.copy" = "Copiar registros";
+
+/* (No Comment) */
+"menubar.website" = "Sitio web";
+
+/* (No Comment) */
+"notification.appInstalled" = "¡Aplicación instalada!";
+
+/* (No Comment) */
+"notification.appInstalled.message" = "¡Compruébelo en Mulg!";
+
+/* (No Comment) */
+"mulggame.clearCache" = "Eliminar datos de la aplicación";
+
+/* (No Comment) */
+"mulggame.clearPreferences" = "Eliminar preferencias de la aplicación";
+
+/* (No Comment) */
+"mulggame.delete" = "Desinstalar aplicación";
+
+/* (No Comment) */
+"mulggame.exportKm" = "Exportar asignación de teclas";
+
+/* (No Comment) */
+"mulggame.importKm" = "Importar asignación de teclas";
+
+/* (No Comment) */
+"mulggame.install.addToLib" = "Añadiendo aplicación a la biblioteca...";
+
+/* (No Comment) */
+"mulggame.install.copy" = "Copiando aplicación...";
+
+/* (No Comment) */
+"mulggame.install.createWrapper" = "Creando un contenedor...";
+
+/* (No Comment) */
+"mulggame.progress.finished" = "Completado";
+
+/* (No Comment) */
+"mulggame.install.installMulgKit" = "Instalando MulgKit...";
+
+/* (No Comment) */
+"mulggame.install.signing" = "Firmando la aplicación...";
+
+/* (No Comment) */
+"mulggame.install.unzip" = "Extrayendo la aplicación del archivo .ipa…";
+
+/* (No Comment) */
+"mulggame.openCache" = "Abrir datos de la aplicación";
+
+/* (No Comment) */
+"mulggame.settings" = "Configuración";
+
+/* (No Comment) */
+"mulggame.showInFinder" = "Mostrar en el Finder";
+
+/* (No Comment) */
+"preferences.button.checkForUpdates" = "Buscar actualizaciones";
+
+/* (No Comment) */
+"preferences.tab.updates" = "Actualizaciones";
+
+/* (No Comment) */
+"preferences.toggle.automaticUpdates" = "Buscar actualizaciones automáticamente";
+
+/* (No Comment) */
+"settings.button.discord" = "Actividad personalizada de Discord";
+
+/* (No Comment) */
+"settings.button.clearActivity" = "Borrar la actividad personalizada";
+
+/* (No Comment) */
+"settings.picker.iosDevice" = "Dispositivo iOS:";
+
+/* %.f */
+"settings.slider.mouseSensitivity" = "Sensibilidad del ratón: %.f";
+
+/* (No Comment) */
+"settings.text.applicationID" = "ID de la aplicación";
+
+/* (No Comment) */
+"settings.text.customHeight" = "Altura";
+
+/* (No Comment) */
+"settings.text.customWidth" = "Anchura";
+
+/* (No Comment) */
+"settings.text.details" = "Detalles";
+
+/* (No Comment) */
+"settings.text.details.help" = "Primera fila debajo del título";
+
+/* (No Comment) */
+"settings.text.image" = "Imagen";
+
+/* (No Comment) */
+"settings.text.image.help" = "Enlace a la imagen o nombre de activo del portal de desarrollo";
+
+/* (No Comment) */
+"settings.text.state" = "Estado";
+
+/* (No Comment) */
+"settings.text.state.help" = "Segunda fila debajo del título";
+
+/* (No Comment) */
+"settings.toggle.disableDisplaySleep" = "Desactivar hibernar la pantalla";
+
+/* (No Comment) */
+"settings.toggle.discord" = "Activar la actividad de Discord";
+
+/* (No Comment) */
+"settings.toggle.jbBypass" = "Habilitar Jailbreak Bypass (Experimental)";
+
+/* (No Comment) */
+"settings.toggle.km" = "Asignación de teclas";
+
+/* (No Comment) */
+"soundAlert.failureText" = "Hubo un error al establecer la frecuencia de muestreo a 48 kHz en el dispositivo de salida. Puedes hacer esto manualmente en la aplicación en la Configuración de Audio MIDI";
+
+/* (No Comment) */
+"soundAlert.informativeText" = "¡Su dispositivo de salida actual no tiene una frecuencia de muestreo de 48 o 44,1 kHz! Pueden ocurrir errores. ¿Le gustaría cambiar la frecuencia de muestreo de su dispositivo de salida actual a 48 kHz?";
+
+/* (No Comment) */
+"soundAlert.messageText" = "¡Se ha detectado una configuración de audio incorrecta!";
+
+/* (No Comment) */
+"soundAlert.successText" = "La tasa de muestreo del dispositivo de salida actual está establecida en 48 kHz";
+
+/* (No Comment) */
+"sidebar.ipaLibrary" = "Galería de IPA";
+"settings.title" = "Configuración de %@";
+"settings.tab.graphics" = "Gráficos";
+"settings.info.bundleName" = "Nombre del paquete:";
+"mulggame.exportKmPanel.fieldLabel" = "Nombre del MulgMap:";
+"sidebar.appLibrary" = "Aplicaciones";
+"alert.moveAppToApplications.title" = "¿Quiere moverlo a la carpeta Aplicaciones?";
+"alert.moveAppToApplications.subtitle" = "Mulg debe estar en la carpeta Aplicaciones para funcionar correctamente. Pulse el botón de abajo para que Mulg se mueva automáticamente.";
+"button.Quit" = "Salir";
+"error.appEncrypted" = "¡Esta aplicación está encriptada! Por favor utilice un IPA descifrado. ¡Los IPA de iMazing no son compatibles!";
+"error.appCorrupted" = "Algo ha ido mal con este IPA. Por favor, intente utilizar otro archivo IPA.";
+"error.appProhibited" = "¡Usar esta aplicación a través de Mulg probablemente resultará en una prohibición!";
+"settings.tab.info" = "Info";
+"settings.tab.km" = "Asignación de teclas";
+"settings.toggle.km.help" = "Añade soporte para teclado en juegos exclusivamente táctiles. Utilice Command + K para abrir el editor.";
+"settings.picker.adaptiveRes" = "Resolución:";
+"settings.picker.adaptiveRes.help" = "Cambia la resolución de la ventana de la aplicación";
+"settings.picker.adaptiveRes.0" = "Predeterminado";
+"settings.picker.adaptiveRes.1" = "Automático (con base en la pantalla)";
+"settings.picker.adaptiveRes.5" = "Personalizado";
+"settings.picker.aspectRatio" = "Relación de aspecto:";
+"settings.toggle.disableDisplaySleep.help" = "Previene que la pantalla se apague mientras la aplicación esté ejecutándose";
+"settings.toggle.jbBypass.help" = "Intenta evitar la detección de Jailbreak en algunos juegos (No se garantiza que funcione siempre)";
+"settings.info.displayName" = "Nombre mostrado:";
+"settings.info.bundleIdentifier" = "Identificador del paquete:";
+"settings.info.executableName" = "Nombre del ejecutable:";
+"settings.info.minimumOSVersion" = "Versión mínima del sistema operativo:";
+"settings.info.url" = "URL:";
+"settings.resetSettings" = "Restablecer configuración";
+"settings.resetKm" = "Restablecer asignación de teclas";
+"settings.toggle.hud" = "HUD de Metal";
+"settings.resetSettingsCompleted" = "¡La configuración se ha revertido a la predeterminada!";
+"settings.resetKmCompleted" = "¡La asignación de teclas se ha restablecido!";
+"settings.tab.misc" = "Varios";
+"settings.info.bundleVersion" = "Versión del paquete:";
+"alert.legacyImport.title" = "¡Se ha encontrado una configuración antigua!";
+"alert.legacyImport.subtitle" = "Se encontraron configuraciones y archivos de asignación de teclas antiguos. ¿Desea convertirlos al nuevo formato?";
+"button.Convert" = "Convertir";
+"mulggame.deleteConfirm" = "Desinstalar";
+"mulggame.deleteMessage" = "¿Confirma que quiere desinstalar %@?";
+"settings.text.detectedResolution" = "Resolución detectada:";
+"mulggame.add" = "Añadir aplicación";
+"alert.wrongFileType.title" = "¡Tipo de archivo incorrecto!";
+"alert.wrongFileType.subtitle" = "Mulg solo puede instalar archivos .ipa válidos.";
+"mulggame.addSource" = "Añadir fuente";
+"ipaLibrary.noSources.title" = "Ninguna fuente de IPA añadida";
+"ipaLibrary.noSources.subtitle" = "Actualmente no tiene fuentes IPA añadidas. Haga clic en el botón de abajo para añadir una.";
+"ipaLibrary.noSources.button" = "Añadir fuente";
+"ipaLibrary.noNetworkConnection.toast" = "¡Sin conexión a Internet!";
+"preferences.tab.ipasource" = "Fuentes IPA";
+"preferences.button.addSource" = "Añadir fuente";
+"preferences.button.deleteSource" = "Eliminar fuente";
+"preferences.button.moveSourceUp" = "Mover la fuente hacia arriba";
+"preferences.button.moveSourceDown" = "Mover la fuente hacia abajo";
+"preferences.popover.valid" = "Enlace válido";
+"preferences.popover.badurl" = "¡URL no válido!";
+"preferences.popover.badjson" = "¡JSON no válido o no encontrado!";
+"preferences.textfield.url" = "URL de origen...";
+"mulggame.download.downloading" = "Descargando";
+"error.waitDownload" = "¡Por favor espere a que finalice la descarga!";
+"preferences.tab.uninstall" = "Desinstalar";
+"preferences.whenUninstalling" = "Al desinstalar:";
+"preferences.toggle.showUninstall" = "Mostrar ventana emergente de aviso";
+"preferences.toggle.clearAppData" = "Eliminar datos";
+"preferences.toggle.removeKeymap" = "Eliminar asignación de teclas";
+"preferences.toggle.removeSetting" = "Eliminar la configuración";
+"preferences.toggle.removeEntitlements" = "Eliminar permisos";
+"preferences.button.pruneFiles" = "Limpiar archivos";
+"preferences.prune.alert" = "¿Confirma que quiere limpiar todos los archivos?";
+"preferences.prune.message" = "Esto eliminará todos los archivos que no se utilicen, incluidos los de configuración, asignación de teclas, permisos y datos de la aplicación";
+"mulggame.progress.failed" = "Fallido";
+"alert.supression" = "Puede cambiar esto en la configuración de Mulg";
+"menubar.clearCache" = "Eliminar antememoria";
+"preferences.tab.install" = "Instalar";
+"preferences.toggle.showInstallPopup" = "Mostrar ventana de instalación de MulgKit";
+"preferences.toggle.alwaysInstallMulgKit" = "Instalar siempre MulgKit";
+"alert.install.injectMulgKit" = "Instalar MulgKit";
+"button.Yes" = "Sí";
+"button.No" = "No";
+"settings.noMulgKit" = "MulgKit no está instalado en esta aplicación";
+"settings.removeMulgKit" = "Desinstalar MulgKit";
+"settings.info.mulgKit" = "MulgKit instalado:";
+"mulggame.refreshSources" = "Actualizar fuentes";
+"error.appMaliciousProhibited" = "Esta aplicación se comporta maliciosamente en Mac, y usarla puede dejar su computadora en un estado de no arranque. Por ello es bloqueada por Mulg. (Desinstalando...)";
+"alert.install.injectMulgKitQuestion" = "¿Quiere inyectar MulgKit en esta aplicación?";
+"alert.install.mulgKitInformative" = "MulgKit es una herramienta que permite asignar teclas a toques en la pantalla, configurar resoluciones personalizadas, y más. Puede impactar negativamente el funcionamiento de algunas aplicaciones";
+"state.enabled" = "Activado";
+"state.disabled" = "Desactivado";
+"state.pendingReboot" = "Reinicio pendiente";
+"menubar.configSigning" = "Configurar firma";
+"configSigning.subtext" = "La firma de paquetes ayuda a arreglar problemas con aplicaciones que dependen de \nIDs de Equipo correctos para operaciones como la autorización. \nPueden haber riesgos de seguridad derivados de la habilitación de esta característica.\n\nPor esta razón, se recomienda deshabilitarla cuando su uso no es requerido";
+"configSigning.info.SIP" = "Se requiere deshabilitar SIP completa o parcialmente para poder deshabilitar AMFI.";
+"configSigning.info.SIPHeader" = "Protección de la integridad del sistema";
+"configSigning.action.copyCommand" = "Copiar comando al portapapeles";
+"configSigning.action.restart" = "Reiniciar mi Mac";
+"configSigning.step.disableSIP" = "Por favor desactive SIP desde el modo de recuperación";
+"configSigning.step.disableAMFI" = "Por favor desactive AMFI";
+"configSigning.step.AMFIreboot" = "AMFI desactivado. Por favor reinicie";
+"configSigning.step.complete" = "La firma de paquetes ha sido configurado con éxito";
+"configSigning.alert.copied" = "¡Comando copiado!";
+"configSigning.alert.info" = "Por favor pegue y ejecute el comando en Terminal.app. Su Mac se reiniciará sucesivamente";
+"button.Help" = "Ayuda";
+"button.Dismiss" = "Ignorar";
+"configSigning.header" = "Configurar firma de paquetes";
+"configSigning.info.AMFI" = "Se require deshabilitar AMFI para permitir la firma falsa de aplicaciones, permitiendo así su ejecución con el ID de Equipo correcto";
+"configSigning.info.AMFIHeader" = "Protección de la integridad del sistema de Apple";
+"configSigning.action.shutdown" = "Apagar mi Mac";
+"ipaLibrary.version.same" = "Aplicación ya instalada";
+"ipaLibrary.download" = "Descargar";
+"ipaLibrary.version.older" = "Esta versión es más antigua que la instalada actualmente";
+"ipaLibrary.version.newer" = "Esta versión es más reciente que la instalada actualmente";
+"ipaLibrary.alert.download" = "¿Confirma que quiere descargar esta versión de %@?";
+"alert.differentBundleIdKeymap.message" = "Esta asignación de teclas pudo haber sido creada para otra aplicación.";
+"alert.differentBundleIdKeymap.text" = "¿Confirma que quiere importar esta asignación de teclas?";
+"settings.text.debugger" = "Depurador:";
+"settings.toggle.lldb" = "Abrir con LLDB";
+"settings.toggle.lldbWithTerminal" = "Abrir en terminal";
+"error.failedToStripBinary" = "¡No se pudo encontrar el arch ARM64 en binario para multiarquitectura!";
+"settings.mulgChain.enable" = "Activar MulgChain (Experimental)";
+"settings.mulgChain.help" = "Habilitar la compatibilidad con MulgChain para esta aplicación, lo que le permite utilizar (parcialmente) los servicios de Keychain de Apple»";
+"settings.mulgChain.debugging" = "Depuración de MulgChain";
+"mulggame.noSources.title" = "No hay IPA instalados";
+"mulggame.noSources.subtitle" = "Actualmente no tiene ninguna IPA instalada. Haga clic en el botón de abajo para importar uno.";
+"settings.tab.bypasses" = "Bypass";
+"mulggame.download.integrityCheck" = "Verificar la integridad de los archivos:";
+"mulggame.download.differentChecksum" = "Las sumas de control difieren. ¿Quiere proceder con la instalación?";
+"mulggame.download.differentChecksumDesc" = "Se esperaba «%@»; se obtuvo «%@»";
+"mulggame.progress.canceled" = "Cancelado";
+"button.Reload" = "Recargar";
+"mulggame.clearMulgChain" = "Borrar los datos de MulgChain";
+"mulggame.importIPA" = "Importar IPA";
+"ipaLibrary.noNetworkConnection.required" = "La Biblioteca IPA requiere conexión a Internet";
+"preferences.toggle.removeMulgChain" = "Eliminar MulgChain";
+"preferences.popover.duplicate" = "Enlace duplicado";
+"alert.app.clearMulgChain" = "Se borrarán todos los datos de MulgChain. Es posible que tenga que volver a iniciar sesión en la aplicación. ¿Desea continuar?";
+"settings.highResolution" = "La alta resolución puede provocar fallos";
+"settings.picker.windowFixMethod.0" = "Normal";
+"settings.picker.windowFix" = "Solucionar problemas de visualización en ventana";
+"settings.picker.windowFix.help" = "Aplicar correcciones de ventanas que pueden ayudar a que tus aplicaciones se muestren con normalidad";
+"settings.picker.windowFixMethod.1" = "Alternativo";
+"preferences.popover.checking" = "Comprobando la URL";
+"settings.toggle.introspection" = "Insertar bibliotecas de introspección";
+"settings.toggle.introspection.help" = "Añade las bibliotecas de introspección del sistema a la aplicación. Se sabe que soluciona problemas con algunas aplicaciones que no se inician correctamente";
+"settings.picker.scaler" = "Escalar la resolución";
+"button.Enable" = "Activar";
+"button.Reset" = "Restablecer";
+"button.Unlock" = "Desbloquear";
+"settings.toggle.rootWorkDir" = "Iniciar la aplicación en el directorio raíz";
+"settings.toggle.rootWorkDir.help" = "Cambia el directorio de trabajo de la aplicación a / como en iOS. Si la aplicación no funciona correctamente, desactive esta función";
+"mulgvault.masterPassword" = "Contraseña maestra";
+"mulgvault.confirmMasterPassword" = "Confirmar la contraseña maestra";
+"mulgvault.oldMasterPassword" = "Contraseña maestra actual";
+"mulgvault.error.blankPassword" = "La contraseña no puede quedar vacía";
+"mulgvault.error.notMatch" = "Las contraseñas no coinciden";
+"mulgvault.error.incorrectPassword" = "Contraseña incorrecta";
+"mulgvault.status.title" = "Estado de MulgVault:";
+"mulgvault.status.managedPassword" = "Activado con la contraseña gestionada";
+"mulgvault.status.userPassword" = "Activado con la contraseña del usuario";
+"mulgvault.status.chainCount" = "Estado de la cadena MulgVault: ";
+"mulgvault.status.unlockedCount %@ %@" = "%@ cadenas desbloqueadas en %@ total";
+"mulgvault.button.lockAll" = "Bloquear todas las cadenas";
+"mulgvault.button.changePassword" = "Cambiar la contraseña maestra";
+"mulgvault.toggle.startupPrompt" = "Solicitud de MulgVault al inicio";
+"mulgvault.toggle.startupPrompt.help" = "MulgVault le solicitará la contraseña maestra cuando se inicie la aplicación. Si se desactiva este comportamiento, se le solicitará cuando abra una aplicación que utilice MulgChain.";
+"mulgvault.setup.useGeneratedKey" = "Gestión automática";
+"mulgvault.setup.useUserKey" = "Utilizar mi propia clave";
+"mulgvault.setup.encryptionKey" = "Clave de cifrado: ";
+"mulgvault.setupPrompt.title" = "Introduce una contraseña maestra para MulgVault";
+"mulgvault.changePasswordPrompt.title" = "Ingresa tu contraseña maestra anterior y una nueva para actualizar tu clave de cifrado MulgVault";
+"mulgvault.removePrompt.title" = "Ingresa tu contraseña maestra para eliminar el cifrado MulgVault";
+"mulgvault.unlockPrompt.title" = "Ingresa tu contraseña maestra para desbloquear MulgVault";
+"mulgvault.alert.title" = "El llavero no estaba desbloqueado";
+"mulgvault.alert.content" = "Se ha desactivado el acceso al llavero para la sesión actual";
+"settings.toggle.autoKM" = "Mapa de teclas inteligente";
+"settings.toggle.autoKM.help" = "Desactivación automática de la asignación de las teclas cuando se detecta la entrada del texto";
+"settings.applicationCategoryType" = "Tipo de la aplicación";
+"settings.toggle.iosFrameworks" = "Forzar la inserción de marcos iOS";
+"settings.info.alias" = "Alias:";
+"settings.toggle.enableScrollWheel.help" = "Activar la rueda de desplazamiento en la asignación de teclas";
+"settings.toggle.iosFrameworks.help" = "Agregue las bibliotecas del sistema ios a la aplicación. Se sabe que soluciona problemas en los que algunas aplicaciones no pueden encontrar el marco de iOS";
+"settings.toggle.enableScrollWheel" = "Activar rueda de desplazamiento";
+"ipaLibrary.info" = "Información de la aplicación";
+"ipaLibrary.info.notAvailable" = "Enlace no válido para esta aplicación";
+"ipaLibrary.info.checksum.none" = "No se proporciona";
+"ipaLibrary.info.title" = "%@ Información";
+"ipaLibrary.unavailable" = "El enlace no está disponible";
+"ipaLibrary.info.itunes" = "Búscar en iTunes:";
+"ipaLibrary.info.checksum" = "Suma de verificación:";
+"alert.open.appstore" = "Abrir Mac App Store";
+"macos.version" = "Esta aplicación se puede instalar desde Mac App Store";
+"alert.install.anyway" = "Instalar de todos modos";
+"ipaLibrary.AlphabeticalSort" = "Ordenar aplicaciones de fuente alfabéticamente";

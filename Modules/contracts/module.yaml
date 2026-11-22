@@ -1,0 +1,23 @@
+# Module card for `contracts`. Format and rules: PLAN.md §1.4–1.5.
+id: contracts
+kind: contract
+runs_in: both
+summary: 'Desktop-resolution 120 FPS defaults without automatic saving or downscaling, with one-time per-game migration preserving unrelated preferences; Utility-queue HUD reference publication ordered with explicit cache resets and unchanged storage permissions; Backward-compatible independent login-support settings and bounded credential-free process/session-bound authentication reports; Prepared/degraded identity evidence classification; Independent persisted mobile-interface choice with backward-compatible defaults and shared phone/pad interface idioms; Runtime module-state snapshots and optional shared launch markers across settings/compatibility evidence; shared mobile-device catalog with linked standard/high-capacity M4/M5 CPU/RAM configurations and backward-compatible settings/audit evidence; compatibility reports bound to native launch dates to reject PID reuse; verified native main-bundle identity and process/launch-bound early failure evidence; host-process metadata scrubbed from child launches; off-by-default environment compatibility settings, non-destructive effective identity and process-bound SDK evidence; compatibility aliases for shared binding graph and learned layouts; live adaptive mouse interaction setting and pointer-aware touch profile storage; shared settings with hidden game title bars and native Mac CPU counts by default, independent fixed-pixel resolution presets, compatibility aliases for keymaps and non-destructive keymap storage, checked ARM64 metadata, locked delta writes, validated constructor-time launch environments, launch reservations, session leases and bounded host work'
+status: stable
+default: always
+depends_on: [keymaps, control-layout]
+owns:
+  # HUDReferenceStore keeps fingerprinted automatic patches in a hidden per-map cache,
+  # separate from user/imported map coordinates and explicit HUD overrides.
+  paths:
+  - Host/Mulg/Model/AppSettings.swift
+  - Host/Mulg/Model/KeymapData.swift
+  - Host/Mulg/Model/KeyCodeNames.swift
+  - Host/Mulg/Utils/Keymapping.swift
+  - Host/Mulg/Utils/LegacySettings.swift
+  settings:
+  - '*'
+pending_splits:
+- file: Host/Mulg/Model/AppSettings.swift
+  move: duplicate of the GameSettings schema; merge into one shared schema
+  to: contracts

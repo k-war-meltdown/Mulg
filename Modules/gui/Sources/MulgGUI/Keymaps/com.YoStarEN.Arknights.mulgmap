@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleIdentifier</key>
+	<string>com.YoStarEN.Arknights</string>
+	<key>buttonModels</key>
+	<array/>
+	<key>draggableButtonModels</key>
+	<array/>
+	<key>joystickModel</key>
+	<array/>
+	<key>mouseAreaModel</key>
+	<array/>
+	<key>mulgControlProfile</key>
+	<dict>
+		<key>context</key>
+		<string>pointer</string>
+		<key>interactionStyle</key>
+		<string>pointer</string>
+		<key>menuKeys</key>
+		<array/>
+		<key>sourceURL</key>
+		<string>https://apps.apple.com/us/app/arknights/id1464872022</string>
+	</dict>
+	<key>mulgLockAspectRatio</key>
+	<false/>
+	<key>version</key>
+	<string>2.0.0</string>
+</dict>
+</plist>

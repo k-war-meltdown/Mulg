@@ -1,0 +1,30 @@
+# Module card for `bridge`. Format and rules: PLAN.md §1.4–1.5.
+id: bridge
+kind: bridge
+runs_in: game
+summary: Reversible content mouse delivery without background window dragging or cancelling native pointer lock; Independent pointer-only cursor visibility without capture or warping; 'Constant-cost menu reconciliation after input events and utility-queue HUD raster conversion; Native in-game Controls commands with explicit targets, shortcuts, profile checkmarks and reconciliation after UIKit replaces the menu root; Mac Secure Enclave password-envelope key agreement with requested native access policies, game/policy binding and no plaintext fallback; Capability-checked CoreAudio output formats with process leases, route observation and conditional restoration; Balanced window-owned live-resize transactions across focus/viewport changes and close; AppKit window/display binding with a cached game window and remembered resizable frames, power-source notifications, game-in-use detection (active, not hidden, a game window unminimised and unoccluded; for mute when not in focus), native fullscreen Space entry/exit through reversible green-button actions and scoped checked public action dispatch with fullscreen titlebar support, deferred window preferences and native button tracking/Option behavior, reversible per-window preferences, selected-window focus, original Vsync readback, window-owned input with consumed mouse movement isolation and balanced native press/drag/release ownership, deferred Quit preserving native cancellation, IME state and macOS credential protection'
+status: stable
+default: always
+depends_on: []
+owns:
+  # GameHUDCapture owns optional ScreenCaptureKit capture of the selected game's window.
+  # Screen Recording access is requested only by explicit user anchor confirmation.
+  # AudioOutputController owns native CoreAudio device/stream policy, route observation,
+  # per-device process leases and conditional restoration; see engine/AUDIO-OUTPUT.md.
+  # NativeGameFullscreen keeps the system hover menu; a green click (Option held or not,
+  # since games use Option to free the cursor), the green button, View > Enter/Exit Full Screen and
+  # Control-Command-F all call NSWindow.toggleFullScreen: on the game window, so AppKit
+  # creates its own fullscreen Space and the same request returns to the desktop. UIKit's
+  # UINSWindow forwards that call to NSWindow's unless it installed an override (it does
+  # not for games). The window is kept eligible for AppKit's canEnterFullScreenMode (which
+  # otherwise makes the call a silent no-op) and a refused request is released after 1.5 s.
+  # The checked public action dispatch hook handles only the actual standard green button
+  # of registered game windows. UIKit retains its window delegate and button tracking.
+  hooks:
+  - 'NSApplication.sendAction:to:from: (registered game green-button actions only)'
+  - 'NSWindow._setNeedsZoom: (the macOS 27 green button on registered game windows only, Option held or not)'
+  - 'NSApplication.delegate.applicationShouldTerminate: (deferred Quit, preserving native cancellation)'
+  - 'NSApplication.replyToApplicationShouldTerminate: (native deferred acceptance)'
+  - 'UINSWindowStateController._updateWindowState:forWindow:sceneIdentifier:performingStateChangeIfNecessary: (UIKitMacHelper private: skipped only when a visible, not minimised window is merely on another Space, so the app stays foreground; engine.keepForegroundOnOtherSpaces)'
+  - 'NSWindow.delegate.window:willUseFullScreenContentSize: (registered game windows with a fixed shape: full screen keeps the exact resolution, centered on black)'
+  paths:

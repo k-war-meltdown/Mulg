@@ -1,0 +1,16 @@
+# Module card for `camera`. Format and rules: PLAN.md §1.4–1.5.
+id: camera
+kind: display
+runs_in: game
+summary: 'Camera reach: lets the camera zoom out farther than the game allows. A one-time calibration in the game (zoom out, in, out, in with the hotkey) finds the zoom distance by value, then the zoom limits stored beside it, and raises them; later launches find them again by value, so game updates do not break it. Falls back to extending the distance itself for games that keep the limit in code. Per game, off by default; changes the game memory, which online games may treat as cheating'
+status: experimental
+default: 'on'
+depends_on:
+- engine
+- contracts
+owns:
+  # No hooks: everything is read and written by value (MulgCameraMemory.m), never by code address.
+  paths: []
+  settings:
+  - camera.*
+  hooks: []

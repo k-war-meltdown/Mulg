@@ -1,0 +1,18 @@
+# Module card for `store`. Format and rules: PLAN.md §1.4–1.5.
+id: store
+kind: host-service
+runs_in: host
+summary: IPA sources and downloads; shared game profiles, compatibility badges, result sharing
+status: stable
+default: always
+depends_on:
+- contracts
+- library
+owns:
+  paths:
+  - Host/Mulg/AppInstaller/Downloader.swift
+  - Host/Mulg/ViewModel/StoreVM.swift
+  - Host/Mulg/ViewModel/DownloadVM.swift
+  - Host/Mulg/ViewModel/NetworkVM.swift
+  - Host/Mulg/Model/ITunesResponse.swift
+  - Host/Mulg/Utils/GoogleDrive.swift

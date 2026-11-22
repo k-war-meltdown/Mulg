@@ -1,0 +1,41 @@
+# Module card for `display`. Format and rules: PLAN.md §1.4–1.5.
+id: display
+kind: display
+runs_in: game
+summary: Generic ARM64 stripped-IL2CPP frame-rate resolution with paired cached-wrapper validation; ABI-checked screen and frame-rate hooks with safe partial failure, reversible live rates, independent HDR display updates, locked screen-scoped resize geometry and game-only fixed-pixel render reporting independent of UIKit window points and consistent renderer FPS ceilings
+status: stable
+default: 'on'
+depends_on:
+- engine
+- contracts
+- bridge
+owns:
+  paths: []
+  settings:
+  - resolution
+  - aspectRatio
+  - windowWidth
+  - windowHeight
+  - customScaler
+  - displayRotation
+  - inverseScreenValues
+  hooks:
+  - 'UnityEngine.Application::set_targetFrameRate / get_targetFrameRate (IL2CPP internal calls via exported resolver or validated ARM64 cached wrappers, main thread, once a second while the frame-rate unlock is on; not a swizzle)'
+  - UIScreen.bounds
+  - UIScreen.nativeBounds
+  - UIScreen.scale
+  - UIScreen.nativeScale (display.retina off reports 1x)
+  - UIScreen.maximumFramesPerSecond (planned)
+  - UIScreen.potentialEDRHeadroom (display.reportHDRHeadroom)
+  - 'CADisplayLink.setPreferredFrameRateRange:, setPreferredFramesPerSecond: (frame cap)'
+  - 'UnityAppController.callbackFramerateChange: (any Unity player, IL2CPP names or not: requests below the frame-rate unlock target ask for the target; installed once Unity is loaded)'
+  - 'CADisplayLink +displayLinkWithTarget:selector: (frame cap; metadata-only ABI-checked game/MetalKit candidates with reused contexts, main-drawable proof and non-reentrant input/JIT; forwarded/native UI target passthrough)'
+  - 'MTKView.setPreferredFramesPerSecond:, initWithFrame:device:, initWithCoder: (frame cap)'
+  - NSProcessInfo.isLowPowerModeEnabled (display.hideLowPowerMode; the real state drives the battery saver)
+  - NSProcessInfo.thermalState (display.reportNominalThermalState; the real state drives the thermal guard)
+events:
+  listens:
+  - engine.settingsChanged
+  publishes:
+  - display.powerSourceChanged
+  - display.batterySaverChanged

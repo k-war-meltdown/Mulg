@@ -1,0 +1,35 @@
+# Module card for `library`. Format and rules: PLAN.md §1.4–1.5.
+id: library
+kind: host-service
+runs_in: host
+summary: Bundled SDKs that inspect the loaded-image list (integrity/anti-tamper checks) stay as shipped with native imports and no runtime dependency, while the main executable keeps every adapter; ARM64 lazy-binding helper offsets repaired during conversion and refresh without changing allocator providers; Explicit statfs and statvfs game import routing and native-provider restoration; Full game removal that checks only install locations on every mounted writable drive (metadata-verified copies and Support folders), the game's unshared App Group folders and bundle-ID-named items in Documents/Desktop/Downloads (trashed), keeps native Mac apps, unlocks locked files on external drives and saves disconnected-drive leftovers for retry; Host-only desktop resolution capture immediately before a stopped game's launch, preserving explicit presets and session geometry; Active-mapper-only UIKit pointer compatibility, restoring native declarations when controls are disabled, preserving explicit app declarations and restoring managed metadata on runtime removal; Explicit file, storage, identity and virtual Keychain import providers in staged converted games, with native restoration and idempotent refresh; Runtime constructor dependencies in bundled game Catalyst SDKs, synchronized across staged install, refresh, export and removal; Preserved C++ allocation/deallocation ownership with bounded restoration of allocator exports removed by older builds; Exact per-game recovery journal and archive sandbox grants; Canonical signed-bundle launch preflight and genuine Finder shortcuts; legacy compatibility preserves native sandbox access by filtering unscoped filesystem denials, retaining explicit path restrictions and scoped app-bundle read/metadata permissions; current-process early startup errors shown before reservation handoff; MulgRuntime as the only game runtime (games on the retired MulgKit are moved and its framework removed once unused); ad-hoc signing only (certificate-signed games repaired; sandbox containers require it), in-process code-only signature checks, pruning of unused runtime versions, ARM64 conversion with absolute/runpath UIKit Swift overlay relocation, ordinal-preserving runtime edits and descriptive dependency preflight failures, signed staged edits with binary/card trust stamps, durable restoration, immutable runtimes, leased cleanup with exact ownership and diagnostics export
+status: stable
+default: always
+depends_on:
+- contracts
+owns:
+  paths:
+  - Host/Mulg/AppInstaller/Installer.swift
+  - Host/Mulg/Model/AppContainer.swift
+  - Host/Mulg/Model/AppInfo.swift
+  - Host/Mulg/Model/BaseApp.swift
+  - Host/Mulg/Model/MulgGame.swift
+  - Host/Mulg/Model/MulgRules.swift
+  - Host/Mulg/Utils/AppIntegrity.swift
+  - Host/Mulg/Utils/AssetsExtractor.swift
+  - Host/Mulg/Utils/CoreUI.h
+  - Host/Mulg/Utils/Entitlements.swift
+  - Host/Mulg/Utils/IPA.swift
+  - Host/Mulg/Utils/Macho.swift
+  - Host/Mulg/Utils/GameRuntime.swift
+  - Host/Mulg/Utils/Shell.swift
+  - Host/Mulg/Utils/SystemConfig.swift
+  - Host/Mulg/Utils/Extensions/FileExtensions.swift
+  - Host/Mulg/Utils/Extensions/URLExtensions.swift
+  - Host/Mulg/Utils/Extensions/MulgGameExtensions.swift
+  - Host/Mulg/MulgError.swift
+  - Host/Mulg/Mulg-Bridging-Header.h
+pending_splits:
+- file: Host/Mulg/Utils/Shell.swift
+  move: setMetalHUD
+  to: diagnostics

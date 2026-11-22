@@ -1,0 +1,44 @@
+# Module card for `graphics`. Format and rules: PLAN.md §1.4–1.5.
+id: graphics
+kind: graphics
+runs_in: game
+summary: 'Opt-in engine-owned scene scaling with typed capability checks, reversible state, verified stripped Unity PostProcessLayer and mobile scene-preset profiles without GPU resource rewriting, and safe refusal of changed engine builds; Generic first-frame repair for game render layers missing their Metal device on a single native GPU, preserving assigned devices and later teardown; Metadata-only graphics startup without eager device/queue creation, per-device presentation discovery before first drawable return and shader archive setup after scene activation; Conservative frame-start headroom, missed-frame recovery and exclusive Vsync-off CPU pacing with stale timing rejection; verified presentation paths, recoverable drawable shortages, stable native-rate pacing, exactly-once Metal 4/direct frame measurement, coherent native attachment resize with coalesced renderer notifications, independent 4K/5K output pixels, UIKit-isolated MetalFX source sizes and synchronized source pools, opt-in automatic MetalFX for uneven GPU-bound frame rates, game-owned MetalFX detection and isolated probe queues and bounded compute/specialization shader archives saved on a lengthening schedule and when hidden'
+status: experimental
+default: 'off'
+depends_on:
+- engine
+- contracts
+- bridge
+owns:
+  paths: []
+  settings:
+  - graphics.*
+  hooks:
+  - 'MTLDevice.newCommandQueue, newCommandQueueWithMaxCommandBufferCount:, newMTL4CommandQueue, newMTL4CommandQueueWithDescriptor:error: (concrete-class discovery)'
+  - 'MTLCommandQueue.commandBuffer, commandBufferWithUnretainedReferences, commandBufferWithDescriptor: (concrete-class discovery)'
+  - 'MTKView.drawableSize (game-only source/target pixel dimensions; native UIKit layout preserved)'
+  - CAMetalLayer.nextDrawable
+  - 'Unity Screen.SetResolution internal call (il2cpp_add_internal_call; graphics.forceRenderResolution, off by default)'
+  - 'DisplayConnection.requestRenderingResolution: (Unity player trampoline; every Unity game, also with stripped or obfuscated IL2CPP names; graphics.forceRenderResolution raises the requested rendering size to the window pixel size)'
+  - 'UIView.setContentScaleFactor: (full resolution: Metal-backed views never below the native screen scale; selected resolution scale on the render view)'
+  - 'CAMetalLayer.setDrawableSize:, drawableSize (MetalFX render size, native resize preserved)'
+  - 'MTLCommandBuffer.presentDrawable:, presentDrawable:atTime:, presentDrawable:afterMinimumDuration:'
+  - 'MTLCommandBuffer.commit (final MetalFX encoding, submission pacing, just-in-time frame start)'
+  - 'MTLCommandBuffer.renderCommandEncoderWithDescriptor: (counts render-pass attachment sizes for rendering.json)'
+  - 'MTLDevice.newTextureWithDescriptor: (opt-in CPU allocation call sites for large render targets)'
+  - 'MTL4CommandQueue (concrete class).waitForDrawable:, signalDrawable: (Metal 4 MetalFX, just-in-time frame start)'
+  - 'CAMetalDrawable.present, presentAtTime:, presentAfterMinimumDuration: (game minimums of 1/60 or 1/30 s shorten to the frame-rate unlock target)'
+  - 'CAMetalDrawable.addPresentedHandler:, presentedTime'
+  - 'CAMetalDrawable.layer (visible owner for game callers; physical source for the driver)'
+  - 'MTLFXSpatialScalerDescriptor.newSpatialScalerWithDevice:, MTLFXTemporalScalerDescriptor.newTemporalScalerWithDevice:, MTLFXFrameInterpolatorDescriptor.newFrameInterpolatorWithDevice:, MTLFXTemporalDenoisedScalerDescriptor.newTemporalDenoisedScalerWithDevice:, each also with compiler: (successful game-owned factory detection)'
+  - 'MTLDevice (concrete class).newRenderPipelineStateWithDescriptor: (4 variants), newComputePipelineStateWithDescriptor:options: (2 variants), newComputePipelineStateWithFunction: (4 variants), newRenderPipelineStateWithMeshDescriptor:options: (2 variants), newRenderPipelineStateWithTileDescriptor:options: (2 variants) (Metal 3 capture not started since 2026-10-17: its deferred re-compile crashed on released bitcode; code kept, waits for quiet game compilation)'
+  - 'MTLDevice (concrete class).newCompilerWithDescriptor:error:, MTL4Compiler (concrete class).newRenderPipelineStateWithDescriptor:compilerTaskOptions:error:, newComputePipelineStateWithDescriptor:compilerTaskOptions:error:, each also with dynamicLinkingDescriptor: and with completionHandler: and newRenderPipelineStateBySpecializationWithDescriptor:pipeline: (2 variants) (8 builds plus specialization, captured Metal 4 shader archive)'
+events:
+  listens:
+  - display.refreshRateChanged
+  - display.batterySaverChanged
+  - display.frameLimitChanged
+  - engine.settingsChanged
+  - engine.memoryPressure
+  publishes:
+  - graphics.presentModeChanged

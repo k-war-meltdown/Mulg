@@ -1,0 +1,249 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "srgb:1.00000,1.00000,1.00000,1.00000",
+          "srgb:0.93333,0.94118,0.96078,1.00000"
+        ],
+        "orientation" : {
+          "start" : {
+            "x" : 0.25,
+            "y" : 0
+          },
+          "stop" : {
+            "x" : 0.75,
+            "y" : 1
+          }
+        }
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.16500,0.18500,0.21500,1.00000",
+          "srgb:0.04500,0.05500,0.07500,1.00000"
+        ],
+        "orientation" : {
+          "start" : {
+            "x" : 0.25,
+            "y" : 0
+          },
+          "stop" : {
+            "x" : 0.75,
+            "y" : 1
+          }
+        }
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "blend-mode" : "hard-light",
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.64314,0.69412,0.75294,1.00000",
+                  "srgb:0.36078,0.41961,0.47843,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.82000,0.89000,0.97000,1.00000",
+                  "srgb:0.42000,0.56000,0.72000,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            }
+          ],
+          "glass" : true,
+          "image-name" : "plane-0.svg",
+          "name" : "Colored plane"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Glass 1",
+      "opacity" : 0.90000000000000002,
+      "refractivity" : {
+        "depth" : 0.14000000000000001,
+        "enabled" : true,
+        "strength" : 0.23000000000000001
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.29999999999999999
+      },
+      "specular" : true,
+      "specular-highlight-placement" : "inside",
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.20000000000000001
+      }
+    },
+    {
+      "blend-mode" : "hard-light",
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.44706,0.49412,0.54510,1.00000",
+                  "srgb:0.21569,0.25882,0.30588,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.56000,0.65000,0.77000,1.00000",
+                  "srgb:0.25000,0.33000,0.44000,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            }
+          ],
+          "glass" : true,
+          "image-name" : "plane-1.svg",
+          "name" : "Colored plane"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Glass 2",
+      "opacity" : 0.90000000000000002,
+      "refractivity" : {
+        "depth" : 0.14000000000000001,
+        "enabled" : true,
+        "strength" : 0.23000000000000001
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.29999999999999999
+      },
+      "specular" : true,
+      "specular-highlight-placement" : "inside",
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.20000000000000001
+      }
+    },
+    {
+      "blend-mode" : "hard-light",
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.79216,0.82745,0.87059,1.00000",
+                  "srgb:0.54902,0.60784,0.68235,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.91000,0.95000,1.00000,1.00000",
+                  "srgb:0.57000,0.70000,0.86000,1.00000"
+                ],
+                "orientation" : {
+                  "start" : {
+                    "x" : 0.25,
+                    "y" : 0
+                  },
+                  "stop" : {
+                    "x" : 0.75,
+                    "y" : 1
+                  }
+                }
+              }
+            }
+          ],
+          "glass" : true,
+          "image-name" : "plane-2.svg",
+          "name" : "Colored plane"
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Glass 3",
+      "opacity" : 0.90000000000000002,
+      "refractivity" : {
+        "depth" : 0.14000000000000001,
+        "enabled" : true,
+        "strength" : 0.23000000000000001
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.29999999999999999
+      },
+      "specular" : true,
+      "specular-highlight-placement" : "inside",
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.20000000000000001
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "macOS"
+    ]
+  }
+}

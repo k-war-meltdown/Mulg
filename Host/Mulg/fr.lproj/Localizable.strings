@@ -1,0 +1,385 @@
+/* (No Comment) */
+"alert.app.delete" = "Toutes données de l'app vont être effacées. Vous aurez peut être besoin de retélécharger des fichiers de l'app. Voulez-vous continuer ?";
+
+/* (No Comment) */
+"alert.app.preferences" = "Toutes les préférences de l'app seront réinitialisés. Les paramètres peuvent avoir besoin d'être reconfigurés. Souhaitez-vous continuer ?";
+
+/* (No Comment) */
+"alert.appCacheCleared" = "Les caches de l'app ont été effacés !";
+
+/* (No Comment) */
+"alert.error" = "Une erreur est occurée !";
+
+/* (No Comment) */
+"alert.errorImportKm" = "Erreur lors de l'import !";
+
+/* (No Comment) */
+"alert.kmImported" = "Keymap importé !";
+
+/* (No Comment) */
+"alert.moveAppToApplications.move" = "Déplacer vers le dossier d'applications";
+
+/* (No Comment) */
+"alert.restart" = "Veuillez redémarrer Mulg.";
+
+/* (No Comment) */
+"alert.success" = "Succès";
+
+/* (No Comment) */
+"button.Cancel" = "Annuler";
+
+/* (No Comment) */
+"button.Close" = "Fermer";
+
+/* (No Comment) */
+"button.Install" = "Installer";
+
+/* (No Comment) */
+"button.OK" = "OK";
+
+/* (No Comment) */
+"button.Proceed" = "Continuer";
+
+/* (No Comment) */
+"error.corruptedIPA" = "Ce fichier .ipa est corrompu. Il ne contient pas de fichier 'Info.plist'.";
+
+/* (No Comment) */
+"error.waitInstallation" = "Veuiller attendre que l'installation actuelle termine !";
+
+/* (No Comment) */
+"menubar.checkForUpdates" = "Recherche des mises à jour...";
+
+/* (No Comment) */
+"menubar.discord" = "Discord";
+
+/* (No Comment) */
+"menubar.documentation" = "Documentation";
+
+/* (No Comment) */
+"menubar.exportToSideloady" = "Exporter pour Sideloadly";
+
+/* (No Comment) */
+"menubar.github" = "GitHub";
+
+/* (No Comment) */
+"menubar.log.copy" = "Copier le registre";
+
+/* (No Comment) */
+"menubar.website" = "Site web";
+
+/* (No Comment) */
+"notification.appInstalled" = "Application installé !";
+
+/* (No Comment) */
+"notification.appInstalled.message" = "Ouvrez-le !";
+
+/* (No Comment) */
+"mulggame.clearCache" = "Effacer les caches de l'app";
+
+/* (No Comment) */
+"mulggame.clearPreferences" = "Réinitialiser les Préférences de l'Application";
+
+/* (No Comment) */
+"mulggame.delete" = "Supprimer l'app";
+
+/* (No Comment) */
+"mulggame.exportKm" = "Exporter le Keymap";
+
+/* (No Comment) */
+"mulggame.importKm" = "Importer un Keymap";
+
+/* (No Comment) */
+"mulggame.install.addToLib" = "Ajout de l'app dans la librairie...";
+
+/* (No Comment) */
+"mulggame.install.copy" = "Copie de l'app...";
+
+/* (No Comment) */
+"mulggame.install.createWrapper" = "Création du conteneur de l'application...";
+
+/* (No Comment) */
+"mulggame.progress.finished" = "Fini";
+
+/* (No Comment) */
+"mulggame.install.installMulgKit" = "Installation de MulgKit...";
+
+/* (No Comment) */
+"mulggame.install.signing" = "Signature de l'app...";
+
+/* (No Comment) */
+"mulggame.install.unzip" = "Extraction de l'app...";
+
+/* (No Comment) */
+"mulggame.openCache" = "Ouvrir les caches de l'app";
+
+/* (No Comment) */
+"mulggame.settings" = "Paramètres";
+
+/* (No Comment) */
+"mulggame.showInFinder" = "Afficher dans le Finder";
+
+/* (No Comment) */
+"preferences.button.checkForUpdates" = "Vérifiez les mises à jour";
+
+/* (No Comment) */
+"preferences.tab.updates" = "Mises à jour";
+
+/* (No Comment) */
+"preferences.toggle.automaticUpdates" = "Vérifier automatiquement pour des mises à jour";
+
+/* (No Comment) */
+"settings.button.discord" = "Activité Discord personnalisée";
+
+/* (No Comment) */
+"settings.button.clearActivity" = "Effacer l'activité personnalisée";
+
+/* (No Comment) */
+"settings.picker.iosDevice" = "Appareil iOS :";
+
+/* %.f */
+"settings.slider.mouseSensitivity" = "Sensibilité de la souris : %.f";
+
+/* (No Comment) */
+"settings.text.applicationID" = "ID d'application";
+
+/* (No Comment) */
+"settings.text.customHeight" = "Hauteur";
+
+/* (No Comment) */
+"settings.text.customWidth" = "Largeur";
+
+/* (No Comment) */
+"settings.text.details" = "Détails";
+
+/* (No Comment) */
+"settings.text.details.help" = "Première ligne sous le titre";
+
+/* (No Comment) */
+"settings.text.image" = "Image";
+
+/* (No Comment) */
+"settings.text.image.help" = "Lien vers l'image ou le nom de l'image dans le portail développeur";
+
+/* (No Comment) */
+"settings.text.state" = "État";
+
+/* (No Comment) */
+"settings.text.state.help" = "Deuxième ligne sous le titre";
+
+/* (No Comment) */
+"settings.toggle.disableDisplaySleep" = "Désactiver la mise en veille";
+
+/* (No Comment) */
+"settings.toggle.discord" = "Activer l'activité Discord";
+
+/* (No Comment) */
+"settings.toggle.jbBypass" = "Activer l'évitement Jailbreak (Expérimental)";
+
+/* (No Comment) */
+"settings.toggle.km" = "Activer le mappage de touches";
+
+/* (No Comment) */
+"soundAlert.failureText" = "Une error a occurée en essayant de régler la fréquence d'échantillonnage du périphérique de sortie actuel à 48 kHz. Vous pouvez régler manuellement la fréquence d'échantillonnage dans l'application Audio MIDI Setup";
+
+/* (No Comment) */
+"soundAlert.informativeText" = "Votre sortie audio actuelle n'a pas un taux d'échantillonnage de 48 ou 44.1 kHz ! Des erreurs peuvent survenir. Voulez-vous changer le taux d'échantillonnage de votre sortie audio actuelle à 48 kHz ?";
+
+/* (No Comment) */
+"soundAlert.messageText" = "Paramètres Audio Incorrects Détectés !";
+
+/* (No Comment) */
+"soundAlert.successText" = "Définir le taux d'échantillonnage de votre sortie audio à 48 kHz";
+
+/* (No Comment) */
+"sidebar.appLibrary" = "Bibliothèque d'Apps";
+"button.Quit" = "Quitter";
+"settings.title" = "Paramètres de %@";
+"settings.picker.aspectRatio" = "Rapport de taille :";
+"mulggame.exportKmPanel.fieldLabel" = "Nom du MulgMap :";
+"sidebar.ipaLibrary" = "Bibliothèque d'IPAs";
+"alert.moveAppToApplications.title" = "Déplacer vers le dossier d'applications ?";
+"alert.moveAppToApplications.subtitle" = "Mulg doit être dans le dossier d'applications pour fonctionner. Appuyez sur le bouton en dessous pour déplacer Mulg automatiquement.";
+"error.appEncrypted" = "Cet application est chiffré ! Veuillez utiliser une IPA déchiffré. Des IPA de iMazing ne sont pas supportés !";
+"error.appCorrupted" = "Quelque chose est passé avec cette IPA. Veuillez utiliser un autre IPA.";
+"error.appProhibited" = "L'utilisation de cette application via Mulg entraînera probablement une ban !";
+"settings.tab.info" = "Info";
+"settings.tab.km" = "Touches";
+"settings.toggle.km.help" = "Ajoutez le mappage de touches aux jeux tactiles uniquement. Utilisez Commande + K pour ouvrir le menu de l'éditeur.";
+"settings.tab.graphics" = "Graphiques";
+"settings.picker.adaptiveRes" = "Résolution :";
+"settings.picker.adaptiveRes.help" = "Adapte la fenêtre de l'application pour s'adapter à votre résolution";
+"settings.picker.adaptiveRes.0" = "Défaut de l'app";
+"settings.picker.adaptiveRes.1" = "Auto (Basé sur l'affichage)";
+"settings.picker.adaptiveRes.5" = "Personnalisé";
+"settings.toggle.disableDisplaySleep.help" = "Empêcher l'affichage de s'éteindre pendant que cette application est ouvert";
+"settings.toggle.jbBypass.help" = "Tente de contourner la détection jailbreak dans certains apps (Non garanti de fonctionner tout le temps)";
+"settings.info.displayName" = "Nom d'affichage :";
+"settings.info.bundleName" = "Nom d'application :";
+"settings.info.bundleIdentifier" = "Identifiant de l'App :";
+"settings.info.executableName" = "Nom de l'exécutable :";
+"settings.info.minimumOSVersion" = "Version minimale du système :";
+"settings.info.url" = "URL :";
+"settings.resetSettings" = "Réinitialiser les paramètres";
+"settings.resetKm" = "Réinitialiser le mappage de touches";
+"settings.resetSettingsCompleted" = "Les paramètres ont été réinitialisés !";
+"settings.resetKmCompleted" = "Le mappage de touches a été réinitialisé !";
+"settings.tab.misc" = "Autre";
+"settings.toggle.hud" = "Metal HUD";
+"settings.info.bundleVersion" = "Version de l'app :";
+"mulggame.deleteConfirm" = "Désinstaller";
+"mulggame.deleteMessage" = "Êtes-vous sur de vouloir désinstaller %@ ?";
+"alert.legacyImport.title" = "Vieux paramètres d'application détectés !";
+"alert.legacyImport.subtitle" = "Des vieux paramètres et des vieux fichiers de mappage de touches ont été détectés. Souhaitez-vous convertir ces fichiers au nouveau format ?";
+"button.Convert" = "Convertir";
+"settings.text.detectedResolution" = "Résolution détectée :";
+"mulggame.add" = "Ajouter une application";
+"alert.wrongFileType.title" = "Mauvais type de fichier !";
+"alert.wrongFileType.subtitle" = "Mulg ne peut installer que des fichiers .ipa valides.";
+"mulggame.addSource" = "Ajouter une source";
+"ipaLibrary.noSources.title" = "Aucune source IPA ajoutée";
+"ipaLibrary.noSources.subtitle" = "Vous n'avez actuellement aucune source IPA ajoutée. Cliquez sur le bouton ci-dessous pour en ajouter.";
+"ipaLibrary.noSources.button" = "Ajouter une source";
+"ipaLibrary.noNetworkConnection.toast" = "Aucune connexion Internet !";
+"preferences.tab.ipasource" = "Sources IPA";
+"preferences.button.addSource" = "Ajouter une source";
+"preferences.button.deleteSource" = "Supprimer la source";
+"preferences.button.moveSourceUp" = "Déplacer vers le haut";
+"preferences.button.moveSourceDown" = "Déplacer vers le bas";
+"preferences.popover.valid" = "Lien valide";
+"preferences.popover.badurl" = "Lien invalide !";
+"preferences.popover.badjson" = "JSON invalide ou introuvable !";
+"preferences.textfield.url" = "URL source...";
+"mulggame.download.downloading" = "Téléchargement en cours";
+"error.waitDownload" = "Veuillez attendre la fin du téléchargement en cours !";
+"preferences.toggle.clearAppData" = "Effacer les données";
+"preferences.tab.uninstall" = "Désinstaller";
+"preferences.whenUninstalling" = "Lors de la désinstallation :";
+"preferences.toggle.showUninstall" = "Afficher l'avertissement";
+"preferences.toggle.removeKeymap" = "Supprimer le mappage de clavier";
+"preferences.toggle.removeSetting" = "Supprimer les paramètres";
+"preferences.toggle.removeEntitlements" = "Supprimer les autorisations";
+"preferences.button.pruneFiles" = "Élaguer les fichiers";
+"preferences.prune.alert" = "Voulez-vous vraiment supprimer tous les fichiers ?";
+"preferences.prune.message" = "Cela supprimera tous les fichiers inutilisés, y compris les paramètres, le mappage de touches, les autorisations et les données d'application";
+"mulggame.progress.failed" = "Échoué";
+"alert.supression" = "Vous pouvez modifier cela dans les préférences Mulg";
+"menubar.clearCache" = "Effacer le cache";
+"preferences.tab.install" = "Installer";
+"alert.install.injectMulgKit" = "Injecter MulgKit";
+"preferences.toggle.showInstallPopup" = "Afficher la fenêtre d'installation de MulgKit";
+"preferences.toggle.alwaysInstallMulgKit" = "Toujours installer MulgKit";
+"button.Yes" = "Oui";
+"button.No" = "Non";
+"settings.noMulgKit" = "MulgKit n'est pas installé dans cette application";
+"settings.removeMulgKit" = "Supprimer MulgKit";
+"settings.info.mulgKit" = "MulgKit installé :";
+"mulggame.refreshSources" = "Actualiser les sources";
+"error.appMaliciousProhibited" = "Cette application se comporte de manière malveillante sur les Mac et son utilisation peut laisser votre ordinateur dans un état non démarrable, elle est donc bloqué de Mulg. (Désinstallation...)";
+"alert.install.injectMulgKitQuestion" = "Voulez-vous injecter MulgKit dans cette application ?";
+"alert.install.mulgKitInformative" = "MulgKit est un outil qui permet le mappage de touches, changement de résolution d'affichage et plus, mais elle peut briser certaines applications";
+"button.Help" = "Aide";
+"button.Dismiss" = "Fermer";
+"state.enabled" = "Activé";
+"state.pendingReboot" = "Redémarrage en attente";
+"menubar.configSigning" = "Configurer la signature";
+"configSigning.subtext" = "La signature de package permet de résoudre les problèmes avec les applications qui dépendent des\nID d'équipe pour des opérations telles que l'autorisation.\nIl peut y avoir des risques de sécurité associés à l'activation de cette fonctionnalité.\n\n En tant que tel, nous vous recommandons de le désactiver lorsque ce n'est pas nécessaire";
+"configSigning.header" = "Configurer la signature de package";
+"configSigning.info.SIP" = "SIP doit être entièrement ou partiellement désactivé pour désactiver l'AMFI.";
+"configSigning.info.SIPHeader" = "Protection de l'intégrité du système";
+"configSigning.info.AMFI" = "L'AMFI doit être désactivé afin de permettre la fausse signature des applications, leur permettant de s'exécuter avec le bon ID d'équipe";
+"configSigning.info.AMFIHeader" = "Intégrité des fichiers mobiles Apple";
+"configSigning.action.shutdown" = "Éteindre mon Mac";
+"configSigning.action.copyCommand" = "Copier la commande";
+"configSigning.action.restart" = "Redémarrer mon Mac";
+"configSigning.step.disableSIP" = "Veuillez désactiver SIP à partir du mode de récupération";
+"configSigning.step.disableAMFI" = "Veuillez désactiver AMFI";
+"configSigning.step.AMFIreboot" = "AMFI désactivé. Veuillez redémarrez";
+"configSigning.step.complete" = "La signature de package a été configurée";
+"configSigning.alert.copied" = "Commande copiée !";
+"configSigning.alert.info" = "Veuillez coller et exécuter la commande dans Terminal.app. Votre Mac redémarrera ensuite";
+"state.disabled" = "Désactivé";
+"ipaLibrary.version.older" = "Cette version est plus vielle que celle que vous avez";
+"ipaLibrary.version.same" = "Application déjà installée";
+"ipaLibrary.version.newer" = "Cette version est plus récente que celle vous avez";
+"ipaLibrary.alert.download" = "Êtes vous surs de vouloir télécharger cette version de %@ ?";
+"settings.text.debugger" = "Débogueur :";
+"ipaLibrary.download" = "Télécharger";
+"alert.differentBundleIdKeymap.text" = "Êtes-vous sûr de vouloir importer ce keymap ?";
+"settings.toggle.lldb" = "Ouvrir avec LLDB";
+"alert.differentBundleIdKeymap.message" = "Le keymap peut avoir été créé pour une autre application.";
+"settings.toggle.lldbWithTerminal" = "Ouvrir dans le terminal";
+"error.failedToStripBinary" = "Impossible de trouver l'architecture ARM64 dans le binaire fat !";
+"settings.mulgChain.enable" = "Activer MulgChain (Expérimental)";
+"settings.mulgChain.help" = "Activer la prise en charge de MulgChain pour cette application, lui permettant d'utiliser (partiellement) les services Apple Keychain";
+"settings.mulgChain.debugging" = "Débogage de MulgChain";
+"mulggame.noSources.title" = "Aucun IPA installé";
+"mulggame.noSources.subtitle" = "Actuellement, vous n'avez aucun IPA installé. Cliquez sur le bouton ci-dessous pour en importer un.";
+"settings.tab.bypasses" = "Contournements";
+"mulggame.download.integrityCheck" = "Vérification de l'intégrité des fichiers :";
+"mulggame.download.differentChecksum" = "Différentes sommes de contrôle ! Voulez-vous continuer l’installation ?";
+"mulggame.download.differentChecksumDesc" = "Attendu \"%@\", obtenu \"%@\"";
+"mulggame.progress.canceled" = "Annulé";
+"ipaLibrary.noNetworkConnection.required" = "La bibliothèque d’IPAs nécessite une connexion Internet";
+"mulggame.clearMulgChain" = "Effacer les données MulgChain";
+"mulggame.importIPA" = "Importer un IPA";
+"preferences.toggle.removeMulgChain" = "Supprimer MulgChain";
+"preferences.popover.duplicate" = "Lien en double";
+"alert.app.clearMulgChain" = "Toutes les données MulgChain seront effacées . Vous devrez peut-être vous reconnecter à l'application . Souhaitez-vous continuer ?";
+"button.Reload" = "Rafraîchir";
+"settings.highResolution" = "Une haute résolution peut provoquer des plantages";
+"settings.picker.windowFix" = "Résoudre les problèmes d'affichage des fenêtres";
+"settings.picker.windowFix.help" = "Applique des correctifs de fenêtre qui peuvent aider vos applications à s'afficher normalement";
+"settings.picker.windowFixMethod.0" = "Normal";
+"settings.picker.windowFixMethod.1" = "Alterne";
+"preferences.popover.checking" = "Vérification de l'URL";
+"settings.toggle.introspection" = "Insérer les bibliothèques d’introspection";
+"settings.toggle.introspection.help" = "Ajouter les bibliothèques d'introspection du système à l'application. Connu pour résoudre les problèmes de démarrage dans certaines applications";
+"settings.picker.scaler" = "Mise à l'échelle de la résolution";
+"mulgvault.masterPassword" = "Mot de passe principal";
+"mulgvault.confirmMasterPassword" = "Confirmer le mot de passe principal";
+"mulgvault.oldMasterPassword" = "Mot de passe principal actuel";
+"mulgvault.error.blankPassword" = "Le mot de passe ne peut pas être vide";
+"mulgvault.error.notMatch" = "Les mots de passes ne correspondent pas";
+"mulgvault.error.incorrectPassword" = "Mot de passe incorrect";
+"mulgvault.status.title" = "Statut MulgVault :";
+"mulgvault.status.managedPassword" = "Activé avec mot de passe géré";
+"mulgvault.status.userPassword" = "Activé avec le mot de passe utilisateur";
+"mulgvault.status.chainCount" = "Statut de la chaîne MulgVault : ";
+"mulgvault.status.unlockedCount %@ %@" = "%@ chaînes déverrouillées sur %@ au total";
+"mulgvault.button.lockAll" = "Verrouiller toutes les chaînes";
+"mulgvault.button.changePassword" = "Changer le mot de passe principal";
+"button.Enable" = "Activer";
+"button.Reset" = "Réinitialiser";
+"button.Unlock" = "Déverrouiller";
+"settings.toggle.rootWorkDir" = "Démarrer l'application dans le répertoire racine";
+"settings.toggle.rootWorkDir.help" = "Modifier le répertoire de travail de l'application à / comme sur iOS. Désactivez cette option si l'application se comporte mal";
+"mulgvault.toggle.startupPrompt" = "Demande de MulgVault au démarrage";
+"mulgvault.toggle.startupPrompt.help" = "MulgVault vous demandera votre mot de passe principal lorsque vous lancerez l'application. Si cette option est désactivée, elle vous sera demandée lorsque vous lancerez une application qui utilise MulgChain.";
+"mulgvault.setup.useGeneratedKey" = "Géré automatiquement";
+"mulgvault.setup.useUserKey" = "Utiliser ma propre clé";
+"mulgvault.setup.encryptionKey" = "Clé de cryptage : ";
+"mulgvault.setupPrompt.title" = "Entrez un mot de passe principal à utiliser pour MulgVault";
+"mulgvault.changePasswordPrompt.title" = "Saisissez votre ancien mot de passe principal et un nouveau pour mettre à jour votre clé de cryptage MulgVault";
+"mulgvault.removePrompt.title" = "Entrez votre mot de passe principal pour enlever le cryptage MulgVault";
+"mulgvault.unlockPrompt.title" = "Entrez votre mot de passe principal pour déverrouiller MulgVault";
+"mulgvault.alert.title" = "Le trousseau n'a pas été déverrouillé";
+"mulgvault.alert.content" = "L'accès au trousseau a été désactivé pour la session en cours";
+"settings.toggle.autoKM" = "Keymap Intelligent";
+"settings.toggle.autoKM.help" = "Désactiver automatiquement le mappage des touches lorsque la saisie de texte est détectée";
+"settings.applicationCategoryType" = "Type d’application";
+"settings.toggle.iosFrameworks" = "Insérer forcément les frameworks iOS";
+"settings.info.alias" = "Alias :";
+"settings.toggle.enableScrollWheel.help" = "Activer la molette de défilement dans le mappage de touches";
+"settings.toggle.iosFrameworks.help" = "Ajouter les bibliothèques système iOS à l'application. Connu pour résoudre les problèmes avec certaines applications, où il est impossible de trouver le framework iOS";
+"settings.toggle.enableScrollWheel" = "Activer la molette de défilement";
+"ipaLibrary.info.notAvailable" = "Lien invalide pour cette application";
+"ipaLibrary.info" = "Infos sur l'application";
+"ipaLibrary.info.checksum.none" = "Aucun fourni";
+"ipaLibrary.info.title" = "Infos sur %@";
+"ipaLibrary.unavailable" = "Le lien n’est pas disponible";
+"ipaLibrary.info.itunes" = "Recherche iTunes :";
+"ipaLibrary.info.checksum" = "Checksum :";
+"ipaLibrary.AlphabeticalSort" = "Trier les applications sources par ordre alphabétique";
+"alert.open.appstore" = "Ouvrir le Mac App Store";
+"macos.version" = "Cette application peut être installée depuis le Mac App Store";
+"alert.install.anyway" = "Installer quand même";

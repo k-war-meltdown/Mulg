@@ -1,0 +1,14 @@
+# Module card for `updater`. Format and rules: PLAN.md §1.4–1.5.
+id: updater
+kind: host-service
+runs_in: host
+summary: Mulg's own update feed (Sparkle); off until Mulg publishes an appcast
+status: stable
+default: always
+depends_on:
+- contracts
+owns:
+  paths:
+  - Host/Mulg/Views/Sparkle.swift
+  - Host/Mulg/Utils/VersionCheck.swift
+  - Host/Mulg/Utils/UpdateScheme.swift

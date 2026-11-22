@@ -1,0 +1,385 @@
+/* (No Comment) */
+"alert.app.delete" = "Все данные приложение будут удалены. Возможно, вам надо будет повторно скачать приложение. Вы хотите продолжить?";
+
+/* (No Comment) */
+"alert.app.preferences" = "Все настройки в приложении будут удалены. Вы хотите продолжить?";
+
+/* (No Comment) */
+"alert.appCacheCleared" = "Все данные приложения были удалены!";
+
+/* (No Comment) */
+"alert.error" = "Произошла ошибка!";
+
+/* (No Comment) */
+"alert.errorImportKm" = "Произошла ошибка при импортировании!";
+
+/* (No Comment) */
+"alert.kmImported" = "Раскладка клавиш импортирована!";
+
+/* (No Comment) */
+"alert.moveAppToApplications.move" = "Переместить в папку Приложения (Applications)";
+
+/* (No Comment) */
+"alert.restart" = "Пожалуйста перезапустите Mulg.";
+
+/* (No Comment) */
+"alert.success" = "Успешно";
+
+/* (No Comment) */
+"button.Cancel" = "Отмена";
+
+/* (No Comment) */
+"button.Close" = "Закрыть";
+
+/* (No Comment) */
+"button.Install" = "Установить";
+
+/* (No Comment) */
+"button.OK" = "ОК";
+
+/* (No Comment) */
+"button.Proceed" = "Продолжить";
+
+/* (No Comment) */
+"error.corruptedIPA" = "Этот файл .ipa поврежден. Он не содержит файла «Info.plist».";
+
+/* (No Comment) */
+"error.waitInstallation" = "Пожалуйста дождитесь завершения установки!";
+
+/* (No Comment) */
+"menubar.checkForUpdates" = "Проверить наличие обновлений...";
+
+/* (No Comment) */
+"menubar.discord" = "Discord";
+
+/* (No Comment) */
+"menubar.documentation" = "Документация";
+
+/* (No Comment) */
+"menubar.exportToSideloady" = "Экспортировать в Sideloadly";
+
+/* (No Comment) */
+"menubar.github" = "GitHub";
+
+/* (No Comment) */
+"menubar.log.copy" = "Скопировать логи";
+
+/* (No Comment) */
+"menubar.website" = "Веб-сайт";
+
+/* (No Comment) */
+"notification.appInstalled" = "Приложение установлено!";
+
+/* (No Comment) */
+"notification.appInstalled.message" = "Проверьте в Mulg!";
+
+/* (No Comment) */
+"mulggame.clearCache" = "Очистить данные приложения";
+
+/* (No Comment) */
+"mulggame.clearPreferences" = "Очистить настройки приложения";
+
+/* (No Comment) */
+"mulggame.delete" = "Удалить приложение";
+
+/* (No Comment) */
+"mulggame.exportKm" = "Экспортировать раскладку";
+
+/* (No Comment) */
+"mulggame.importKm" = "Импортировать раскладку";
+
+/* (No Comment) */
+"mulggame.install.addToLib" = "Приложения добавляется в библиотеку...";
+
+/* (No Comment) */
+"mulggame.install.copy" = "Приложение копируется...";
+
+/* (No Comment) */
+"mulggame.install.createWrapper" = "Создание оболочки приложения...";
+
+/* (No Comment) */
+"mulggame.progress.finished" = "Завершено";
+
+/* (No Comment) */
+"mulggame.install.installMulgKit" = "Установка MulgKit...";
+
+/* (No Comment) */
+"mulggame.install.signing" = "Подпись приложения...";
+
+/* (No Comment) */
+"mulggame.install.unzip" = "Извлечение приложения из файла .ipa...";
+
+/* (No Comment) */
+"mulggame.openCache" = "Открыть данные приложения";
+
+/* (No Comment) */
+"mulggame.settings" = "Настройки";
+
+/* (No Comment) */
+"mulggame.showInFinder" = "Показать в Finder";
+
+/* (No Comment) */
+"preferences.button.checkForUpdates" = "Проверить на наличие обновлений";
+
+/* (No Comment) */
+"preferences.tab.updates" = "Обновления";
+
+/* (No Comment) */
+"preferences.toggle.automaticUpdates" = "Автоматическая проверка наличие обновлений";
+
+/* (No Comment) */
+"settings.button.discord" = "Пользовательская активность Discord";
+
+/* (No Comment) */
+"settings.button.clearActivity" = "Очистить пользовательскую активность";
+
+/* (No Comment) */
+"settings.picker.iosDevice" = "iOS устройство:";
+
+/* %.f */
+"settings.slider.mouseSensitivity" = "Чувствительность мыши: %.f";
+
+/* (No Comment) */
+"settings.text.applicationID" = "ID Приложения";
+
+/* (No Comment) */
+"settings.text.customHeight" = "Высота";
+
+/* (No Comment) */
+"settings.text.customWidth" = "Ширина";
+
+/* (No Comment) */
+"settings.text.details" = "Детали";
+
+/* (No Comment) */
+"settings.text.details.help" = "Первая строка под заголовком";
+
+/* (No Comment) */
+"settings.text.image" = "Изображение";
+
+/* (No Comment) */
+"settings.text.image.help" = "Ссылка на образ или название ресурса Разработчиков";
+
+/* (No Comment) */
+"settings.text.state" = "Состояние";
+
+/* (No Comment) */
+"settings.text.state.help" = "Вторая строка после заголовка";
+
+/* (No Comment) */
+"settings.toggle.disableDisplaySleep" = "Отключить спящий режим дисплея";
+
+/* (No Comment) */
+"settings.toggle.discord" = "Включить активность Discord";
+
+/* (No Comment) */
+"settings.toggle.jbBypass" = "Включить обход Jailbreak (Экспериментально)";
+
+/* (No Comment) */
+"settings.toggle.km" = "Включить клавиатурную раскладку";
+
+/* (No Comment) */
+"soundAlert.failureText" = "Не удалось установить частоту дискретизации текущего устройства вывода на 48 кГц. Вы можете вручную установить частоту дискретизации в приложении Audio MIDI Setup";
+
+/* (No Comment) */
+"soundAlert.informativeText" = "Ваше текущее устройство вывода не имеет частоты дискретизации 48 или 44,1 кГц! Могут возникнуть сбои. Хотели бы вы изменить частоту дискретизации вашего текущего устройства вывода на 48 кГц?";
+
+/* (No Comment) */
+"soundAlert.messageText" = "Обнаружены неверные настройки аудио!";
+
+/* (No Comment) */
+"soundAlert.successText" = "Текущая частота дискретизации выходного устройства установлена на 48 кГц";
+
+/* (No Comment) */
+"mulggame.exportKmPanel.fieldLabel" = "Имя MulgMap:";
+"sidebar.appLibrary" = "Библиотека приложений";
+"button.Quit" = "Выйти";
+"sidebar.ipaLibrary" = "Библиотека IPA";
+"alert.moveAppToApplications.title" = "Переместить в папку Applications (Программы)?";
+"alert.moveAppToApplications.subtitle" = "Для корректной работы Mulg должен находиться в папке Applications (Программы). Нажмите на кнопку ниже, чтобы переместить Mulg автоматически.";
+"error.appEncrypted" = "Это приложение зашифровано! Пожалуйста, используйте расшифрованные файлы IPA. Файлы IPA из iMazing не поддерживаются!";
+"error.appCorrupted" = "С данным IPA что-то пошло не так. Пожалуйста, попробуйте другой файл IPA.";
+"error.appProhibited" = "Использование этого приложения через Mulg скорее всего приведет к бану!";
+"settings.title" = "Настройки %@";
+"settings.tab.info" = "Информация";
+"settings.tab.km" = "Раскладка клавиатуры";
+"settings.toggle.km.help" = "Добавить поддержку клавиатуры для игр только с тач-интерфейсом. Нажмите Command + K, чтобы открыть меню редактирования.";
+"settings.tab.graphics" = "Графика";
+"settings.picker.adaptiveRes" = "Разрешение:";
+"settings.picker.adaptiveRes.help" = "Меняет разрешение окна приложения";
+"settings.picker.adaptiveRes.0" = "По умолчанию";
+"settings.picker.adaptiveRes.1" = "Автоматически (в зависимости от разрешения дисплея)";
+"settings.picker.adaptiveRes.5" = "Пользовательское";
+"settings.picker.aspectRatio" = "Соотношение сторон:";
+"settings.resetKmCompleted" = "Кеймаппинг сброшен!";
+"settings.toggle.disableDisplaySleep.help" = "Предотвращать выключение дисплея во время работы приложения";
+"settings.toggle.jbBypass.help" = "Попытаться обойти обнаружение Jailbreak в некоторых играх (может работать не всегда)";
+"settings.info.displayName" = "Название дисплея:";
+"settings.info.bundleName" = "Название пакета:";
+"settings.info.bundleIdentifier" = "Идентификатор пакета:";
+"settings.info.executableName" = "Название исполняющего файла:";
+"settings.info.minimumOSVersion" = "Минимальная версия OS:";
+"settings.info.url" = "URL:";
+"settings.resetSettings" = "Сброс настроек";
+"settings.resetKm" = "Сбросить кеймаппинг";
+"settings.resetSettingsCompleted" = "Настройки были сброшены к стандартным!";
+"settings.tab.misc" = "Разное";
+"settings.toggle.hud" = "Metal HUD";
+"settings.info.bundleVersion" = "Версия пакета:";
+"mulggame.deleteConfirm" = "Удалить";
+"mulggame.deleteMessage" = "Вы уверены, что хотите удалить %@?";
+"alert.legacyImport.title" = "Обнаружены настройки приложения из старой версии!";
+"alert.legacyImport.subtitle" = "Были обнаружены устаревшие настройки и файлы раскладки клавиатуры. Хотели бы вы преобразовать эти файлы в новый формат?";
+"button.Convert" = "Конвертировать";
+"settings.text.detectedResolution" = "Обнаруженное разрешение:";
+"mulggame.add" = "Добавить приложение";
+"alert.wrongFileType.title" = "Неверный тип файла!";
+"alert.wrongFileType.subtitle" = "Mulg может установить только корректные .ipa файлы.";
+"mulggame.addSource" = "Добавить источник";
+"ipaLibrary.noSources.title" = "Не добавлено ни одного источника IPA";
+"ipaLibrary.noSources.subtitle" = "Не добавлено ни одного источника IPA. Нажмите кнопку ниже, чтобы добавить.";
+"ipaLibrary.noSources.button" = "Добавить источник";
+"ipaLibrary.noNetworkConnection.toast" = "Нет интернет соединения!";
+"preferences.tab.ipasource" = "Источники IPA";
+"preferences.button.addSource" = "Добавить источник";
+"preferences.button.deleteSource" = "Удалить источник";
+"preferences.button.moveSourceUp" = "Переместить выше";
+"preferences.button.moveSourceDown" = "Переместить ниже";
+"preferences.popover.valid" = "Ссылка действительна";
+"preferences.popover.badurl" = "URL-адрес недействителен!";
+"preferences.popover.badjson" = "Файл JSON недействителен или не найден!";
+"preferences.textfield.url" = "URL-адрес источника...";
+"mulggame.download.downloading" = "Скачивание";
+"error.waitDownload" = "Пожалуйста дождитесь завершения загрузки!";
+"preferences.tab.uninstall" = "Удалить";
+"menubar.clearCache" = "Очистить кэш";
+"preferences.whenUninstalling" = "При удалении:";
+"preferences.toggle.showUninstall" = "Показывать всплывающее предупреждение";
+"preferences.toggle.clearAppData" = "Очистить данные";
+"preferences.toggle.removeKeymap" = "Удалить раскладку";
+"preferences.toggle.removeSetting" = "Удалить настройки";
+"preferences.toggle.removeEntitlements" = "Забрать разрешения";
+"preferences.button.pruneFiles" = "Удалить файлы";
+"preferences.prune.alert" = "Вы уверены, что хотите удалить все файлы?";
+"preferences.prune.message" = "Данное действие удалит все не используемые файлы, включая настройки, раскладки, разрешения и данные приложения";
+"mulggame.progress.failed" = "Произошла ошибка";
+"alert.supression" = "Вы можете изменить это в настройках Mulg";
+"alert.install.injectMulgKit" = "Внедрить MulgKit";
+"button.Yes" = "Да";
+"button.No" = "Нет";
+"preferences.tab.install" = "Установить";
+"preferences.toggle.showInstallPopup" = "Показать окно установки MulgKit";
+"preferences.toggle.alwaysInstallMulgKit" = "Всегда устанавливать MulgKit";
+"settings.noMulgKit" = "MulgKit не установлены в этом приложении";
+"settings.removeMulgKit" = "Удалить MulgKit";
+"settings.info.mulgKit" = "MulgKit установлен:";
+"mulggame.refreshSources" = "Обновить источники";
+"error.appMaliciousProhibited" = "Это приложение вредоносно для Mac. Используя его, вы можете привести свое устройство в незагружаемое состояние, поэтому оно заблокировано в Mulg. (Удаляется...)";
+"alert.install.injectMulgKitQuestion" = "Вы хотите внедрить MulgKit в это приложение?";
+"alert.install.mulgKitInformative" = "MulgKit – это инструмент, позволяющий связывать нажатия клавиш с жестами экрана, устанавливать собственное разрешение экрана и т.д., однако он может нарушить корректную работу некоторых приложений";
+"button.Help" = "Помощь";
+"button.Dismiss" = "Закрыть";
+"state.enabled" = "Включено";
+"state.disabled" = "Выключено";
+"state.pendingReboot" = "Ожидание перезагрузки";
+"menubar.configSigning" = "Настроить Подпись";
+"configSigning.header" = "Настроить подпись пакета";
+"configSigning.subtext" = "Подпись пакетов помогает исправлять проблемы с приложениями которые полагаются на \nправильные идентификаторы команд для таких операций, как авторизация. \nВключение этой функции может быть связано с рисками безопасности.\n\n Таким образом, мы рекомендуем отключить его, когда в этом нет необходимости";
+"configSigning.info.SIP" = "Для отключения AMFI требуется чтобы SIP был полностью или частично отключен.";
+"configSigning.info.SIPHeader" = "Защита целостности системы";
+"configSigning.info.AMFI" = "AMFI необходимо отключить, чтобы разрешить поддельную подпись приложений, позволяя им запускаться с правильным ID команды";
+"configSigning.info.AMFIHeader" = "Целостность Apple Mobile File";
+"configSigning.action.shutdown" = "Выключить мой Mac";
+"configSigning.action.copyCommand" = "Скопировать команду в буфер обмена";
+"configSigning.action.restart" = "Перезагрузить мой Mac";
+"configSigning.step.disableSIP" = "Пожалуйста, отключите SIP из режима восстановления";
+"configSigning.step.disableAMFI" = "Пожалуйста, отключите AMFI";
+"configSigning.step.AMFIreboot" = "AMFI Отключён. Пожалуйста, перезагрузитесь";
+"configSigning.step.complete" = "Подпись пакета была настроена успешно";
+"configSigning.alert.copied" = "Команда скопирована!";
+"configSigning.alert.info" = "Пожалуйста, вставьте и запустите команду в Terminal.app. Ваш Mac перезагрузится после";
+"ipaLibrary.download" = "Скачать";
+"alert.differentBundleIdKeymap.message" = "Данная клавиатурная раскладка, возможно, была создана для другого приложения.";
+"ipaLibrary.version.older" = "Эта версия старше установленной";
+"ipaLibrary.version.same" = "Приложение уже установлено";
+"ipaLibrary.version.newer" = "Эта версия является более новой, чем установленная";
+"ipaLibrary.alert.download" = "Вы уверены, что хотите установить версию %@?";
+"alert.differentBundleIdKeymap.text" = "Вы действительно хотите импортировать эту раскладку клавиатуры?";
+"settings.text.debugger" = "Дебагер:";
+"settings.toggle.lldb" = "Открыть с помощью LLDB";
+"settings.toggle.lldbWithTerminal" = "Открыть в терминале";
+"error.failedToStripBinary" = "Не удалось найти исполняемый файл для ARM64 архитектуры!";
+"settings.mulgChain.enable" = "Включить MulgChain (Экспериментально)";
+"settings.mulgChain.help" = "Включить поддержку MulgChain для этого приложения, позволяя ему частично использовать сервисы Apple Keychain (связки ключей)";
+"settings.mulgChain.debugging" = "Откладка MulgChain";
+"mulggame.noSources.title" = "IPA не установлены";
+"mulggame.noSources.subtitle" = "Сейчас у вас нет установленных IPA. Нажмите на кнопку ниже для импорта.";
+"settings.tab.bypasses" = "Обходы";
+"mulggame.download.integrityCheck" = "Проверка целостности файлов:";
+"mulggame.download.differentChecksum" = "Контрольные суммы не совпадают! Вы хотите продолжить установку?";
+"mulggame.download.differentChecksumDesc" = "Ожидалось \"%@\", получено \"%@\"";
+"mulggame.progress.canceled" = "Отменена";
+"ipaLibrary.noNetworkConnection.required" = "IPA Библиотека требует интернет-соединение";
+"mulggame.clearMulgChain" = "Очистить данные MulgChain";
+"mulggame.importIPA" = "Импортировать IPA";
+"preferences.toggle.removeMulgChain" = "Очистить MulgChain";
+"preferences.popover.duplicate" = "Дублирующая ссылка";
+"alert.app.clearMulgChain" = "Все данные MulgChain будут удалены. Возможно, вам придется снова проходить авторизацию в приложении. Вы хотите продолжить?";
+"button.Reload" = "Перезагрузить";
+"settings.highResolution" = "Высокое разрешение может вызвать сбой приложения";
+"settings.picker.windowFix" = "Исправить проблемы с отображением окна";
+"settings.picker.windowFix.help" = "Примените исправления окон, это может помочь вашим приложениям корректно отображаться";
+"settings.picker.windowFixMethod.0" = "Нормальный";
+"settings.picker.windowFixMethod.1" = "Альтернативный";
+"preferences.popover.checking" = "Проверка URL-адреса";
+"settings.toggle.introspection" = "Вставить библиотеки интроспекции";
+"settings.toggle.introspection.help" = "Добавить системные библиотеки интроспекции в приложение. Известно исправление проблем с некорректным запуском некоторых приложений";
+"settings.picker.scaler" = "Масштаб разрешения";
+"button.Enable" = "Включить";
+"settings.toggle.rootWorkDir.help" = "Изменить рабочий каталог приложения на / как на iOS. Отключите это в случае некорректной работы";
+"button.Reset" = "Сбросить";
+"button.Unlock" = "Разблокировать";
+"settings.toggle.rootWorkDir" = "Запустить приложение в корневой директории";
+"mulgvault.masterPassword" = "Мастер-пароль";
+"mulgvault.confirmMasterPassword" = "Потвердить мастер-пароль";
+"mulgvault.oldMasterPassword" = "Текущий мастер-пароль";
+"mulgvault.error.blankPassword" = "Пароль не может быть пустым";
+"mulgvault.error.notMatch" = "Пароли не совпадают друг с другом";
+"mulgvault.error.incorrectPassword" = "Неправильный пароль";
+"mulgvault.status.title" = "MulgVault статус:";
+"mulgvault.status.managedPassword" = "Включено с управляемым паролем";
+"mulgvault.status.userPassword" = "Включено с пользовательским паролем";
+"mulgvault.status.chainCount" = "MulgVault Chain статус: ";
+"mulgvault.status.unlockedCount %@ %@" = "%@ разблокированных цепочек из %@ всего";
+"mulgvault.button.lockAll" = "Заблокировать все цепочки";
+"mulgvault.button.changePassword" = "Сменить мастер-пароль";
+"mulgvault.toggle.startupPrompt" = "Запрашивать MulgVault при запуске";
+"mulgvault.toggle.startupPrompt.help" = "MulgVault будет запрашивать ваш мастер-пароль при запуске этого приложения. Если отключено, тогда будет запрашиваться при запуске приложения, использующего MulgChain.";
+"mulgvault.setup.useGeneratedKey" = "Управляется автоматически";
+"mulgvault.setup.useUserKey" = "Использовать мой собственный ключ";
+"mulgvault.setup.encryptionKey" = "Ключ шифрования: ";
+"mulgvault.setupPrompt.title" = "Введите мастер-пароль, который будет использоваться для MulgVault";
+"mulgvault.changePasswordPrompt.title" = "Введите старый мастер-пароль и новый, чтобы обновить ваш ключ шифрования для MulgVault";
+"mulgvault.removePrompt.title" = "Введите мастер-пароль, чтобы убрать шифрование MulgVault";
+"mulgvault.unlockPrompt.title" = "Введите мастер-пароль, чтобы разблокировать MulgVault";
+"mulgvault.alert.title" = "Keychain не был разблокирован";
+"mulgvault.alert.content" = "Доступ к Keychain был отключен для текущей сессии";
+"settings.toggle.autoKM" = "Умная раскладка";
+"settings.toggle.autoKM.help" = "Автоматически выключать раскладку при вводе текста";
+"settings.applicationCategoryType" = "Тип приложения";
+"settings.toggle.iosFrameworks" = "Принудительно вставить фреймворки iOS";
+"settings.info.alias" = "Псевдоним:";
+"settings.toggle.enableScrollWheel.help" = "Включить колесо прокрутки в настройках клавиш";
+"settings.toggle.iosFrameworks.help" = "Добавляет системные библиотеки iOS в приложение. Известно, что это решает проблемы с тем, что некоторые приложения не могут найти фреймворк iOS";
+"settings.toggle.enableScrollWheel" = "Включить колесо прокрутки";
+"ipaLibrary.info.notAvailable" = "Ссылка недействительна для этого приложения";
+"ipaLibrary.info" = "Информация о приложении";
+"ipaLibrary.info.checksum.none" = "Не предоставлено";
+"ipaLibrary.info.title" = "Информация о %@";
+"ipaLibrary.unavailable" = "Ссылка недоступна";
+"ipaLibrary.info.itunes" = "Поиск в ITunes:";
+"ipaLibrary.info.checksum" = "Контрольная сумма:";
+"ipaLibrary.AlphabeticalSort" = "Sort source apps alphabetically";
+"macos.version" = "This app can be installed from Mac App Store";
+"alert.install.anyway" = "Install Anyway";
+"alert.open.appstore" = "Open Mac App Store";

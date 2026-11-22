@@ -1,0 +1,45 @@
+// Compatibility API: layout models and interpolation now live in the keymaps module.
+import MulgKeymaps
+
+public typealias KeymapHorizontalAnchor = MulgKeymaps.KeymapHorizontalAnchor
+public typealias KeymapVerticalAnchor = MulgKeymaps.KeymapVerticalAnchor
+public typealias KeymapCanvas = MulgKeymaps.KeymapCanvas
+public typealias KeyModelTransform = MulgKeymaps.KeyModelTransform
+public typealias ButtonElement = MulgKeymaps.ButtonElement
+public typealias JoystickMode = MulgKeymaps.JoystickMode
+public typealias JoystickCalibration = MulgKeymaps.JoystickCalibration
+public typealias JoystickElement = MulgKeymaps.JoystickElement
+public typealias MouseAreaElement = MulgKeymaps.MouseAreaElement
+public typealias MonsterHunterOutlanders = MulgKeymaps.MonsterHunterOutlanders
+public typealias ControllerBinding = MulgKeymaps.ControllerBinding
+public typealias VirtualControllerElement = MulgKeymaps.VirtualControllerElement
+public typealias KeymappingData = MulgKeymaps.KeymappingData
+public typealias KeymapConfig = MulgKeymaps.KeymapConfig
+public typealias KeymapLayer = MulgKeymaps.KeymapLayer
+public typealias KeymapConflict = MulgKeymaps.KeymapConflict
+public typealias KeymapConflicts = MulgKeymaps.KeymapConflicts
+public typealias KeymapKeyNames = MulgKeymaps.KeymapKeyNames
+public typealias ControlHUDSample = MulgKeymaps.ControlHUDSample
+public typealias ControlHUDSampleSource = MulgKeymaps.ControlHUDSampleSource
+public typealias AdaptiveKeymapImport = MulgKeymaps.AdaptiveKeymapImport
+public typealias ControlInteractionStyle = MulgKeymaps.ControlInteractionStyle
+public typealias ControlMapProfile = MulgKeymaps.ControlMapProfile
+public typealias ControlLayoutGroup = MulgKeymaps.ControlLayoutGroup
+public typealias AdaptiveControlPlan = MulgKeymaps.AdaptiveControlPlan
+public typealias ControlBindingGraph = MulgKeymaps.ControlBindingGraph
+public typealias ControlBinding = MulgKeymaps.ControlBinding
+public typealias ControlBindingAddress = MulgKeymaps.ControlBindingAddress
+public typealias ControlBindingKind = MulgKeymaps.ControlBindingKind
+public typealias ControlBindingChannel = MulgKeymaps.ControlBindingChannel
+public typealias ControlLayoutLearning = MulgKeymaps.ControlLayoutLearning
+public typealias ControlGroupAdjustment = MulgKeymaps.ControlGroupAdjustment
+public typealias ControlHUDAnchor = MulgKeymaps.ControlHUDAnchor
+public typealias HUDGrayImage = MulgKeymaps.HUDGrayImage
+public typealias HUDControlTarget = MulgKeymaps.HUDControlTarget
+public typealias HUDAnchorMatch = MulgKeymaps.HUDAnchorMatch
+public typealias HUDAnchorMatcher = MulgKeymaps.HUDAnchorMatcher
+public typealias HUDAutomaticCandidate = MulgKeymaps.HUDAutomaticCandidate
+public typealias HUDAutomaticDiscovery = MulgKeymaps.HUDAutomaticDiscovery
+public typealias KeymapEditorModel = MulgKeymaps.KeymapEditorModel
+public typealias KeymapEditorInput = MulgKeymaps.KeymapEditorInput
+public typealias ScreenMetrics = MulgKeymaps.ScreenMetrics

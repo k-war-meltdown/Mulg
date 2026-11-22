@@ -1,0 +1,147 @@
+blacklist:
+    - /System/Volumes/Data
+    - /bin/ls
+    - /bin/sed
+    - /bin/kill
+    - /bin/gzip
+    - /usr/bin/which
+    - /usr/bin/diff
+    - /bin/mkdir
+    - /bin/cp
+    - /bin/chgrp
+    - /bin/cat
+    - /bin/tar
+    - /bin/chmod
+    - /usr/share/terminfo
+    - /bin/grep
+    - /bin/chown
+    - /usr/bin/tar
+    - /usr/bin/killall
+    - /bin/ln
+    - /usr/bin/xargs
+    - /bin/su
+    - /usr/bin/recache
+    - /etc/profile
+    - /bin/bunzip2
+    - /usr/bin/passwd
+    - /etc/apt
+    - /usr/bin/hostinfo
+    - /bin/bzip2
+    - /bin/bash
+    - /bin/sh
+    - /bin/mv
+    - /Library/PreferenceBundles/LaunchInSafeMode.bundle
+    - /private/var/binpack
+    - /private/var/lib/apt
+    - /private/var/stash
+    - /usr/bin/sshd
+    - /var/cache/apt
+    - /var/lib/apt
+    - /var/lib/cydia
+    - /usr/sbin/frida-server
+    - /usr/bin/cycript
+    - /usr/local/bin/cycript
+    - /usr/lib/libcycript.dylib
+    - /var/log/syslog
+    - /Library/MobileSubstrate/MobileSubstrate.dylib
+    - /etc/apt
+    - /usr/bin/ssh
+    - /usr/libexec/ssh-keysign
+    - /usr/sbin/sshd
+    - /etc/ssh/sshd_config
+    - /usr/libexec/sftp-server
+
+allow:
+    # Read only: the global domain is read by every app on the Mac, so a game must not change it.
+    - (allow user-preference-read (preference-domain ".GlobalPreferences"))
+    # Mulg's data: each game reaches only its own files there (GameSandboxAccess, added per game).
+    # The shared runtime is read-only: it is loaded into every game, so one game must never rewrite it.
+    # MulgKit is retired, but stays readable until the app has moved every game off it and removed it.
+    - (allow file-read* file-read-metadata file-ioctl file-map-executable (subpath "${HomeDirectory}/Library/Frameworks/MulgKit.framework"))
+    - (allow file-read* file-read-metadata file-ioctl file-map-executable (subpath "${HomeDirectory}/Library/Frameworks/MulgRuntime.framework"))
+    - (allow file-read* file-read-metadata file-ioctl file-map-executable (subpath "${HomeDirectory}/Library/Frameworks/MulgRuntimeVersions"))
+    
+    
+
+bypass:
+    # Native App Sandbox and explicit path denials remain active. Never deny every
+    # filesystem operation: Foundation/IOSurface must resolve the real main bundle.
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/usr/lib/libobjc-trampolines.dylib"))
+    - (allow file-read-metadata (subpath "/private/var/db/timezone/"))
+    # Its own container only: every other app's container and group container stays out of reach
+    # (the game's own app groups are added per game).
+    - (allow file* file-read* file-read-metadata file-ioctl (subpath "${HomeDirectory}/Library/Containers/${BundleID}"))
+    # Read only: the spelling dictionaries are shared by every app.
+    - (allow file-read* file-read-metadata (subpath "${HomeDirectory}/Library/Spelling/"))
+    - (allow file* file-read* file-read-metadata file-ioctl (subpath "/usr/share/icu/"))
+    - (allow file-read* file-read-metadata file-ioctl (literal "/System/Library/CoreServices/SystemVersion.bundle"))
+    - (allow file-read* file-read-metadata file-ioctl (subpath "/System/"))
+    - (allow file-read-metadata file-ioctl (literal "/private/var/db/.AppleSetupDone"))
+    # Its own temporary and cache folders only (T/<id>, C/<id>, …). The whole of /private/var/folders holds
+    # every app's, and Mulg's own: the entitlements it signs with and the IPAs it unpacks while installing.
+    - '(allow file* (regex #"^/private/var/folders/[^/]+/[^/]+/[A-Z0-9]/${BundleID}(/|$)"))'
+    - '(allow file-read-metadata (regex #"^/private/var/folders/[^/]+(/[^/]+(/[A-Z0-9])?)?$"))'
+    - (allow file* file-read* file-read-metadata file-ioctl (subpath "/private/var/db/timezone/tz/"))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/private/var/db/nsurlstoraged/dafsaData.bin"))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/private/var/folders/"))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/Library/Preferences/Logging/com.apple.diagnosticd.filter.plist"))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/Library/Caches/com.apple.iconservices.store"))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/Library/Apple/Library/Bundles/InputAlternatives.bundle"))
+    - (allow file-read* (literal "/dev/autofs_nowait") (literal "/dev/random") (literal "/dev/urandom"))
+    - (allow file-read* file-write-data (literal "/dev/null") (literal "/dev/zero"))
+    - '(allow file-read-data (regex #"^/private/var/db/mds/"))'
+    - (allow file-ioctl file* file-read* file-read-data file-read-metadata (subpath "/private/var/db/mds/system/"))
+    - '(allow file-read-metadata file-read* file-write* (regex #"^/private/var/db/mds/[0-9]+(/|$)"))'
+    - (allow file* file-read* file-read-data file-read-metadata file-ioctl file-write* file-write-data (subpath "/private/tmp"))
+    - (allow file-read-data (literal "${HomeDirectory}/Library/Preferences/com.apple.CloudKit.plist"))
+    - (allow file-read-metadata file-read* file-read-data (literal "/usr/share/langid/langid.inv"))
+    - |
+        (allow file-map-executable
+                (subpath "/Library/Apple/System/Library/Frameworks")
+                (subpath "/Library/Apple/System/Library/PrivateFrameworks")
+                (subpath "/System/Library/Frameworks")
+                (subpath "/System/Library/PrivateFrameworks")
+                (subpath "/System/iOSSupport/System/Library/Frameworks")
+                (subpath "/System/iOSSupport/System/Library/PrivateFrameworks")
+                (subpath "/usr/lib"))
+        (with-filter (system-attribute apple-internal)
+            (allow file-map-executable
+                    (subpath "/AppleInternal/Library/Frameworks")))
+    - (allow file-read-metadata (literal "/private/etc/localtime"))
+    - (allow file-read-metadata (path-ancestors "/System/Volumes/Data/private"))
+    - (allow file-read* (literal "/"))
+    - |
+        (allow file-read* file-read-metadata
+            (subpath "/Library/Apple/System")
+            (subpath "/Library/Filesystems/NetFSPlugins")
+            (subpath "/Library/Preferences/Logging")
+            (subpath "/System")
+            (subpath "/private/var/db/dyld")
+            (subpath "/private/var/db/timezone")
+            (subpath "/usr/lib"))
+    - |
+        (with-filter (system-attribute apple-internal)
+        (allow file-read*
+                (subpath "/AppleInternal/Library/Frameworks")))
+    - |
+        (allow file-read*
+            (literal "/dev/autofs_nowait")
+            (literal "/dev/random")
+            (literal "/dev/urandom")
+            (literal "/private/etc/master.passwd")
+            (literal "/private/etc/passwd")
+            (literal "/private/etc/protocols")
+            (literal "/private/etc/services"))
+    - (allow file-read* file-write-data file-ioctl (literal "/dev/dtracehelper"))
+    - |
+        (with-filter (system-attribute apple-internal)
+            (allow file-read* file-map-executable
+                    (subpath "/usr/local/lib/sanitizers")
+                    (subpath "/usr/appleinternal/lib/sanitizers")))
+    - |
+        (with-filter (system-attribute apple-internal)
+            (allow file-read* (literal "/usr/local/share/posix_spawn_filtering_rules")))
+        (with-filter (system-attribute apple-internal)
+            (allow file-read* (subpath "/AppleInternal/Library/Preferences/Logging"))
+            (allow file-read* file-map-executable (subpath "/usr/local/lib/log")))
+    - (allow file* file-read* file-read-metadata file-ioctl (literal "/System/Library/Frameworks/Foundation.framework/Foundation"))

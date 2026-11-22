@@ -1,0 +1,19 @@
+# Module card for `mapper`. Format and rules: PLAN.md §1.4–1.5.
+id: mapper
+kind: controls
+runs_in: game
+summary: 'In-game control mapper: a tinted layer over the game where a left click places a joystick, skill button, camera or drag area, a right click drops a skill button, a click on a control binds it to the next key, mouse button or controller button, and profiles are saved, loaded and duplicated without touching the existing ones (backups before every overwrite)'
+status: stable
+default: 'on'
+depends_on:
+- engine
+- contracts
+- keymaps
+owns:
+  # The editing rules live in the keymaps module (KeymapEditorModel); the controls module hosts the
+  # session (input routing, saving, profiles) through the engine's ControlEditing seam, so the two
+  # never import each other. Without this module, controls falls back to its built-in editor.
+  paths:
+  settings:
+  - mapper.*
+  hooks: []

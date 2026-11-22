@@ -1,0 +1,381 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Adaptive display off" : {
+      "extractionState" : "manual"
+    },
+    "Custom resolution" : {
+      "extractionState" : "manual"
+    },
+    "Match Mac display" : {
+      "extractionState" : "manual"
+    },
+    "Resizable window" : {
+      "extractionState" : "manual"
+    },
+    "Settings couldn't be saved" : {
+      "extractionState" : "manual"
+    },
+    "Show in Finder" : {
+      "extractionState" : "manual"
+    },
+    "Try Again" : {
+      "extractionState" : "manual"
+    },
+    "iPad screen (selected device)" : {
+      "extractionState" : "manual"
+    },
+    "%lld GB memory" : {
+      "extractionState" : "manual"
+    },
+    "%lld Hz display" : {
+      "extractionState" : "manual"
+    },
+    "120 FPS confirmed" : {
+      "extractionState" : "manual"
+    },
+    "120 FPS: iPad Pro M5" : {
+      "extractionState" : "manual"
+    },
+    "A capped frame rate at 1080p, for long sessions on battery." : {
+      "extractionState" : "manual"
+    },
+    "Add Game" : {
+      "extractionState" : "manual"
+    },
+    "Add a game now…" : {
+      "extractionState" : "manual"
+    },
+    "Add your first game" : {
+      "extractionState" : "manual"
+    },
+    "Allow frame rates above 60" : {
+      "extractionState" : "manual"
+    },
+    "Appearance" : {
+      "extractionState" : "manual"
+    },
+    "Apple silicon runs iPad games natively" : {
+      "extractionState" : "manual"
+    },
+    "Applied when a game is installed. Each game can change it on its Performance tab." : {
+      "extractionState" : "manual"
+    },
+    "As installed" : {
+      "extractionState" : "manual"
+    },
+    "Automatic" : {
+      "extractionState" : "manual"
+    },
+    "Back" : {
+      "extractionState" : "manual"
+    },
+    "Back up saves…" : {
+      "extractionState" : "manual"
+    },
+    "Balanced" : {
+      "extractionState" : "manual"
+    },
+    "Battery" : {
+      "extractionState" : "manual"
+    },
+    "Battery saver" : {
+      "extractionState" : "manual"
+    },
+    "Battery saver cap" : {
+      "extractionState" : "manual"
+    },
+    "Before you play" : {
+      "extractionState" : "manual"
+    },
+    "Browse Sources" : {
+      "extractionState" : "manual"
+    },
+    "Cap just below the refresh rate" : {
+      "extractionState" : "manual"
+    },
+    "Change it any time in Settings." : {
+      "extractionState" : "manual"
+    },
+    "Check again" : {
+      "extractionState" : "manual"
+    },
+    "Checking your Mac" : {
+      "extractionState" : "manual"
+    },
+    "Choose a backup folder" : {
+      "extractionState" : "manual"
+    },
+    "Choose a dated backup" : {
+      "extractionState" : "manual"
+    },
+    "Continue" : {
+      "extractionState" : "manual"
+    },
+    "Controls" : {
+      "extractionState" : "manual"
+    },
+    "Copy" : {
+      "extractionState" : "manual"
+    },
+    "Dark" : {
+      "extractionState" : "manual"
+    },
+    "Device identity is a known device" : {
+      "extractionState" : "manual"
+    },
+    "Device identity: iPad Pro 13-inch (M5)" : {
+      "extractionState" : "manual"
+    },
+    "Display refreshes at 120 Hz or more" : {
+      "extractionState" : "manual"
+    },
+    "Drop a decrypted .ipa onto the Library, or pick one from a source." : {
+      "extractionState" : "manual"
+    },
+    "Drop it on the Library, or click Add Game." : {
+      "extractionState" : "manual"
+    },
+    "Every device answer matches the device identity" : {
+      "extractionState" : "manual"
+    },
+    "Every game in one place, one click from playing." : {
+      "extractionState" : "manual"
+    },
+    "Experimental" : {
+      "extractionState" : "manual"
+    },
+    "Export diagnostics…" : {
+      "extractionState" : "manual"
+    },
+    "Exporting…" : {
+      "extractionState" : "manual"
+    },
+    "Frame-rate cap" : {
+      "extractionState" : "manual"
+    },
+    "Full-screen performance mode" : {
+      "extractionState" : "manual"
+    },
+    "Games" : {
+      "extractionState" : "manual"
+    },
+    "Games category (Game Mode) is set" : {
+      "extractionState" : "manual"
+    },
+    "Games run at up to %lld FPS on this display" : {
+      "extractionState" : "manual"
+    },
+    "Get a decrypted .ipa of a game you own." : {
+      "extractionState" : "manual"
+    },
+    "Golden Gate or later" : {
+      "extractionState" : "manual"
+    },
+    "Good afternoon" : {
+      "extractionState" : "manual"
+    },
+    "Good evening" : {
+      "extractionState" : "manual"
+    },
+    "Good morning" : {
+      "extractionState" : "manual"
+    },
+    "Home" : {
+      "extractionState" : "manual"
+    },
+    "I understand" : {
+      "extractionState" : "manual"
+    },
+    "Jump Back In" : {
+      "extractionState" : "manual"
+    },
+    "Keyboard, mouse and controller mapping." : {
+      "extractionState" : "manual"
+    },
+    "Large games may stutter with less than 16 GB" : {
+      "extractionState" : "manual"
+    },
+    "Leave the game's settings alone." : {
+      "extractionState" : "manual"
+    },
+    "Library" : {
+      "extractionState" : "manual"
+    },
+    "Light" : {
+      "extractionState" : "manual"
+    },
+    "Limit motion sensor updates" : {
+      "extractionState" : "manual"
+    },
+    "Liquid Glass and see-through windows. Reduce transparency in Accessibility turns it off everywhere." : {
+      "extractionState" : "manual"
+    },
+    "Low Power Mode" : {
+      "extractionState" : "manual"
+    },
+    "Low Power Mode is off" : {
+      "extractionState" : "manual"
+    },
+    "Metal performance HUD" : {
+      "extractionState" : "manual"
+    },
+    "MetalFX tested" : {
+      "extractionState" : "manual"
+    },
+    "Mulg includes open-source code under the GPL-3.0 and AGPL-3.0 licences. CREDITS.md in the source lists every project and its licence." : {
+      "extractionState" : "manual"
+    },
+    "Mulg needs macOS 27 Golden Gate" : {
+      "extractionState" : "manual"
+    },
+    "New games start with" : {
+      "extractionState" : "manual"
+    },
+    "No frame-rate cap below 120" : {
+      "extractionState" : "manual"
+    },
+    "Not tested yet" : {
+      "extractionState" : "manual"
+    },
+    "Off: full performance" : {
+      "extractionState" : "manual"
+    },
+    "On: games are held back. Turn it off in System Settings > Battery." : {
+      "extractionState" : "manual"
+    },
+    "Online games" : {
+      "extractionState" : "manual"
+    },
+    "Performance" : {
+      "extractionState" : "manual"
+    },
+    "Pick a look" : {
+      "extractionState" : "manual"
+    },
+    "Pick a profile and play." : {
+      "extractionState" : "manual"
+    },
+    "Play" : {
+      "extractionState" : "manual"
+    },
+    "MulgSign active" : {
+      "extractionState" : "manual"
+    },
+    "MulgSign turns off a macOS security check (Apple Mobile File Integrity) for every app on this Mac, not just games. Only use it if a game needs it, and undo it when you are done." : {
+      "extractionState" : "manual"
+    },
+    "Plenty for large games" : {
+      "extractionState" : "manual"
+    },
+    "ProMotion: games can run at up to 120 FPS" : {
+      "extractionState" : "manual"
+    },
+    "Profile for new games" : {
+      "extractionState" : "manual"
+    },
+    "Profiles up to 120 FPS on ProMotion displays." : {
+      "extractionState" : "manual"
+    },
+    "Quit the game before restoring." : {
+      "extractionState" : "manual"
+    },
+    "Render load is moderate" : {
+      "extractionState" : "manual"
+    },
+    "Report a 120 Hz ProMotion screen" : {
+      "extractionState" : "manual"
+    },
+    "Reports an iPad Pro (M5) with a 120 Hz screen and lifts the frame cap." : {
+      "extractionState" : "manual"
+    },
+    "Resolution: 1080p" : {
+      "extractionState" : "manual"
+    },
+    "Resolution: 1440p" : {
+      "extractionState" : "manual"
+    },
+    "Resolution: match the iPad Pro screen" : {
+      "extractionState" : "manual"
+    },
+    "Restore saves…" : {
+      "extractionState" : "manual"
+    },
+    "Saves and reports" : {
+      "extractionState" : "manual"
+    },
+    "Screen matches the device identity" : {
+      "extractionState" : "manual"
+    },
+    "See All" : {
+      "extractionState" : "manual"
+    },
+    "Share this game's result" : {
+      "extractionState" : "manual"
+    },
+    "Show Welcome Again" : {
+      "extractionState" : "manual"
+    },
+    "Skip" : {
+      "extractionState" : "manual"
+    },
+    "Start Playing" : {
+      "extractionState" : "manual"
+    },
+    "Switch to battery saver on battery or in Low Power Mode" : {
+      "extractionState" : "manual"
+    },
+    "System Integrity Protection off" : {
+      "extractionState" : "manual"
+    },
+    "The MetalFX layer changes how the game's image reaches the screen. Online games with anti-cheat may react to it. Try it on a secondary account first." : {
+      "extractionState" : "manual"
+    },
+    "The game will see an iPad Pro instead of a Mac. Online games may treat this as breaking their terms and could flag your account. Try it on a secondary account first." : {
+      "extractionState" : "manual"
+    },
+    "The virtual controller makes the game see a game controller. Some online games treat controller players differently or restrict it. Try it on a secondary account first." : {
+      "extractionState" : "manual"
+    },
+    "Translucent windows" : {
+      "extractionState" : "manual"
+    },
+    "Turn off (run in Terminal, then restart)" : {
+      "extractionState" : "manual"
+    },
+    "Turn on (run in Terminal, then restart)" : {
+      "extractionState" : "manual"
+    },
+    "Uncapped, just below the refresh rate, at 1440p." : {
+      "extractionState" : "manual"
+    },
+    "What this Mac can do for games." : {
+      "extractionState" : "manual"
+    },
+    "Works" : {
+      "extractionState" : "manual"
+    },
+    "You're all set" : {
+      "extractionState" : "manual"
+    },
+    "Your iPad games, tuned for this Mac." : {
+      "extractionState" : "manual"
+    },
+    "iPad games need Apple silicon" : {
+      "extractionState" : "manual"
+    },
+    "macOS %lld" : {
+      "extractionState" : "manual"
+    },
+    "Bring Forward" : {
+      "extractionState" : "manual"
+    },
+    "Starting…" : {
+      "extractionState" : "manual"
+    },
+    "Launch Failed – Retry" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

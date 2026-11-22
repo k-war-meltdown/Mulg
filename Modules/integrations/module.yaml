@@ -1,0 +1,35 @@
+# Module card for `integrations`. Format and rules: PLAN.md §1.4–1.5.
+id: integrations
+kind: integration
+runs_in: both
+summary: 'No macOS Keychain: credential database keys and the MulgVault password are sealed by the Secure Enclave in Mulg files, explicit game credential imports use virtual MulgChain while system imports stay native, game keychain calls never fall back to the real Keychain (session-only store when MulgChain is off) and the game sandbox walls off the Keychain services; one migration launch moves older Keychain-held keys; Standard login-password accessibility enforced through native hardware-protected envelopes with atomic refresh/policy changes and preserved encrypted storage/query constraints; Opt-out native authentication presentation repair and web-session lifetime ownership with unchanged provider callbacks, bounded credential-free session reports and visible Apple provisioning limitations; encrypted MulgChain opened off the launch path with validated data-protection implementation selectors, strict stored-attribute matching, game-caller credential hooks, stable references, native authentication/status preservation, checkpointed recovery, protected keys, host-only MulgVault and Discord'
+status: stable
+default: 'on'
+depends_on:
+- engine
+- contracts
+- library
+owns:
+  paths:
+  - Host/Mulg/Model/DiscordActivity.swift
+  - Host/Mulg/Utils/MulgVault.swift
+  - Host/Mulg/Services/SoundDeviceService.swift
+  settings:
+  - discordActivity
+  - mulgChain
+  - mulgChainDebugging
+  - mulg.integrations.authenticationCompatibility
+  hooks:
+  - SecItemCopyMatching
+  - SecItemAdd
+  - SecItemUpdate
+  - SecItemDelete
+  - SecKeyCreateRandomKey
+  - SecKeyGeneratePair
+  - ASAuthorizationController.performRequests
+  - 'ASAuthorizationController.performRequestsWithOptions:'
+  - 'ASWebAuthenticationSession.initWithURL:callbackURLScheme:completionHandler:'
+  - 'ASWebAuthenticationSession.initWithURL:callback:completionHandler:'
+  - ASWebAuthenticationSession.canStart
+  - ASWebAuthenticationSession.start
+  - ASWebAuthenticationSession.cancel

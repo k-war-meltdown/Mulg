@@ -1,0 +1,10 @@
+id: control-layout
+kind: contract
+runs_in: both
+summary: 'Shared HUD group constraints, measured scale/spacing and visibility regimes, bounded regional reacquisition, binding-preserving layout snapshots and validated interpolation above the existing resolution/proportion canvas'
+status: experimental
+default: always
+depends_on:
+- keymaps
+owns:
+  paths: []

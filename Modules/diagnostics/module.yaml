@@ -1,0 +1,29 @@
+# Module card for `diagnostics`. Format and rules: PLAN.md §1.4–1.5.
+id: diagnostics
+kind: diagnostics
+runs_in: both
+summary: 'Sendable performance snapshots encoded by the engine utility writer; Metal HUD, logs and debugger gated during minimal recovery, preserved crash capture using immutable loader snapshots, one main-thread watcher for freeze reports and debugger stalls, module notes in crash and freeze reports, measurement export and identity probe'
+status: stable
+default: 'on'
+depends_on:
+- engine
+- contracts
+- library
+owns:
+  paths:
+  - Host/Mulg/ViewModel/Log.swift
+  settings:
+  - metalHUD
+  - diagnostics.*
+  hooks:
+  - sigaction SIGSEGV, SIGBUS, SIGILL, SIGFPE, SIGTRAP, SIGABRT, SIGSYS (crash reports, chained to the previous handlers)
+  - NSSetUncaughtExceptionHandler (crash reports, chained)
+events:
+  listens:
+  - InputDelivered
+  - FramePresented
+  - WindowVisibilityChanged
+  - ModulesStarted
+  - DiagnosticNote
+  publishes:
+  - FrameReportingRequested

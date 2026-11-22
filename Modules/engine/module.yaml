@@ -1,0 +1,47 @@
+# Module card for `engine`. Format and rules: PLAN.md §1.4–1.5.
+id: engine
+kind: engine
+runs_in: game
+summary: 'Foundation and C share owned-directory path repair before downloads and metadata diverge; Single-slash absolute joins repaired under owned writable directories for all moved-data games; Real data-volume capacity queries for relocated games across C and Foundation APIs; External-data and bundle roots included in immutable Unreal path repair; Unsupported iOS continued-processing task submissions return the public unavailable error on Catalyst without queuing work that cannot launch; Game-owned suspend callbacks follow the keep-running lifecycle policy without changing UIKit state; Explicitly linked game storage adapters preserve their declared API providers and native framework bindings; Preserve SDK-owned system methods during shared hook installation; Always-on game-only Catalyst memory compatibility, including pre-constructor callers, optional-query fallbacks and live identity budgets; Native Metal factory observation without eager device creation; One frame-start wait across display-link and worker handoffs; value-only report snapshots encode on the coalesced utility writer; Metadata-only privacy hook installation avoids initializing camera/audio services under dyld; persistent recovery disables require module attribution, while unfinished launches retain temporary safe mode; native command publication through the bridge with UIKit fallback; Runtime core: CoreAudio device setup deferred until after dyld initialization with early session hooks and cancelled pending work at shutdown; launch recovery advances even when the optional diagnostic archive fails; one immutable session marker for startup/settings/compatibility diagnostic evidence; native-bundle validation before session/settings/Metal, shader compilation optimization deferred to scene activation; the ControlEditing seam through which controls hosts a control editor supplied by another module, menu commands without shortcuts or with a checkmark; frame-critical game threads (render, per-frame workers, by name) at performance-core QoS; generation-checked hook reports, background report writer, learned read-ahead order sampled from open files (no open hooks), frame/input signposts, launch-scoped audio-device protection with native client formats and actual session reports; native fullscreen scene capability independent of optional display features, verified plugins/cards, recovery before optional diagnostics, independent shutdown deadline, transactional settings, platform-aware images, effective UIKit lifecycle, rendered-layer viewports with frozen affine gesture transforms, point-and-output-pixel geometry revisions and memory pressure'
+status: stable
+default: always
+depends_on:
+- contracts
+- bridge
+owns:
+  # GameViewport publishes safe-area changes in the same point/output geometry revision.
+  paths:
+  settings:
+  - privacy.*
+  hooks:
+  - 'BGTaskScheduler.submitTaskRequest:error:, submitTaskRequest:completionHandler: (game-only unsupported continued-processing requests on Catalyst)'
+  - os_proc_available_memory (game-only Catalyst compatibility before and after runtime boot; identity-independent, native answers and real exhaustion preserved)
+  - 'MTLCreateSystemDefaultDevice, MTLCopyAllDevices (native results and ownership preserved; identity observes real device classes without eager device creation)'
+  - 'AVAudioSession.recordPermission, requestRecordPermission:, AVAudioApplication.recordPermission, requestRecordPermissionWithCompletionHandler:, AVCaptureDevice.authorizationStatusForMediaType:, requestAccessForMediaType:completionHandler:, PHPhotoLibrary authorization, CLLocationManager authorization (privacy: game callers get "denied" for what the game may not use, and for a microphone the Mac does not have)'
+  - 'AVAudioSession.setPreferredSampleRate:error:, setActive:error:, setActive:withOptions:error: (game-only output preference; native client formats and actual-rate getters)'
+  - 'AudioComponentInstanceNew, AudioComponentInstantiate (output units get a render notification that silences them while muted), AudioQueueNewOutput, AudioQueueNewOutputWithDispatchQueue, AudioQueueSetParameter, AudioQueueGetParameter, AudioQueueDispose (output queues muted through their volume, game-visible volume preserved, per-queue teardown leases) (engine.muteWhenUnfocused)'
+  - 'NSFileManager.createDirectoryAtPath:withIntermediateDirectories:attributes:error:, createDirectoryAtURL:withIntermediateDirectories:attributes:error: (game-only owned-root path repair)'
+  - 'NSString.stringByAppendingPathComponent:, NSURL.URLByAppendingPathComponent:, URLByAppendingPathComponent:isDirectory: (game-only owned-root join repair; native callers, ordinary paths and URL metadata retained)'
+  - 'NSFileManager.attributesOfFileSystemForPath:error:, NSURL.getResourceValue:forKey:error:, resourceValuesForKeys:error: (game-only real data-volume capacity; unrelated metadata and native callers retained)'
+  - getenv(HOME), NSHomeDirectory, NSTemporaryDirectory, NSSearchPathForDirectoriesInDomains (explicitly linked game storage adapter exports; native framework imports and system preferences retained)
+  - 'NSFileManager.homeDirectoryForCurrentUser, temporaryDirectory, URLsForDirectory:inDomains:, URLForDirectory:inDomain:appropriateForURL:create:error: (external game directories and same-volume atomic replacement)'
+  - 'UIApplication.beginBackgroundTaskWithExpirationHandler:, beginBackgroundTaskWithName:expirationHandler:, endBackgroundTask: (bounded cloud shutdown with partial-install fallback)'
+  - 'UIApplication.applicationState, UIScene.activationState (game-only synthetic lifecycle fallback)'
+  - 'Game-owned applicationWillResignActive:, applicationDidEnterBackground:, sceneWillResignActive:, sceneDidEnterBackground: (keep-running suspend policy)'
+  - 'NSNotificationCenter.addObserver:selector:name:object:, addObserverForName:object:queue:usingBlock:, removeObserver:, removeObserver:name:object: (native passthrough; game-owned fallback lifecycle callbacks and input observer transform seam and input observer transform seam)'
+  - 'UIView.layoutSubviews (main-thread viewport geometry publication)'
+  - dyld_get_active_platform
+  - pthread_setname_np (frame-critical game threads to performance-core QoS; game callers only)
+  - open, stat, lstat, access, rename, unlink, mkdir, rmdir, opendir, fopen, statfs, statvfs (explicitly linked game path and capacity adapters; native framework imports retained)
+  - usleep (sleep-spam throttle, opt-in blockSleepSpamming; plain pass-through when off)
+  - 'VSSubscriptionRegistrationCenter.setCurrentSubscription: (no-op on the Mac; some games crash calling it; private class)'
+  - 'NSString._stringByReplacingOccurrencesOfRegularExpressionPattern:withTemplate:options:range: (Unreal games on Chinese system encodings only: empty strings return at once; private method)'
+events:
+  publishes:
+  - engine.settingsChanged
+  - engine.memoryPressure
+  - GameClosing
+  - GameShutdownFinished
+  - ModulesStarted
+  - SceneActivated
+pending_splits: []

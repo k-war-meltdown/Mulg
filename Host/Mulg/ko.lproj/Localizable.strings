@@ -1,0 +1,385 @@
+/* (No Comment) */
+"alert.app.delete" = "모든 앱 데이터가 삭제됩니다. 앱 내부 파일을 다시 다운로드해야 할 수 있습니다. 정말로 진행하겠습니까?";
+
+/* (No Comment) */
+"alert.app.preferences" = "모든 인앱 설정이 삭제됩니다. 정말로 진행하겠습니까?";
+
+/* (No Comment) */
+"alert.appCacheCleared" = "앱 데이터가 지워졌습니다!";
+
+/* (No Comment) */
+"alert.error" = "오류가 발생했습니다!";
+
+/* (No Comment) */
+"alert.errorImportKm" = "키매핑을 가져오는 데 문제가 발생했습니다!";
+
+/* (No Comment) */
+"alert.kmImported" = "키매핑을 가져왔습니다!";
+
+/* (No Comment) */
+"alert.moveAppToApplications.move" = "응용 프로그램 폴더로 이동하기";
+
+/* (No Comment) */
+"alert.restart" = "Mulg를 다시 시작하세요.";
+
+/* (No Comment) */
+"alert.success" = "성공";
+
+/* (No Comment) */
+"button.Cancel" = "취소";
+
+/* (No Comment) */
+"button.Close" = "닫기";
+
+/* (No Comment) */
+"button.Install" = "설치";
+
+/* (No Comment) */
+"button.OK" = "확인";
+
+/* (No Comment) */
+"button.Proceed" = "진행";
+
+/* (No Comment) */
+"error.corruptedIPA" = "이 .ipa 파일은 손상되었습니다. \"Info.plist\" 파일을 포함하고 있지 않습니다.";
+
+/* (No Comment) */
+"error.waitInstallation" = "현재 설치가 끝날 때까지 기다려 주세요!";
+
+/* (No Comment) */
+"menubar.checkForUpdates" = "업데이트 확인...";
+
+/* (No Comment) */
+"menubar.discord" = "Discord";
+
+/* (No Comment) */
+"menubar.documentation" = "문서";
+
+/* (No Comment) */
+"menubar.exportToSideloady" = "Sideloadly로 내보내기";
+
+/* (No Comment) */
+"menubar.github" = "GitHub";
+
+/* (No Comment) */
+"menubar.log.copy" = "로그 복사";
+
+/* (No Comment) */
+"menubar.website" = "웹사이트";
+
+/* (No Comment) */
+"notification.appInstalled" = "앱이 설치되었습니다!";
+
+/* (No Comment) */
+"notification.appInstalled.message" = "Mulg에서 확인하세요!";
+
+/* (No Comment) */
+"mulggame.clearCache" = "앱 데이터 지우기";
+
+/* (No Comment) */
+"mulggame.clearPreferences" = "앱 설정 지우기";
+
+/* (No Comment) */
+"mulggame.delete" = "앱 삭제하기";
+
+/* (No Comment) */
+"mulggame.exportKm" = "키매핑 내보내기";
+
+/* (No Comment) */
+"mulggame.importKm" = "키매핑 가져오기";
+
+/* (No Comment) */
+"mulggame.install.addToLib" = "보관함에 앱을 추가하는 중...";
+
+/* (No Comment) */
+"mulggame.install.copy" = "앱 복사하는 중...";
+
+/* (No Comment) */
+"mulggame.install.createWrapper" = "앱 컨테이너 만드는 중...";
+
+/* (No Comment) */
+"mulggame.progress.finished" = "완료됨";
+
+/* (No Comment) */
+"mulggame.install.installMulgKit" = "MulgKit 설치 중...";
+
+/* (No Comment) */
+"mulggame.install.signing" = "앱 코드 서명 중...";
+
+/* (No Comment) */
+"mulggame.install.unzip" = ".ipa 파일에서 앱 추출하는 중...";
+
+/* (No Comment) */
+"mulggame.openCache" = "앱 데이터 열기";
+
+/* (No Comment) */
+"mulggame.settings" = "설정";
+
+/* (No Comment) */
+"mulggame.showInFinder" = "Finder에서 보기";
+
+/* (No Comment) */
+"preferences.button.checkForUpdates" = "업데이트 확인";
+
+/* (No Comment) */
+"preferences.tab.updates" = "업데이트";
+
+/* (No Comment) */
+"preferences.toggle.automaticUpdates" = "자동으로 업데이트 확인";
+
+/* (No Comment) */
+"settings.button.discord" = "사용자 지정 Discord 활동 상태";
+
+/* (No Comment) */
+"settings.button.clearActivity" = "사용자 지정 활동 상태 지우기";
+
+/* (No Comment) */
+"settings.picker.iosDevice" = "iOS 기기:";
+
+/* %.f */
+"settings.slider.mouseSensitivity" = "마우스 감도: %.f";
+
+/* (No Comment) */
+"settings.text.applicationID" = "애플리케이션 ID";
+
+/* (No Comment) */
+"settings.text.customHeight" = "높이";
+
+/* (No Comment) */
+"settings.text.customWidth" = "너비";
+
+/* (No Comment) */
+"settings.text.details" = "세부 사항";
+
+/* (No Comment) */
+"settings.text.details.help" = "제목 아래의 첫 번째 줄";
+
+/* (No Comment) */
+"settings.text.image" = "이미지";
+
+/* (No Comment) */
+"settings.text.image.help" = "이미지 또는 개발자 포털 에셋 이름에 대한 링크";
+
+/* (No Comment) */
+"settings.text.state" = "상태";
+
+/* (No Comment) */
+"settings.text.state.help" = "제목 아래의 두 번째 줄";
+
+/* (No Comment) */
+"settings.toggle.disableDisplaySleep" = "화면 잠자기 사용 안 함";
+
+/* (No Comment) */
+"settings.toggle.discord" = "Discord 활동 상태 사용";
+
+/* (No Comment) */
+"settings.toggle.jbBypass" = "탈옥 우회 사용 (실험적)";
+
+/* (No Comment) */
+"settings.toggle.km" = "키매핑";
+
+/* (No Comment) */
+"soundAlert.failureText" = "현재 출력 장치의 샘플 레이트를 48 kHz로 설정하지 못했습니다. ‘오디오 MIDI 설정’ 앱에서 수동으로 샘플 레이트를 설정할 수 있습니다";
+
+/* (No Comment) */
+"soundAlert.informativeText" = "현재 출력 장치의 샘플 레이트가 44.1 또는 48 KHz가 아닙니다! 충돌이 발생할 수 있습니다. 현재 출력 장치의 샘플 레이트를 48 kHz로 설정하겠습니까?";
+
+/* (No Comment) */
+"soundAlert.messageText" = "올바르지 않은 오디오 설정이 감지되었습니다!";
+
+/* (No Comment) */
+"soundAlert.successText" = "현재 출력 장치의 샘플 레이트를 48 kHz로 설정했습니다";
+
+/* (No Comment) */
+"settings.title" = "%@ 설정";
+"mulggame.exportKmPanel.fieldLabel" = "MulgMap 이름:";
+"sidebar.appLibrary" = "앱 보관함";
+"sidebar.ipaLibrary" = "IPA 보관함";
+"alert.moveAppToApplications.title" = "응용 프로그램 폴더로 이동할까요?";
+"alert.moveAppToApplications.subtitle" = "Mulg가 올바르게 실행되려면 반드시 응용 프로그램 폴더에 있어야 합니다. Mulg를 자동으로 이동하려면 아래 버튼을 누르세요.";
+"button.Quit" = "종료";
+"error.appEncrypted" = "이 앱은 암호화되어 있습니다! 복호화된 IPA를 사용해 주세요. iMazing IPA는 지원되지 않습니다!";
+"error.appCorrupted" = "이 IPA에 문제가 발생했습니다. 다른 IPA를 사용해 보세요.";
+"error.appProhibited" = "Mulg를 통해 이 앱을 사용하면 차단될 수 있습니다!";
+"settings.tab.info" = "정보";
+"settings.tab.km" = "키매핑";
+"settings.toggle.km.help" = "터치 전용 게임에 키보드 지원을 추가합니다. Command + K로 편집기 창을 열 수 있습니다.";
+"settings.tab.graphics" = "그래픽";
+"settings.picker.adaptiveRes" = "해상도:";
+"settings.picker.adaptiveRes.help" = "앱 화면의 해상도를 변경합니다";
+"settings.picker.adaptiveRes.0" = "앱 기본값";
+"settings.picker.adaptiveRes.1" = "자동 (디스플레이 기반)";
+"settings.picker.adaptiveRes.5" = "사용자화";
+"settings.picker.aspectRatio" = "화면비:";
+"settings.toggle.disableDisplaySleep.help" = "이 앱이 작동하는 중 화면이 꺼지는 것을 방지합니다";
+"settings.toggle.jbBypass.help" = "일부 게임에서의 탈옥 감지를 우회하려고 시도합니다 (항상 작동이 보장되지는 않습니다)";
+"settings.info.bundleName" = "번들 이름:";
+"settings.info.bundleIdentifier" = "번들 식별자:";
+"settings.info.executableName" = "실행 파일 이름:";
+"settings.info.minimumOSVersion" = "최소 OS 버전:";
+"settings.info.url" = "위치:";
+"settings.resetSettings" = "설정 초기화";
+"settings.resetKm" = "키매핑 초기화";
+"settings.resetSettingsCompleted" = "설정을 기본값으로 되돌렸습니다!";
+"settings.resetKmCompleted" = "키매핑을 초기화했습니다!";
+"settings.tab.misc" = "기타";
+"settings.toggle.hud" = "Metal HUD 사용";
+"settings.info.bundleVersion" = "번들 버전:";
+"mulggame.deleteConfirm" = "삭제하기";
+"mulggame.deleteMessage" = "%@을(를) 삭제하겠습니까?";
+"alert.legacyImport.title" = "레거시 앱 설정이 감지되었습니다!";
+"alert.legacyImport.subtitle" = "이전 버전의 설정과 키맵 파일이 존재합니다. 새 포맷으로 변환하겠습니까?";
+"button.Convert" = "변환";
+"settings.info.displayName" = "표시 이름:";
+"settings.text.detectedResolution" = "감지된 해상도:";
+"mulggame.add" = "앱 추가하기";
+"alert.wrongFileType.title" = "파일 형식 잘못됨!";
+"alert.wrongFileType.subtitle" = "Mulg는 유효한 .ipa 파일만 설치할 수 있습니다.";
+"ipaLibrary.noSources.title" = "추가된 IPA 소스 없음";
+"ipaLibrary.noSources.button" = "소스 추가하기";
+"mulggame.addSource" = "소스 추가하기";
+"ipaLibrary.noSources.subtitle" = "현재 어떠한 IPA 소스도 추가되지 않았습니다. 다음 버튼을 클릭하고 하나를 추가하세요.";
+"ipaLibrary.noNetworkConnection.toast" = "인터넷에 연결되지 않았습니다!";
+"preferences.tab.ipasource" = "IPA 소스";
+"preferences.button.addSource" = "소스 추가하기";
+"preferences.button.deleteSource" = "소스 삭제하기";
+"preferences.button.moveSourceUp" = "소스를 위로 올리기";
+"preferences.button.moveSourceDown" = "소스를 아래로 내리기";
+"preferences.popover.valid" = "유효한 링크";
+"preferences.popover.badurl" = "URL이 유효하지 않습니다!";
+"preferences.popover.badjson" = "JSON이 유효하지 않거나 찾을 수 없습니다!";
+"preferences.textfield.url" = "소스 URL...";
+"mulggame.download.downloading" = "다운로드 중";
+"error.waitDownload" = "현재 다운로드가 끝날 때까지 기다려 주세요!";
+"mulggame.progress.failed" = "실패함";
+"alert.supression" = "Mulg 환경설정에서 변경할 수 있습니다";
+"preferences.toggle.clearAppData" = "데이터 지우기";
+"preferences.tab.uninstall" = "삭제";
+"preferences.whenUninstalling" = "삭제할 때:";
+"preferences.toggle.showUninstall" = "경고 팝업 보기";
+"preferences.toggle.removeKeymap" = "키맵 제거하기";
+"preferences.toggle.removeSetting" = "설정 제거하기";
+"preferences.toggle.removeEntitlements" = "권한 제거하기";
+"preferences.button.pruneFiles" = "파일 정리";
+"preferences.prune.alert" = "모든 파일을 정리하겠습니까?";
+"preferences.prune.message" = "설정, 키매핑, 자격 증명, 앱 데이터를 포함한 모든 불필요한 것을 제거합니다";
+"menubar.clearCache" = "캐시 지우기";
+"preferences.tab.install" = "설치";
+"preferences.toggle.showInstallPopup" = "MulgKit 설치 팝업 보기";
+"preferences.toggle.alwaysInstallMulgKit" = "항상 MulgKit 설치";
+"alert.install.injectMulgKit" = "MulgKit 주입";
+"button.Yes" = "예";
+"button.No" = "아니요";
+"settings.noMulgKit" = "이 앱에는 MulgKit가 설치되지 않았습니다";
+"settings.removeMulgKit" = "MulgKit 제거";
+"settings.info.mulgKit" = "MulgKit 설치:";
+"mulggame.refreshSources" = "소스 다시 로드";
+"error.appMaliciousProhibited" = "이 앱은 Mac에서 악의적으로 작동하며 기기를 부팅할 수 없는 상태로 만들 수 있으므로 Mulg에서 차단됩니다. (삭제하는 중...)";
+"alert.install.injectMulgKitQuestion" = "이 응용 프로그램에 MulgKit를 주입하겠습니까?";
+"alert.install.mulgKitInformative" = "MulgKit는 화면 터치, 사용자 지정 디스플레이 해상도 등에 키를 바인딩할 수 있는 도구이지만 특정 앱에서 중단될 수 있습니다";
+"state.pendingReboot" = "재시동 대기 중";
+"configSigning.info.SIP" = "AMFI를 끄려면 SIP를 완전히 종료해야 합니다.";
+"configSigning.info.SIPHeader" = "시스템 무결성 보호 (SIP)";
+"configSigning.info.AMFI" = "가짜 서명을 허용하여 앱을 올바른 팀 ID로 실행하기 위해서는 AMFI를 종료해야 합니다";
+"configSigning.info.AMFIHeader" = "Apple 모바일 파일 무결성 (AMFI)";
+"configSigning.action.shutdown" = "내 Mac 종료";
+"configSigning.action.copyCommand" = "클립보드에 명령 복사하기";
+"configSigning.action.restart" = "내 Mac 재시동";
+"configSigning.step.disableSIP" = "복구 모드에서 SIP를 사용 해제해 주세요";
+"configSigning.step.disableAMFI" = "AMFI를 사용 해제해 주세요";
+"configSigning.step.AMFIreboot" = "AMFI가 사용 해제되었습니다. 재시동해 주세요";
+"button.Help" = "도움말";
+"button.Dismiss" = "닫기";
+"state.enabled" = "사용";
+"state.disabled" = "사용 안 함";
+"menubar.configSigning" = "서명 구성";
+"configSigning.header" = "패키지 서명 구성";
+"configSigning.subtext" = "패키지 서명은 인증 같은 작업을 위해 올바른 팀 ID를 필요로 하는 \n앱의 문제를 해결하는 데 도움이 됩니다. \n이 기능을 사용 설정하면 보안 위험이 발생할 수 있습니다.\n\n 따라서 필요하지 않다면 사용하지 않는 것이 좋습니다";
+"configSigning.step.complete" = "패키지 서명을 성공적으로 구성했습니다";
+"configSigning.alert.copied" = "명령이 복사되었습니다!";
+"configSigning.alert.info" = "Terminal.app에 명령을 붙여넣고 실행하세요. Mac이 재시동됩니다";
+"ipaLibrary.version.older" = "이 버전은 설치되어 있는 버전보다 오래됐습니다";
+"ipaLibrary.version.same" = "앱이 이미 설치되어 있습니다";
+"settings.text.debugger" = "디버거:";
+"settings.toggle.lldb" = "LLDB로 열기";
+"settings.toggle.lldbWithTerminal" = "터미널에서 열기";
+"ipaLibrary.version.newer" = "이 버전은 설치되어 있는 버전보다 최신입니다";
+"ipaLibrary.alert.download" = "이 버전의 %@을(를) 다운로드하겠습니까?";
+"ipaLibrary.download" = "다운로드";
+"alert.differentBundleIdKeymap.message" = "이 키매핑은 다른 앱을 위해 만들어졌을 수 있습니다.";
+"alert.differentBundleIdKeymap.text" = "정말로 이 키매핑을 가져오겠습니까?";
+"error.failedToStripBinary" = "fat 바이너리에서 ARM64 아키텍처를 찾을 수 없습니다!";
+"settings.mulgChain.debugging" = "MulgChain 디버깅";
+"settings.mulgChain.enable" = "MulgChain 사용 (실험적)";
+"settings.mulgChain.help" = "이 애플리케이션에 대한 MulgChain 지원을 활성화하여 Apple 키체인 서비스를 (부분적으로) 사용할 수 있도록 합니다";
+"mulggame.noSources.title" = "설치된 IPA 없음";
+"mulggame.noSources.subtitle" = "현재 설치된 IPA가 없습니다. 아래 버튼을 클릭하여 가져오세요.";
+"settings.tab.bypasses" = "우회";
+"mulggame.download.integrityCheck" = "파일 무결성 확인:";
+"mulggame.download.differentChecksum" = "체크섬이 다릅니다! 설치를 계속하겠습니까?";
+"mulggame.download.differentChecksumDesc" = "\"%@\"이(가) 아닌 \"%@\"을(를) 받았습니다";
+"mulggame.progress.canceled" = "취소됨";
+"mulggame.clearMulgChain" = "MulgChain 데이터 지우기";
+"mulggame.importIPA" = "IPA 가져오기";
+"ipaLibrary.noNetworkConnection.required" = "IPA 라이브러리는 인터넷 연결이 필요합니다";
+"preferences.toggle.removeMulgChain" = "MulgChain 제거하기";
+"preferences.popover.duplicate" = "링크 복사하기";
+"alert.app.clearMulgChain" = "모든 MulgChain 데이터가 지워집니다. 앱에 다시 로그인해야 할 수 있습니다. 계속하겠습니까?";
+"button.Reload" = "다시 로드";
+"settings.highResolution" = "높은 해상도는 충돌을 일으킬 수 있습니다";
+"settings.picker.windowFix" = "디스플레이 문제 수정";
+"settings.picker.windowFix.help" = "앱이 정상적으로 표시되는 데 도움이 될 수 있는 창 수정 적용";
+"settings.picker.windowFixMethod.0" = "기본";
+"settings.picker.windowFixMethod.1" = "대체";
+"settings.toggle.introspection" = "내장 보관함 삽입";
+"settings.toggle.introspection.help" = "앱에 시스템 내장 라이브러리를 추가합니다. 일부 앱이 올바르게 시작되지 않는 문제를 해결할 수 있습니다";
+"preferences.popover.checking" = "URL 검사";
+"settings.picker.scaler" = "해상도";
+"mulgvault.button.lockAll" = "모든 체인 잠그기";
+"mulgvault.button.changePassword" = "마스터 암호 변경";
+"mulgvault.toggle.startupPrompt" = "MulgVault 시작 시 암호 묻기";
+"mulgvault.toggle.startupPrompt.help" = "MulgVault가 애플리케이션을 시작할 때 마스터 암호를 묻는 메시지를 표시합니다. 사용 해제하면 MulgChain을 사용하는 앱을 시작할 때 메시지가 표시됩니다.";
+"mulgvault.setup.useGeneratedKey" = "자동으로 관리";
+"mulgvault.setup.useUserKey" = "내 키 사용";
+"button.Enable" = "사용";
+"button.Reset" = "초기화";
+"button.Unlock" = "잠금 해제";
+"settings.toggle.rootWorkDir" = "최상위 디렉토리에서 앱 시작";
+"settings.toggle.rootWorkDir.help" = "iOS에서와 마찬가지로 앱의 작업 디렉토리를 /로 변경합니다. 앱이 오작동할 경우 이 기능을 끄세요";
+"mulgvault.masterPassword" = "마스터 암호";
+"mulgvault.confirmMasterPassword" = "마스터 암호 확인";
+"mulgvault.oldMasterPassword" = "현재 마스터 암호";
+"mulgvault.error.blankPassword" = "암호는 비워둘 수 없습니다";
+"mulgvault.error.notMatch" = "암호가 일치하지 않습니다";
+"mulgvault.error.incorrectPassword" = "잘못된 암호";
+"mulgvault.status.title" = "MulgVault 상태:";
+"mulgvault.status.managedPassword" = "관리 암호로 사용 설정됨";
+"mulgvault.status.userPassword" = "사용자 암호로 사용 설정됨";
+"mulgvault.status.chainCount" = "MulgVault 체인 상태: ";
+"mulgvault.status.unlockedCount %@ %@" = "잠금 해제된 체인 %@개 (총 %@개)";
+"mulgvault.setup.encryptionKey" = "암호화 키: ";
+"mulgvault.setupPrompt.title" = "MulgVault에 사용할 마스터 암호를 입력하세요";
+"mulgvault.changePasswordPrompt.title" = "기존 마스터 암호와 새 암호를 입력하여 MulgVault 암호화 키를 업데이트하세요";
+"mulgvault.removePrompt.title" = "MulgVault 암호화를 제거하려면 마스터 암호를 입력하세요";
+"mulgvault.unlockPrompt.title" = "MulgVault를 잠금 해제하려면 마스터 암호를 입력하세요";
+"mulgvault.alert.title" = "Keychain이 잠금 해제되지 않았습니다";
+"mulgvault.alert.content" = "현재 세션의 Keychain 접근이 비활성화되었습니다";
+"settings.toggle.autoKM" = "키매핑 시작";
+"settings.toggle.autoKM.help" = "텍스트 입력이 감지되면 자동으로 키매핑 비활성화";
+"settings.applicationCategoryType" = "애플리케이션 유형";
+"settings.toggle.iosFrameworks" = "iOS 프레임워크 강제 삽입";
+"settings.info.alias" = "별명:";
+"settings.toggle.enableScrollWheel.help" = "키매핑에서 스크롤 휠 사용";
+"settings.toggle.iosFrameworks.help" = "앱에 시스템 iOS 라이브러리를 추가합니다. iOS 프레임워크를 찾을 수 없는 일부 앱의 문제를 해결합니다";
+"settings.toggle.enableScrollWheel" = "스크롤 휠 사용";
+"ipaLibrary.info" = "App Info";
+"ipaLibrary.info.notAvailable" = "Link not valid for this app";
+"ipaLibrary.info.checksum.none" = "None provided";
+"ipaLibrary.info.title" = "%@ Info";
+"ipaLibrary.unavailable" = "The link is unavailable";
+"ipaLibrary.info.itunes" = "ITunes Lookup:";
+"ipaLibrary.info.checksum" = "Checksum:";
+"ipaLibrary.AlphabeticalSort" = "Sort source apps alphabetically";
+"alert.open.appstore" = "Open Mac App Store";
+"macos.version" = "This app can be installed from Mac App Store";
+"alert.install.anyway" = "Install Anyway";
