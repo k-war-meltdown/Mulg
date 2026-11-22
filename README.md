@@ -20,6 +20,14 @@
 
 Genshin Impact · Honkai: Star Rail · BLEACH: Soul Resonance
 
+## Contributing
+
+1. **Fork and branch.** Create a branch from `main` in your fork. Use clear commit messages and keep related changes together.
+2. **Keep pull requests focused.** Fix one reproducible bug or make one meaningful improvement per PR. Group related minor fixes and open an issue first for larger changes.
+3. **Explain and test.** Say what changed, why it matters, and what you tested. Link the issue when there is one.
+
+The maintainer reviews and approves pull requests before they merge.
+
 ## License
 
 [GPL-3.0 host](Host/LICENSE) · [AGPL-3.0 PlayTools-derived modules](Runtime/LICENSE) · [Upstream credits](CREDITS.md)
