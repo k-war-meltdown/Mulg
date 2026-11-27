@@ -136,7 +136,7 @@ public enum GameSettingsSection: String, CaseIterable, Identifiable {
                      "mulg.display.batterySaverOnBattery", "mulg.display.batteryFrameRateCap",
                      "mulg.display.thermalGuard", "mulg.display.thermalFrameRateCap"]
         case .sound: paths = ["mulg.engine.audioOutput"]
-        case .controls: paths = ["mulg.controls", "mulg.mapper"]
+        case .controls: paths = ["mulg.controls", "mulg.mapper", "mulg.engine.confinePointer"]
         case .keymapOptions:
             paths = ["keymapping", "sensitivity", "noKMOnInput", "enableScrollWheel", "disableBuiltinMouse",
                      "limitMotionUpdateFrequency"]

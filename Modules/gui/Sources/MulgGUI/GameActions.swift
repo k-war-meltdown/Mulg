@@ -130,6 +130,9 @@ public struct GameActions: Sendable {
         try edit(bundleIdentifier) { settings in
             settings.mulg.engine.keepRunningUnfocused = true
             settings.mulg.engine.keepForegroundOnOtherSpaces = true
+            // ⌘Q quits at once, as in any Mac app (2026-11-27): it is the way out of a game that keeps the pointer.
+            settings.mulg.engine.confirmQuitShortcut = false
+            settings.mulg.engine.confinePointer = true
         }
     }
 

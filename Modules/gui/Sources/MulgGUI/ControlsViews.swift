@@ -169,6 +169,10 @@ struct ControlsTab: View {
                 Toggle(isOn: controls.trackpadGestures) {
                     OptionLabel("Trackpad touch gestures", .restart, key: "mulg.controls.trackpadGestures", owner: .controls)
                 }
+                Toggle(isOn: $settings.mulg.engine.confinePointer) {
+                    OptionLabel("Keep mouse inside the game", .live, key: "mulg.engine.confinePointer", owner: .engine)
+                }
+                .help("While you play, windowed or full screen, the cursor stops at the edge of the game, so clicks, drags and keybinds never land on the desktop or another app. Hold ⌘ and press Q to quit the game; ⌘Tab still switches apps.")
             } header: {
                 Text("Input", bundle: .module)
             } footer: {
