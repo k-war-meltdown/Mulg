@@ -53,6 +53,9 @@ final class NativeGameFullscreen: NSObject {
     /// `toggleFullScreen:` is a silent no-op when the window is not eligible.
     private static let privateFullScreenVeto = NSWindow.CollectionBehavior(rawValue: 1 << 15)
 
+    /// AppKit is moving the window into or out of its full-screen Space.
+    var isTransitioning: Bool { transitioning }
+
     var ownsPresentation: Bool {
         transitioning || window?.styleMask.contains(.fullScreen) == true
     }

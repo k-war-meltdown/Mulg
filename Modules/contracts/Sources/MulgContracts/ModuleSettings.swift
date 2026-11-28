@@ -466,8 +466,10 @@ public struct EngineSettings: Codable, Sendable, Equatable {
     /// performance cores first (still every core). Applies to threads started afterwards. On by default.
     public var prioritizeGameThreads: Bool = true
     /// ⌘Q in the game window must be pressed twice within two seconds (a ⌘Tab slip or a held ⌘ quit
-    /// games mid-play). Quit from the menu, the Dock or Mulg stays immediate. On by default.
-    public var confirmQuitShortcut: Bool = true
+    /// games mid-play). Quit from the menu, the Dock or Mulg stays immediate. Off by default since
+    /// 2026-11-27 (user request): with the pointer kept in the game, ⌘Q is the way out and quits at
+    /// once, as in any Mac app.
+    public var confirmQuitShortcut: Bool = false
     /// A full-screen game stays in the foreground when the player switches to another Space (the
     /// desktop, another app's full screen): UIKit otherwise backgrounds it on every switch, and games
     /// reload, lag or quit. It is throttled while out of view. On by default.
@@ -475,6 +477,11 @@ public struct EngineSettings: Codable, Sendable, Equatable {
     /// The game is silent while its window is not the one in use (another app or window in front, hidden,
     /// minimised); sound returns the moment it is. Off by default; also switchable from the in-game menu.
     public var muteWhenUnfocused: Bool = false
+    /// While the game window is in use (the active app's key window, windowed or full screen), the
+    /// cursor, clicks, drags and keymapped presses stay inside the game: a shown cursor that reaches
+    /// the edge stops there instead of clicking the desktop or another app. ⌘Q quits the game; macOS's
+    /// own ⌘Tab still switches apps. On by default (2026-11-27, user request).
+    public var confinePointer: Bool = true
     /// Environment variables set in the game process before any module prepares, so Metal, Unity and
     /// other switches read at start-up can be tried per game. `DYLD_` names are ignored.
     public var environment: [String: String] = [:]
@@ -507,7 +514,7 @@ public struct EngineSettings: Codable, Sendable, Equatable {
         case disabledModules, trustedPluginHashes, allowUnverifiedPlugins, automaticRecovery, keepRunningUnfocused
         case injectedRuntimeVersion, injectedRuntimeProtocol, keepGameSDKVersion, maximizeShaderCompilation
         case memoryWarnings, readAhead, environment, shutdownGraceSeconds, shutdownDeadlineSeconds, audioOutput
-        case prioritizeGameThreads, confirmQuitShortcut, keepForegroundOnOtherSpaces, muteWhenUnfocused
+        case prioritizeGameThreads, confirmQuitShortcut, keepForegroundOnOtherSpaces, muteWhenUnfocused, confinePointer
     }
 
     public init(from decoder: any Decoder) throws {
@@ -529,6 +536,7 @@ public struct EngineSettings: Codable, Sendable, Equatable {
         confirmQuitShortcut = try c.value(.confirmQuitShortcut, default: d.confirmQuitShortcut)
         keepForegroundOnOtherSpaces = try c.value(.keepForegroundOnOtherSpaces, default: d.keepForegroundOnOtherSpaces)
         muteWhenUnfocused = try c.value(.muteWhenUnfocused, default: d.muteWhenUnfocused)
+        confinePointer = try c.value(.confinePointer, default: d.confinePointer)
         environment = try c.value(.environment, default: d.environment)
         shutdownGraceSeconds = try c.value(.shutdownGraceSeconds, default: d.shutdownGraceSeconds)
         shutdownDeadlineSeconds = try c.value(.shutdownDeadlineSeconds, default: d.shutdownDeadlineSeconds)

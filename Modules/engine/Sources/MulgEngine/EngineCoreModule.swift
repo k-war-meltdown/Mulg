@@ -295,6 +295,13 @@ public final class EngineCoreModule: GameModule {
                 guard change.old.mulg.engine.keepForegroundOnOtherSpaces != keep else { return }
                 bridge?.keepForegroundOnOtherSpaces?(keep)
             }
+            // The cursor, clicks and keymapped presses stay in the game window while it is played.
+            bridge.confinePointer?(context.settings.mulg.engine.confinePointer)
+            context.events.subscribe(SettingsChanged.self) { [weak bridge] change in
+                let confine = change.new.mulg.engine.confinePointer
+                guard change.old.mulg.engine.confinePointer != confine else { return }
+                bridge?.confinePointer?(confine)
+            }
             // A quit UIKit defers (it waits for the game's background tasks) still ends by the shutdown
             // deadline: a game that keeps starting tasks otherwise never quits (Ragnarok, 2026-10-09).
             bridge.observeDeferredTermination? { [weak context] in

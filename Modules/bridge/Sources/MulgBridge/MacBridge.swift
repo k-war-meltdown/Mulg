@@ -102,6 +102,11 @@ public protocol MacBridge: NSObjectProtocol {
     func hideCursorUntilMouseMoves()
     /// Pointer interfaces may hide the cursor without locking or recentering it.
     @objc optional func setPointerCursorHidden(_ hidden: Bool)
+    /// While the game window is the active app's key window (windowed or full screen), keeps the
+    /// cursor and every click and drag inside its content, so input never reaches the desktop or
+    /// another app mid-game; ⌘Q is the way out. ⌘Tab, hiding, minimising, native window drags and
+    /// resizes and full-screen transitions free it. Optional: an older bridge lacks it.
+    @objc optional func confinePointer(_ enabled: Bool)
 
     // MARK: Input (a handler returns true when it consumed the event)
 

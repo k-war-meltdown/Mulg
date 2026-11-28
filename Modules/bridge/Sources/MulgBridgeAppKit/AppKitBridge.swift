@@ -1061,6 +1061,98 @@ public final class AppKitBridge: NSObject, MacBridge {
         NSCursor.setHiddenUntilMouseMoves(true)
     }
 
+    // MARK: Pointer confinement
+
+    private var confinementRequested = false
+    private var confinementTimer: Timer?
+    private var confinementMonitor: Any?
+    private var confinementObservers: [NSObjectProtocol] = []
+    private let confinementTap = PointerConfinementTap()
+
+    /// See `MacBridge.confinePointer` and `PointerConfinement`.
+    public func confinePointer(_ enabled: Bool) {
+        guard enabled != confinementRequested else { return }
+        confinementRequested = enabled
+        guard enabled else {
+            confinementTimer?.invalidate()
+            confinementTimer = nil
+            if let confinementMonitor { NSEvent.removeMonitor(confinementMonitor) }
+            confinementMonitor = nil
+            confinementObservers.forEach { NotificationCenter.default.removeObserver($0) }
+            confinementObservers = []
+            confinementTap.uninstall()
+            return
+        }
+        // A warp otherwise freezes local mouse input for a quarter of a second at every edge.
+        CGEventSource(stateID: .combinedSessionState)?.localEventsSuppressionInterval = 0
+        confinementTap.installIfAllowed()
+        // Moves the cursor back as soon as an event shows it got out; it never changes or drops the event.
+        confinementMonitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved, .leftMouseDragged,
+            .rightMouseDragged, .otherMouseDragged]) { [weak self] event in
+            self?.enforcePointerConfinement()
+            return event
+        }
+        // The poll runs only while Mulg's game is the active app, so a game in the background costs nothing.
+        for name in [NSApplication.didBecomeActiveNotification, NSApplication.didResignActiveNotification,
+                     NSApplication.didHideNotification, NSApplication.didUnhideNotification] {
+            confinementObservers.append(NotificationCenter.default.addObserver(forName: name, object: nil, queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.updateConfinementTimer() }
+            })
+        }
+        updateConfinementTimer()
+    }
+
+    private func updateConfinementTimer() {
+        let app = NSApplication.shared
+        guard confinementRequested, app.isActive, !app.isHidden else {
+            confinementTimer?.invalidate()
+            confinementTimer = nil
+            confinementTap.setRegion(nil)
+            return
+        }
+        if confinementTimer == nil {
+            let timer = Timer(timeInterval: 1.0 / 120, repeats: true) { [weak self] _ in
+                MainActor.assumeIsolated { self?.enforcePointerConfinement() }
+            }
+            timer.tolerance = 0.002
+            // Common modes: also while a menu or a native control tracks the mouse.
+            RunLoop.main.add(timer, forMode: .common)
+            confinementTimer = timer
+        }
+        enforcePointerConfinement()
+    }
+
+    /// The part of the screen the pointer must stay in now (AppKit coordinates), or nil when
+    /// the pointer is free.
+    private var pointerConfinementRegion: CGRect? {
+        let app = NSApplication.shared
+        guard confinementRequested, let window = gameWindow else { return nil }
+        let transitioning = windowStates.object(forKey: window)?.fullscreen?.isTransitioning == true
+        guard PointerConfinement.applies(requested: true, active: app.isActive, hidden: app.isHidden,
+                gameKey: window.isKeyWindow, minimized: window.isMiniaturized, onActiveSpace: window.isOnActiveSpace,
+                windowInteraction: !nativeWindowButtons.isEmpty,
+                resizing: window.inLiveResize || !resizingWindows.allObjects.isEmpty,
+                transitioning: transitioning,
+                // A locked camera cursor is already held by the window server; a refused lock is not.
+                captured: cursorHidden && cursorLockPoint != nil) else { return nil }
+        return PointerConfinement.region(content: window.convertToScreen(window.contentLayoutRect),
+                                         resizable: window.styleMask.contains(.resizable),
+                                         fullscreen: window.styleMask.contains(.fullScreen))
+    }
+
+    private func enforcePointerConfinement() {
+        guard let region = pointerConfinementRegion, let firstScreen = NSScreen.screens.first else {
+            confinementTap.setRegion(nil)
+            return
+        }
+        let top = firstScreen.frame.maxY
+        confinementTap.setRegion(PointerConfinement.flipped(region, firstScreenMaxY: top))
+        let mouse = NSEvent.mouseLocation
+        guard !PointerConfinement.contains(mouse, region) else { return }
+        let target = PointerConfinement.clamp(mouse, to: region)
+        _ = CGWarpMouseCursorPosition(PointerConfinement.flipped(target, firstScreenMaxY: top))
+    }
+
     // MARK: Input
 
     public var isTextInputActive: Bool {
