@@ -63,6 +63,10 @@ public struct ControlModeMachine: Sendable, Equatable {
     public var isMenuOpen: Bool { mode == .cursor }
     /// The mode to return to after text input.
     private var beforeTextInput: ControlMode = .cursor
+    /// The player showed the cursor themselves (the cursor key or a middle click), as opposed to a
+    /// pointer-only map, text input or the editor showing it. Only then does the window border hold the
+    /// pointer (`engine.confinePointer`, 2026-11-28 user request); camera mode never confines.
+    public private(set) var cursorShownByPlayer = false
 
     public init(behaviour: CursorKeyBehaviour, pauseForTextInput: Bool, keymapUsesMouse: Bool, menuKeys: Set<String> = []) {
         self.behaviour = behaviour
@@ -93,6 +97,7 @@ public struct ControlModeMachine: Sendable, Equatable {
         guard target != mode else { return nil }
         let transition = ModeTransition(from: mode, to: target)
         mode = target
+        if target == .camera || target == .editor || target == .textInput { cursorShownByPlayer = false }
         return transition
     }
 
@@ -123,6 +128,7 @@ public struct ControlModeMachine: Sendable, Equatable {
         case .hold:
             guard mode == .camera || (mode == .cursor && keymapUsesMouse) else { return nil }
             cursorHeld = true
+            cursorShownByPlayer = true
             // Menus closed with the mouse cannot report their state through a Unity UI.
             // Holding/releasing Option explicitly reclaims gameplay even after such a close.
             if mode == .cursor { return nil }
@@ -135,7 +141,9 @@ public struct ControlModeMachine: Sendable, Equatable {
             case .cursor where keymapUsesMouse:
                 return go(.camera)
             case .camera:
-                return go(idleMode)
+                let transition = go(idleMode)
+                cursorShownByPlayer = true
+                return transition
             default:
                 return nil
             }
@@ -150,7 +158,9 @@ public struct ControlModeMachine: Sendable, Equatable {
         case .camera:
             cursorHeld = false
             cursorPinned = true
-            return go(.cursor)
+            let transition = go(.cursor)
+            cursorShownByPlayer = true
+            return transition
         case .cursor, .off:
             cursorHeld = false
             cursorPinned = false
@@ -163,6 +173,7 @@ public struct ControlModeMachine: Sendable, Equatable {
     public mutating func cursorKeyReleased() -> ModeTransition? {
         guard behaviour == .hold, cursorHeld else { return nil }
         cursorHeld = false
+        cursorShownByPlayer = false
         guard mode == .cursor else { return nil }
         return go(keymapUsesMouse ? .camera : idleMode)
     }

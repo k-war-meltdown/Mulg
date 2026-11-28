@@ -477,9 +477,10 @@ public struct EngineSettings: Codable, Sendable, Equatable {
     /// The game is silent while its window is not the one in use (another app or window in front, hidden,
     /// minimised); sound returns the moment it is. Off by default; also switchable from the in-game menu.
     public var muteWhenUnfocused: Bool = false
-    /// While the game window is in use (the active app's key window, windowed or full screen), the
-    /// cursor, clicks, drags and keymapped presses stay inside the game: a shown cursor that reaches
-    /// the edge stops there instead of clicking the desktop or another app. ⌘Q quits the game; macOS's
+    /// While the game window is in use (the active app's key window, windowed or full screen) and the
+    /// player has shown the cursor with the cursor key (Alt) or a middle click, the cursor, clicks and
+    /// drags stay inside the game: the cursor stops at the edge instead of clicking the desktop or
+    /// another app. Camera mode (mouse look) is never touched (2026-11-28). ⌘Q quits the game; macOS's
     /// own ⌘Tab still switches apps. On by default (2026-11-27, user request).
     public var confinePointer: Bool = true
     /// Environment variables set in the game process before any module prepares, so Metal, Unity and

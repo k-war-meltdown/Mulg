@@ -44,6 +44,10 @@ final class BridgeInputEnvironment: InputEnvironment {
         if hidden { bridge.hideCursor() } else { bridge.unhideCursor() }
     }
 
+    func setCursorReleasedByPlayer(_ released: Bool) {
+        bridge.setCursorReleasedByPlayer?(released)
+    }
+
     var isFullscreen: Bool { bridge.isFullscreen }
     func setMenuBarVisible(_ visible: Bool) { bridge.setMenuBarVisible(visible) }
 }
@@ -256,6 +260,8 @@ public final class ControlsModule: GameModule {
         guard let bridge else { return }
         let released = nativeCursorMode.released
         mulg_controls_set_pointer_cursor_override(released)
+        // The window border holds the pointer only while the player shows it (Alt or middle click).
+        bridge.setCursorReleasedByPlayer?(released)
         #if canImport(UIKit) && !os(watchOS)
         tftMouseBridge?.setCursorReleased(released)
         // The getter changed: let UIKit balance its own capture and cursor visibility.

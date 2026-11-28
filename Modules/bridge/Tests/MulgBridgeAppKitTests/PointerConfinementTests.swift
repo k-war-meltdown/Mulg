@@ -43,15 +43,16 @@ struct PointerConfinementTests {
 
     @Test("Only a game in play holds the pointer; macOS's own ways out free it")
     func applies() {
-        func applies(requested: Bool = true, active: Bool = true, hidden: Bool = false, gameKey: Bool = true,
+        func applies(requested: Bool = true, released: Bool = true, active: Bool = true, hidden: Bool = false, gameKey: Bool = true,
                      minimized: Bool = false, onActiveSpace: Bool = true, windowInteraction: Bool = false,
                      resizing: Bool = false, transitioning: Bool = false, captured: Bool = false) -> Bool {
-            PointerConfinement.applies(requested: requested, active: active, hidden: hidden, gameKey: gameKey,
+            PointerConfinement.applies(requested: requested, released: released, active: active, hidden: hidden, gameKey: gameKey,
                 minimized: minimized, onActiveSpace: onActiveSpace, windowInteraction: windowInteraction,
                 resizing: resizing, transitioning: transitioning, captured: captured)
         }
         #expect(applies())
         #expect(!applies(requested: false))
+        #expect(!applies(released: false))        // Camera mode: Alt or a middle click not used.
         #expect(!applies(active: false))          // ⌘Tab to another app.
         #expect(!applies(hidden: true))
         #expect(!applies(gameKey: false))         // Another window of the game is in front.

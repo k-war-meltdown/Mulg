@@ -13,8 +13,15 @@ public protocol InputEnvironment: AnyObject {
     func cursorPoint() -> CGPoint?
     /// Hide and capture for relative camera input, or restore the visible pointer.
     func setCursorHidden(_ hidden: Bool)
+    /// Whether the player showed the cursor with the cursor key or a middle click; only then does
+    /// the window border hold the pointer (`engine.confinePointer`).
+    func setCursorReleasedByPlayer(_ released: Bool)
     var isFullscreen: Bool { get }
     func setMenuBarVisible(_ visible: Bool)
+}
+
+public extension InputEnvironment {
+    func setCursorReleasedByPlayer(_ released: Bool) {}
 }
 
 /// Routes every input from the Mac to the game (PLAN.md §6.1, §14).
@@ -325,6 +332,7 @@ public final class InputRouter {
     private func updateCursorCapture() {
         let hidden = focused && mode.hidesCursor
         environment.setCursorHidden(hidden)
+        environment.setCursorReleasedByPlayer(focused && !hidden && modes.cursorShownByPlayer)
         if environment.isFullscreen || !hidden { environment.setMenuBarVisible(!hidden) }
         events.publish(CursorVisibilityChanged(visible: !hidden))
     }
