@@ -57,6 +57,28 @@ struct LiveInputTests {
         input.focusLost()
     }
 
+    @Test("An Alt tap still switches after a web view or keymap rebuild flickers mid-tap, and a release in text input never sticks")
+    func altTapSurvivesFlicker() {
+        let environment = CaptureEnvironment()
+        let input = router(GameSettings(), environment: environment)
+        input.start()
+        defer { input.focusLost() }
+        #expect(input.mode == .camera)
+        _ = input.modifier(code: 0x3A, pressed: true, flags: 0)
+        input.setNativeInterfaceActive(true); input.setNativeInterfaceActive(false)
+        input.prepareForKeymapChange()
+        _ = input.modifier(code: 0x3A, pressed: false, flags: 0)
+        #expect(input.mode == .cursor && !environment.hidden)
+        // Released while a text field owns input: the next taps still work.
+        _ = input.modifier(code: 0x3A, pressed: true, flags: 0)
+        input.textInputBegan()
+        _ = input.modifier(code: 0x3A, pressed: false, flags: 0)
+        input.textInputEnded()
+        _ = input.modifier(code: 0x3A, pressed: true, flags: 0)
+        _ = input.modifier(code: 0x3A, pressed: false, flags: 0)
+        #expect(input.mode == .camera && environment.hidden)
+    }
+
     @Test("With cursorKeySwitchesCamera off, Alt and middle click only switch the edge lock and never mouse look")
     func edgeLockLeavesMouseLookAlone() {
         var settings = GameSettings()

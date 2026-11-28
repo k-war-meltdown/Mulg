@@ -279,6 +279,8 @@ public final class InputRouter {
         guard focused else { return }
         focused = false
         edgeLockToggled = false
+        cursorKeyTap = false
+        heldCursorKeys.removeAll()
         nativeButtons.removeAll()
         setNativeInterfaceActive(nativeInterfaceRequested)
         updateCursorCapture()
@@ -289,8 +291,9 @@ public final class InputRouter {
     private func releaseInputs() {
         cameraMouseButtons.removeAll()
         middleClickToggledCursor = false
-        cursorKeyTap = false
-        heldCursorKeys.removeAll()
+        // The cursor key's tap survives this (2026-11-28 bug: a web view or text field flickering mid-tap, or a
+        // keymap rebuild, reset it, so a tap of Alt sometimes did nothing and only a middle click switched back to
+        // the camera). Its release still arrives here; only losing focus forgets it (`focusLost`).
         dispatcher.invalidateAll()
         gestures?.cancel()
         heldLayers.reset()
@@ -498,6 +501,24 @@ public final class InputRouter {
     /// Modifier keys pressed or released.
     public func modifier(code: UInt16, pressed: Bool, flags: UInt) -> Bool {
         guard !stopped else { return false }
+        if cursorKeyCodes.contains(code) {
+            // A tap of the cursor key toggles the cursor like a middle click (2026-10-10, user request): press
+            // and release with nothing else between shows it and keeps it; the next tap returns to the camera.
+            // The held keys are tracked in every mode, so a release during text input or the editor cannot
+            // leave a key "held" and swallow the next taps.
+            let gameplay = mode == .camera || mode == .cursor || mode == .off
+            if pressed {
+                if heldCursorKeys.isEmpty { cursorKeyTap = gameplay }
+                heldCursorKeys.insert(code)
+            } else {
+                heldCursorKeys.remove(code)
+            }
+            if !pressed, heldCursorKeys.isEmpty, cursorKeyTap {
+                cursorKeyTap = false
+                if gameplay { cursorToggle() }
+            }
+            if gameplay { return false } // Let the system see the modifier too, as upstream did.
+        }
         if mode == .textInput { return false }
         if mode == .editor {
             if editor?.capturesText == true { return false }
@@ -505,22 +526,6 @@ public final class InputRouter {
             if pressed, let editor {
                 _ = editor.editorKey(code: code, ctrlModified: false)
             }
-            return false
-        }
-        if cursorKeyCodes.contains(code) {
-            // A tap of the cursor key toggles the cursor like a middle click (2026-10-10, user request): press
-            // and release with nothing else between shows it and keeps it; the next tap returns to the camera.
-            if pressed {
-                if heldCursorKeys.isEmpty { cursorKeyTap = true }
-                heldCursorKeys.insert(code)
-            } else {
-                heldCursorKeys.remove(code)
-            }
-            if !pressed, heldCursorKeys.isEmpty, cursorKeyTap {
-                cursorKeyTap = false
-                cursorToggle()
-            }
-            // Let the system see the modifier too, as upstream did.
             return false
         }
         if pressed && (code == 0x37 || code == 0x36) { cursorKeyTap = false }
