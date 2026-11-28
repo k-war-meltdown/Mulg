@@ -63,5 +63,20 @@ struct PointerConfinementTests {
         #expect(!applies(transitioning: true))    // Entering or leaving full screen.
         #expect(!applies(captured: true))         // The locked camera cursor is held already.
     }
+    @Test("The keybind lock adds only valid presentation options and removes only its own")
+    func keybindLockOptions() {
+        let lock: NSApplication.PresentationOptions = [.disableProcessSwitching, .disableHideApplication]
+        #expect(PointerConfinement.keybindLockOptions(current: []) == lock.union(.autoHideDock))
+        let fullScreen: NSApplication.PresentationOptions = [.fullScreen, .autoHideDock, .autoHideMenuBar]
+        #expect(PointerConfinement.keybindLockOptions(current: fullScreen) == lock)
+        #expect(PointerConfinement.keybindLockOptions(current: [.fullScreen]).isEmpty)
+        #expect(PointerConfinement.keybindLockOptions(current: lock.union(.hideDock)).isEmpty)
+        let added = lock.union(.autoHideDock)
+        #expect(PointerConfinement.keybindUnlockOptions(current: added, added: added).isEmpty)
+        // A menu bar auto-hidden meanwhile keeps the Dock option it needs.
+        #expect(PointerConfinement.keybindUnlockOptions(current: added.union(.autoHideMenuBar), added: added)
+            == [.autoHideMenuBar, .autoHideDock])
+        #expect(PointerConfinement.keybindUnlockOptions(current: fullScreen.union(lock), added: lock) == fullScreen)
+    }
 }
 #endif

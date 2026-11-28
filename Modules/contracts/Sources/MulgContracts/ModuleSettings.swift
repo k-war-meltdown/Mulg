@@ -486,8 +486,8 @@ public struct EngineSettings: Codable, Sendable, Equatable {
     /// While the game window is in use (the active app's key window, windowed or full screen) and the
     /// player has shown the cursor with the cursor key (Alt) or a middle click, the cursor, clicks and
     /// drags stay inside the game: the cursor stops at the edge instead of clicking the desktop or
-    /// another app. Camera mode (mouse look) is never touched (2026-11-28). ⌘Q quits the game; macOS's
-    /// own ⌘Tab still switches apps. On by default (2026-11-27, user request).
+    /// another app. Camera mode (mouse look) is never touched (2026-11-28). ⌘Tab and ⌘H are blocked meanwhile
+    /// (keybind lock, 2026-11-28); ⌘Q quits the game. On by default (2026-11-27, user request).
     public var confinePointer: Bool = true
     /// Environment variables set in the game process before any module prepares, so Metal, Unity and
     /// other switches read at start-up can be tried per game. `DYLD_` names are ignored.
