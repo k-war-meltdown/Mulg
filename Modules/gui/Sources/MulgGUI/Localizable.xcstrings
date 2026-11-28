@@ -382,9 +382,6 @@
     "Keep mouse inside the game" : {
       "extractionState" : "manual"
     },
-    "On: ⌥ Option or a middle click switches between mouse look (cursor hidden) and the cursor. Off: mouse look always stays on with a camera keymap, and they only switch the edge lock." : {
-      "extractionState" : "manual"
-    },
     "Switches between looking around with the mouse (cursor hidden) and the cursor for menus. Controls settings can keep mouse look always on instead." : {
       "extractionState" : "manual"
     },
@@ -394,10 +391,13 @@
     "The mouse stays in the game" : {
       "extractionState" : "manual"
     },
-    "When you show the cursor, it, your clicks and keybinds can't leave the game window, windowed or full screen. Looking around with the mouse is never affected. To leave, hold ⌘ Command and press Q to quit the game, as in any Mac app." : {
+    "While the mouse is hidden to turn the 3D camera (switched with ⌥ Option (Alt) or a middle click), it, your clicks and ⌘Tab or ⌘H stay in the game, windowed or full screen. The visible cursor for menus moves freely. Hold ⌘ and press Q to quit the game." : {
       "extractionState" : "manual"
     },
-    "When ⌥ Option (Alt) or a middle click shows the cursor or switches the edge lock, the cursor stops at the edge of the game window, windowed or full screen, so clicks, drags and keybinds never land on the desktop or another app. Mouse look is never affected. ⌘Tab and ⌘H stay in the game meanwhile; hold ⌘ and press Q to quit the game." : {
+    "On: ⌥ Option or a middle click switches between mouse look (cursor hidden) and the cursor. Off: mouse look always stays on with a camera keymap." : {
+      "extractionState" : "manual"
+    },
+    "While the mouse is hidden to turn the camera, it, your clicks and ⌘Tab stay in the game window, windowed or full screen. The visible cursor for menus moves freely. To leave, hold ⌘ Command and press Q to quit the game, as in any Mac app." : {
       "extractionState" : "manual"
     }
   },

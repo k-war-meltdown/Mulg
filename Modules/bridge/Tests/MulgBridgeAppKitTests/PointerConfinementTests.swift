@@ -43,16 +43,16 @@ struct PointerConfinementTests {
 
     @Test("Only a game in play holds the pointer; macOS's own ways out free it")
     func applies() {
-        func applies(requested: Bool = true, released: Bool = true, active: Bool = true, hidden: Bool = false, gameKey: Bool = true,
+        func applies(requested: Bool = true, mouseLook: Bool = true, active: Bool = true, hidden: Bool = false, gameKey: Bool = true,
                      minimized: Bool = false, onActiveSpace: Bool = true, windowInteraction: Bool = false,
                      resizing: Bool = false, transitioning: Bool = false, captured: Bool = false) -> Bool {
-            PointerConfinement.applies(requested: requested, released: released, active: active, hidden: hidden, gameKey: gameKey,
+            PointerConfinement.applies(requested: requested, mouseLook: mouseLook, active: active, hidden: hidden, gameKey: gameKey,
                 minimized: minimized, onActiveSpace: onActiveSpace, windowInteraction: windowInteraction,
                 resizing: resizing, transitioning: transitioning, captured: captured)
         }
         #expect(applies())
         #expect(!applies(requested: false))
-        #expect(!applies(released: false))        // Camera mode: Alt or a middle click not used.
+        #expect(!applies(mouseLook: false))       // The visible menu cursor is never held.
         #expect(!applies(active: false))          // ⌘Tab to another app.
         #expect(!applies(hidden: true))
         #expect(!applies(gameKey: false))         // Another window of the game is in front.
@@ -63,6 +63,23 @@ struct PointerConfinementTests {
         #expect(!applies(transitioning: true))    // Entering or leaving full screen.
         #expect(!applies(captured: true))         // The locked camera cursor is held already.
     }
+    @Test("Keybinds are locked only while the mouse is hidden for 3D control and the game is in use")
+    func keybindLockAppliesInMouseLook() {
+        func locks(requested: Bool = true, mouseHidden: Bool = true, active: Bool = true, hidden: Bool = false,
+                   gameKey: Bool = true, minimized: Bool = false, onActiveSpace: Bool = true,
+                   transitioning: Bool = false) -> Bool {
+            PointerConfinement.locksKeybinds(requested: requested, mouseHidden: mouseHidden, active: active, hidden: hidden,
+                gameKey: gameKey, minimized: minimized, onActiveSpace: onActiveSpace, transitioning: transitioning)
+        }
+        #expect(locks())
+        #expect(!locks(mouseHidden: false))       // Visible cursor: ⌘Tab works.
+        #expect(!locks(requested: false))
+        #expect(!locks(active: false))
+        #expect(!locks(gameKey: false))
+        #expect(!locks(minimized: true))
+        #expect(!locks(transitioning: true))
+    }
+
     @Test("The keybind lock adds only valid presentation options and removes only its own")
     func keybindLockOptions() {
         let lock: NSApplication.PresentationOptions = [.disableProcessSwitching, .disableHideApplication]

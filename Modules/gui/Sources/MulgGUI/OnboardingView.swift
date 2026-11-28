@@ -145,7 +145,7 @@ public struct OnboardingView: View {
             header("Keyboard and mouse", "Touchscreen mapping translates your inputs into the game's controls.")
             row("keyboard", "Edit controls with ⌘K", "Use the Controls menu while the game is open to edit, import or switch keymaps.")
             row("cursorarrow", "Tap ⌥ Option or click the mouse wheel", "Switches between looking around with the mouse (cursor hidden) and the cursor for menus. Controls settings can keep mouse look always on instead.")
-            row("lock", "The mouse stays in the game", "When you show the cursor, it, your clicks and keybinds can't leave the game window, windowed or full screen. Looking around with the mouse is never affected. To leave, hold ⌘ Command and press Q to quit the game, as in any Mac app.")
+            row("lock", "The mouse stays in the game", "While the mouse is hidden to turn the camera, it, your clicks and ⌘Tab stay in the game window, windowed or full screen. The visible cursor for menus moves freely. To leave, hold ⌘ Command and press Q to quit the game, as in any Mac app.")
             row("gamecontroller", "Choose the game's play mode", "Use touchscreen mapping or a virtual controller according to the game's controls.")
         }
     }
