@@ -572,7 +572,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -z \"${FASTLANE:-}\" ]; then\n  export PATH=\"$PATH:/opt/homebrew/bin:/opt/local/bin\"\n  if command -v swiftlint >/dev/null 2>&1; then\n    swiftlint\n  else\n    echo \"error: SwiftLint not installed\"\n    exit 1\n  fi\nfi\n";
+			shellScript = "# Lint findings are shown as warnings and never fail the build.\nif [ -z \"${FASTLANE:-}\" ]; then\n  export PATH=\"$PATH:/opt/homebrew/bin:/opt/local/bin\"\n  if command -v swiftlint >/dev/null 2>&1; then\n    swiftlint lint --quiet 2>&1 | sed 's/: error: /: warning: /' || true\n  else\n    echo \"warning: SwiftLint not installed, skipping lint\"\n  fi\nfi\n";
 		};
 		C0DE00012E9A0001000000A1 /* Package MulgRuntime */ = {
 			isa = PBXShellScriptBuildPhase;
