@@ -4,8 +4,8 @@ import ApplicationServices
 import CoreGraphics
 import os
 
-/// Keeps the visible pointer, clicks and drags inside the game while it is being played
-/// (`engine.confinePointer`). The captured camera cursor is already locked by
+/// Keeps the visible pointer, clicks and drags inside the game while it is being played and the
+/// player has shown the cursor with Alt or a middle click (`engine.confinePointer`). The captured camera cursor is already locked by
 /// `CGAssociateMouseAndMouseCursorPosition`; this covers the shown cursor (the cursor key,
 /// pointer maps, menus), which could otherwise leave the window and click another app or the
 /// desktop in the middle of a fight. Windowed and full screen, on one display or several.
@@ -56,10 +56,12 @@ enum PointerConfinement {
 
     /// Whether confinement applies now. Everything that hands the pointer back to macOS on
     /// purpose wins over it.
-    static func applies(requested: Bool, active: Bool, hidden: Bool, gameKey: Bool, minimized: Bool,
+    /// `released`: the player showed the cursor (Alt or a middle click). Camera mode, a hidden
+    /// game pointer included, is never confined or warped, so 3D rotation keeps its raw motion.
+    static func applies(requested: Bool, released: Bool, active: Bool, hidden: Bool, gameKey: Bool, minimized: Bool,
                         onActiveSpace: Bool, windowInteraction: Bool, resizing: Bool, transitioning: Bool,
                         captured: Bool) -> Bool {
-        requested && active && !hidden && gameKey && !minimized && onActiveSpace
+        requested && released && active && !hidden && gameKey && !minimized && onActiveSpace
             && !windowInteraction && !resizing && !transitioning && !captured
     }
 }
