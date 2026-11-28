@@ -103,6 +103,19 @@ private struct ActionGeometry {
     }
 
     var point: CGPoint { metrics.point(fitted) }
+    /// Points near the two ends of a long button's drawn shape (none for round or square ones): the centres
+    /// of the round caps of a pill of that size, so every touch stays inside the shape.
+    var shapeEndPoints: [CGPoint] {
+        let fitted = fitted
+        let base = metrics.size(fitted.size)
+        let width = base * fitted.effectiveWidthScale, height = base * fitted.effectiveHeightScale
+        let long = max(width, height), short = min(width, height)
+        guard short > 0, long.isFinite, long >= short * 1.6 else { return [] }
+        let centre = metrics.point(fitted), reach = (long - short) / 2
+        return width >= height
+            ? [CGPoint(x: centre.x - reach, y: centre.y), CGPoint(x: centre.x + reach, y: centre.y)]
+            : [CGPoint(x: centre.x, y: centre.y - reach), CGPoint(x: centre.x, y: centre.y + reach)]
+    }
     var size: CGFloat { metrics.size(fitted.size) }
     var hudSampleCount: Double { Double(transform.hudSamples?.count ?? 0) }
     var inputScale: CGFloat {
@@ -140,6 +153,41 @@ public class ButtonAction: MulgAction {
 
     public var isButtonLike: Bool { true }
     public var hasActiveGameplayTouch: Bool { touchID != nil }
+
+    /// A long button (one drawn much wider than tall, or the reverse) also touches near both ends at once, so
+    /// a game control anywhere along it counts as pressed (2026-11-28 user request: a long Genshin party-slot
+    /// key never reached the burst icon beside the slot, as only its centre was touched). Round and square
+    /// buttons keep the single centre touch.
+    var spreadsAlongShape: Bool { true }
+    private var shapeTouchIDs: [Int?] = []
+    private var shapePoints: [CGPoint] { spreadsAlongShape ? geometry.shapeEndPoints : [] }
+
+    func contact(_ phase: TouchPhase) {
+        let began = phase == .began
+        if began, touchID != nil { return }
+        injector.touch(&touchID, at: point, phase: phase)
+        if began {
+            guard touchID != nil else { return }
+            shapeTouchIDs = shapePoints.map { _ in nil }
+        }
+        let points = shapePoints
+        for index in shapeTouchIDs.indices where index < points.count {
+            injector.touch(&shapeTouchIDs[index], at: points[index], phase: phase)
+        }
+        if !began { cancelShapeContacts(points) }
+    }
+
+    func cancelContacts() {
+        injector.cancel(&touchID, at: point)
+        cancelShapeContacts(shapePoints)
+    }
+
+    private func cancelShapeContacts(_ points: [CGPoint]) {
+        for index in shapeTouchIDs.indices where shapeTouchIDs[index] != nil {
+            injector.cancel(&shapeTouchIDs[index], at: index < points.count ? points[index] : point)
+        }
+        shapeTouchIDs = []
+    }
 
     public func applyHUDPosition(_ point: CGPoint?, aspect: Double) -> Bool {
         guard canApplyHUDPosition else { return false }
@@ -193,7 +241,7 @@ public class ButtonAction: MulgAction {
     public func resize(to metrics: ScreenMetrics) {
         tapTask?.cancel()
         tapTask = nil
-        injector.cancel(&touchID, at: point)
+        cancelContacts()
         geometry.setHUDPosition(nil, aspect: 0)
         _ = reflowPoint(to: metrics)
         settleContact()
@@ -206,7 +254,7 @@ public class ButtonAction: MulgAction {
         resumeTask = nil
         tapTask?.cancel()
         tapTask = nil
-        injector.cancel(&touchID, at: point)
+        cancelContacts()
         _ = reflowPoint(to: metrics, clearHUD: true)
         hudAvailable = true
         liveResizing = false
@@ -218,7 +266,7 @@ public class ButtonAction: MulgAction {
         liveResizing = resizing
         tapTask?.cancel()
         tapTask = nil
-        injector.cancel(&touchID, at: point)
+        cancelContacts()
         settleContact()
     }
     private func settleContact() {
@@ -232,7 +280,7 @@ public class ButtonAction: MulgAction {
             self.resizeSettling = false
             self.resumeTask = nil
             if self.held, self.tapDuration == nil {
-                self.injector.touch(&self.touchID, at: self.point, phase: .began)
+                self.contact(.began)
             }
         }
     }
@@ -243,7 +291,7 @@ public class ButtonAction: MulgAction {
             guard pressed else { return }
             held.toggle()
             guard !liveResizing, !resizeSettling else { return }
-            injector.touch(&touchID, at: point, phase: held ? .began : .ended)
+            contact(held ? .began : .ended)
             // A refused begin did not latch anything in the game. Let the next
             // press retry, rather than spending it toggling an invisible hold off.
             if held && touchID == nil { held = false }
@@ -254,7 +302,7 @@ public class ButtonAction: MulgAction {
             tapKeyDown = pressed
             // Key-up does not truncate the touch before a game frame can sample it.
             guard pressed, touchID == nil, !liveResizing, !resizeSettling else { return }
-            injector.touch(&touchID, at: point, phase: .began)
+            contact(.began)
             guard let contactID = touchID else { return }
             tapTask = Task { @MainActor [weak self, tapDuration, contactID] in
                 // The tap's length counts from when UIKit has the touch, not from when it was queued.
@@ -265,12 +313,12 @@ public class ButtonAction: MulgAction {
                 try? await Task.sleep(for: .milliseconds(tapDuration))
                 guard !Task.isCancelled, self.touchID == contactID else { return }
                 self.tapTask = nil
-                self.injector.touch(&self.touchID, at: self.point, phase: .ended)
+                self.contact(.ended)
             }
         } else {
             held = pressed
             guard !liveResizing, !resizeSettling else { return }
-            injector.touch(&touchID, at: point, phase: pressed ? .began : .ended)
+            contact(pressed ? .began : .ended)
         }
     }
 
@@ -282,7 +330,7 @@ public class ButtonAction: MulgAction {
         tapTask?.cancel()
         tapTask = nil
         tapKeyDown = false
-        injector.cancel(&touchID, at: point)
+        cancelContacts()
     }
 }
 
@@ -296,6 +344,7 @@ public final class DraggableButtonAction: ButtonAction {
     private var motionRegistration: UInt64?
 
     public override var isButtonLike: Bool { false }
+    override var spreadsAlongShape: Bool { false }
     public override var canApplyHUDPosition: Bool { !dragSuspended && super.canApplyHUDPosition }
 
     public override init(element: ButtonElement, metrics: ScreenMetrics, injector: any TouchInjecting, dispatcher: ActionDispatcher,

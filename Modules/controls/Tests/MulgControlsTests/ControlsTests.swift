@@ -1738,3 +1738,33 @@ struct BeginWaitTests {
         #expect(ContinuousClock.now - start >= .milliseconds(40))
     }
 }
+
+@Suite("Long buttons") @MainActor
+struct LongButtonTests {
+    @Test("A long button also touches near both ends, and lifts all its touches together")
+    func longButtonSpreadsTouches() {
+        let injector = RecordingInjector(), dispatcher = ActionDispatcher()
+        var element = ButtonElement(keyCode: 18, keyName: "1", transform: .init(size: 10, xCoord: 0.5, yCoord: 0.5))
+        element.transform.widthScale = 3
+        let button = ButtonAction(element: element, metrics: ScreenMetrics(bounds: injector.screenBounds),
+            injector: injector, dispatcher: dispatcher)
+        button.update(pressed: true)
+        let began = injector.events.filter { $0.phase == .began }
+        #expect(began.count == 3)
+        #expect(Set(began.map(\.point.y)).count == 1 && Set(began.map(\.point.x)).count == 3)
+        #expect(began.first?.point == button.point)
+        button.update(pressed: false)
+        #expect(injector.events.filter { $0.phase == .ended }.count == 3)
+        #expect(!button.hasActiveGameplayTouch)
+    }
+
+    @Test("A round button keeps its single centre touch")
+    func roundButtonTouchesOnce() {
+        let injector = RecordingInjector(), dispatcher = ActionDispatcher()
+        let button = ButtonAction(element: ButtonElement(keyCode: 18, keyName: "1",
+            transform: .init(size: 10, xCoord: 0.5, yCoord: 0.5)), metrics: ScreenMetrics(bounds: injector.screenBounds),
+            injector: injector, dispatcher: dispatcher)
+        button.update(pressed: true); button.update(pressed: false)
+        #expect(injector.events.map(\.phase) == [.began, .ended])
+    }
+}

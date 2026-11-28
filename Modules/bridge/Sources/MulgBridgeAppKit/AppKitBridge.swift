@@ -1070,6 +1070,25 @@ public final class AppKitBridge: NSObject, MacBridge {
     private var confinementMonitor: Any?
     private var confinementObservers: [NSObjectProtocol] = []
     private let confinementTap = PointerConfinementTap()
+    /// The presentation options the keybind lock added (`PointerConfinement.keybindLockOptions`).
+    private var keybindLockAdded: NSApplication.PresentationOptions = []
+
+    /// Keys follow the pointer: while it is confined, ⌘Tab and ⌘H cannot leave the game either.
+    private func setKeybindLock(_ locked: Bool) {
+        let app = NSApplication.shared
+        if locked {
+            guard keybindLockAdded.isEmpty else { return }
+            let added = PointerConfinement.keybindLockOptions(current: app.presentationOptions)
+            guard !added.isEmpty else { return }
+            app.presentationOptions.formUnion(added)
+            keybindLockAdded = added
+        } else {
+            guard !keybindLockAdded.isEmpty else { return }
+            app.presentationOptions = PointerConfinement.keybindUnlockOptions(current: app.presentationOptions,
+                                                                             added: keybindLockAdded)
+            keybindLockAdded = []
+        }
+    }
 
     public func setCursorReleasedByPlayer(_ released: Bool) {
         guard released != cursorReleasedByPlayer else { return }
@@ -1089,6 +1108,7 @@ public final class AppKitBridge: NSObject, MacBridge {
             confinementObservers.forEach { NotificationCenter.default.removeObserver($0) }
             confinementObservers = []
             confinementTap.uninstall()
+            setKeybindLock(false)
             return
         }
         // A warp otherwise freezes local mouse input for a quarter of a second at every edge.
@@ -1116,6 +1136,7 @@ public final class AppKitBridge: NSObject, MacBridge {
             confinementTimer?.invalidate()
             confinementTimer = nil
             confinementTap.setRegion(nil)
+            setKeybindLock(false)
             return
         }
         if confinementTimer == nil {
@@ -1152,8 +1173,10 @@ public final class AppKitBridge: NSObject, MacBridge {
     private func enforcePointerConfinement() {
         guard let region = pointerConfinementRegion, let firstScreen = NSScreen.screens.first else {
             confinementTap.setRegion(nil)
+            setKeybindLock(false)
             return
         }
+        setKeybindLock(true)
         let top = firstScreen.frame.maxY
         confinementTap.setRegion(PointerConfinement.flipped(region, firstScreenMaxY: top))
         let mouse = NSEvent.mouseLocation

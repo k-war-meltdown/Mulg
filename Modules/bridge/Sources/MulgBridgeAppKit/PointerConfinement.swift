@@ -18,9 +18,9 @@ import os
 ///   mouse event before the window server delivers it, so even a flick-and-click faster than
 ///   one poll lands in the game. Without that access the tap is simply not used (no prompt).
 ///
-/// ⌘Q quits the game as in any Mac app. macOS's own ⌘Tab, hiding or minimising the game, a
-/// native window drag or resize and a full-screen transition free the pointer; other ⌘ shortcuts
-/// and ⌘-clicks stay in the game.
+/// While the pointer is confined, ⌘Tab and ⌘H are blocked too (the keybind lock); ⌘Q still quits the
+/// game as in any Mac app, and Force Quit stays. Hiding or minimising the game, a native window drag or
+/// resize and a full-screen transition free the pointer; other ⌘ shortcuts and ⌘-clicks stay in the game.
 enum PointerConfinement {
     /// The region of the screen the pointer stays in, in AppKit screen coordinates (origin
     /// bottom-left). A resizable window keeps its 10-point resize border for AppKit, as
@@ -52,6 +52,34 @@ enum PointerConfinement {
 
     static func flipped(_ point: CGPoint, firstScreenMaxY: CGFloat) -> CGPoint {
         CGPoint(x: point.x, y: firstScreenMaxY - point.y)
+    }
+
+    /// The presentation options the keybind lock adds while the pointer is confined (2026-11-28 user request:
+    /// in Alt/middle-click cursor mode, shortcuts must not switch to or hide behind another app). ⌘Tab and ⌘H
+    /// are blocked; ⌘Q and Force Quit stay. AppKit raises on an invalid combination, so this only adds what
+    /// it allows: process switching and hiding need the Dock hidden or auto-hidden, and full screen already
+    /// auto-hides it (there nothing is added unless it does).
+    static func keybindLockOptions(current: NSApplication.PresentationOptions) -> NSApplication.PresentationOptions {
+        var next = current
+        let dockHandled = current.contains(.hideDock) || current.contains(.autoHideDock)
+        if !dockHandled {
+            if current.contains(.fullScreen) { return [] }
+            next.insert(.autoHideDock)
+        }
+        next.formUnion([.disableProcessSwitching, .disableHideApplication])
+        return next.subtracting(current)
+    }
+
+    /// The options left after removing what the keybind lock added, kept valid: an auto-hidden menu bar
+    /// needs the Dock hidden or auto-hidden, so the Dock option stays while it does.
+    static func keybindUnlockOptions(current: NSApplication.PresentationOptions,
+                                     added: NSApplication.PresentationOptions) -> NSApplication.PresentationOptions {
+        var next = current.subtracting(added)
+        let menuNeedsDock = next.contains(.autoHideMenuBar) || next.contains(.hideMenuBar)
+        if menuNeedsDock, !next.contains(.hideDock), !next.contains(.autoHideDock), added.contains(.autoHideDock) {
+            next.insert(.autoHideDock)
+        }
+        return next
     }
 
     /// Whether confinement applies now. Everything that hands the pointer back to macOS on

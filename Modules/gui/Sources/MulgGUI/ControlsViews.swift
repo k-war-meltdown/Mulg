@@ -176,7 +176,7 @@ struct ControlsTab: View {
                 Toggle(isOn: $settings.mulg.engine.confinePointer) {
                     OptionLabel("Keep mouse inside the game", .live, key: "mulg.engine.confinePointer", owner: .engine)
                 }
-                .help("When ⌥ Option (Alt) or a middle click shows the cursor or switches the edge lock, the cursor stops at the edge of the game window, windowed or full screen, so clicks, drags and keybinds never land on the desktop or another app. Mouse look is never affected. Hold ⌘ and press Q to quit the game; ⌘Tab still switches apps.")
+                .help("When ⌥ Option (Alt) or a middle click shows the cursor or switches the edge lock, the cursor stops at the edge of the game window, windowed or full screen, so clicks, drags and keybinds never land on the desktop or another app. Mouse look is never affected. ⌘Tab and ⌘H stay in the game meanwhile; hold ⌘ and press Q to quit the game.")
             } header: {
                 Text("Input", bundle: .module)
             } footer: {
