@@ -142,6 +142,7 @@ public final class InputRouter {
         settings.gyro.recenterHotkey = hotkey
         virtualController?.updateStickCurve(new.mulg.controls.mouseToStick)
         settings.interactionStyle = new.mulg.controls.interactionStyle
+        settings.cursorKeySwitchesCamera = new.mulg.controls.cursorKeySwitchesCamera
         refreshControlPlan()
         if !gyroKeys.isEmpty { updateGyroRate() }
     }
@@ -277,6 +278,7 @@ public final class InputRouter {
     public func focusLost() {
         guard focused else { return }
         focused = false
+        edgeLockToggled = false
         nativeButtons.removeAll()
         setNativeInterfaceActive(nativeInterfaceRequested)
         updateCursorCapture()
@@ -332,9 +334,30 @@ public final class InputRouter {
     private func updateCursorCapture() {
         let hidden = focused && mode.hidesCursor
         environment.setCursorHidden(hidden)
-        environment.setCursorReleasedByPlayer(focused && !hidden && modes.cursorShownByPlayer)
+        reportEdgeLock()
         if environment.isFullscreen || !hidden { environment.setMenuBarVisible(!hidden) }
         events.publish(CursorVisibilityChanged(visible: !hidden))
+    }
+
+    /// The window-edge lock the player switched with Alt or a middle click while mouse look stays on
+    /// (`cursorKeySwitchesCamera` off). Cleared when the game loses focus.
+    private var edgeLockToggled = false
+
+    /// Alt and the middle button do the same thing. With `cursorKeySwitchesCamera` off they never touch
+    /// mouse look (2026-11-28 user request): they only switch the window-edge lock.
+    private func cursorToggle() {
+        if settings.cursorKeySwitchesCamera {
+            if let transition = modes.cursorClickToggled() { apply(transition) }
+        } else {
+            edgeLockToggled.toggle()
+            reportEdgeLock()
+        }
+    }
+
+    private func reportEdgeLock() {
+        let shown = focused && !mode.hidesCursor
+        let released = settings.cursorKeySwitchesCamera ? modes.cursorShownByPlayer : edgeLockToggled
+        environment.setCursorReleasedByPlayer(shown && released)
     }
 
     public func textInputBegan() { apply(modes.textInputBegan()) }
@@ -495,9 +518,7 @@ public final class InputRouter {
             }
             if !pressed, heldCursorKeys.isEmpty, cursorKeyTap {
                 cursorKeyTap = false
-                if let transition = modes.cursorClickToggled() {
-                    apply(transition)
-                }
+                cursorToggle()
             }
             // Let the system see the modifier too, as upstream did.
             return false
@@ -678,11 +699,19 @@ public final class InputRouter {
                 middleClickToggledCursor = false
                 return true
             }
-            if pressed, mode == .camera || mode == .cursor || mode == .off,
-               let transition = modes.cursorClickToggled() {
-                middleClickToggledCursor = true
-                apply(transition)
-                return true
+            if pressed, mode == .camera || mode == .cursor || mode == .off {
+                if settings.cursorKeySwitchesCamera {
+                    if let transition = modes.cursorClickToggled() {
+                        middleClickToggledCursor = true
+                        apply(transition)
+                        return true
+                    }
+                } else {
+                    // Never reaches the game either, so a middle click cannot disturb mouse look.
+                    middleClickToggledCursor = true
+                    cursorToggle()
+                    return true
+                }
             }
         }
         let arrival = mach_absolute_time()

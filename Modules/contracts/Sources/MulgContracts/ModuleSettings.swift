@@ -406,11 +406,16 @@ public struct ControlsSettings: Codable, Sendable, Equatable {
     /// Keyboard movement starts on the game's next frames instead of after a fixed 40 ms on floating
     /// sticks, so a press registers at once. On by default.
     public var smoothMovement: Bool = true
+    /// Whether a tap of the cursor key (Alt) or a middle click switches between mouse look (hidden cursor) and
+    /// the shown cursor, whose window-edge lock is `engine.confinePointer`. On by default. Off (2026-11-28 user
+    /// request): with a camera keymap mouse look always stays on and both only switch the edge lock.
+    public var cursorKeySwitchesCamera: Bool = true
 
     public init() {}
 
     enum CodingKeys: String, CodingKey {
         case playMode, interactionStyle, automaticHUDAnchoring, cursorKeyBehaviour, cursorKey, gyro, mouseToStick, walkModifierKey, trackpadGestures, controllerSticks, rawMouse, smoothMovement
+        case cursorKeySwitchesCamera
     }
 
     public init(from decoder: any Decoder) throws {
@@ -428,6 +433,7 @@ public struct ControlsSettings: Codable, Sendable, Equatable {
         controllerSticks = try c.value(.controllerSticks, default: d.controllerSticks)
         rawMouse = try c.value(.rawMouse, default: d.rawMouse)
         smoothMovement = try c.value(.smoothMovement, default: d.smoothMovement)
+        cursorKeySwitchesCamera = try c.value(.cursorKeySwitchesCamera, default: d.cursorKeySwitchesCamera)
     }
 }
 

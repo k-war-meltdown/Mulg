@@ -169,10 +169,14 @@ struct ControlsTab: View {
                 Toggle(isOn: controls.trackpadGestures) {
                     OptionLabel("Trackpad touch gestures", .restart, key: "mulg.controls.trackpadGestures", owner: .controls)
                 }
+                Toggle(isOn: controls.cursorKeySwitchesCamera) {
+                    OptionLabel("Cursor key and middle click switch mouse look", .live, key: "mulg.controls.cursorKeySwitchesCamera", owner: .controls)
+                }
+                .help("On: ⌥ Option or a middle click switches between mouse look (cursor hidden) and the cursor. Off: mouse look always stays on with a camera keymap, and they only switch the edge lock.")
                 Toggle(isOn: $settings.mulg.engine.confinePointer) {
                     OptionLabel("Keep mouse inside the game", .live, key: "mulg.engine.confinePointer", owner: .engine)
                 }
-                .help("When you show the cursor with ⌥ Option (Alt) or a middle click, it stops at the edge of the game window, windowed or full screen, so clicks and drags never land on the desktop or another app. Mouse look is never affected. Hold ⌘ and press Q to quit the game; ⌘Tab still switches apps.")
+                .help("When ⌥ Option (Alt) or a middle click shows the cursor or switches the edge lock, the cursor stops at the edge of the game window, windowed or full screen, so clicks, drags and keybinds never land on the desktop or another app. Mouse look is never affected. Hold ⌘ and press Q to quit the game; ⌘Tab still switches apps.")
             } header: {
                 Text("Input", bundle: .module)
             } footer: {

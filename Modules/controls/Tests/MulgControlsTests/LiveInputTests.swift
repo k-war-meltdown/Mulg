@@ -57,6 +57,26 @@ struct LiveInputTests {
         input.focusLost()
     }
 
+    @Test("With cursorKeySwitchesCamera off, Alt and middle click only switch the edge lock and never mouse look")
+    func edgeLockLeavesMouseLookAlone() {
+        var settings = GameSettings()
+        settings.mulg.controls.cursorKeySwitchesCamera = false
+        let environment = CaptureEnvironment()
+        var views = 0
+        let input = router(settings, environment: environment) { _, _ in views += 1 }
+        input.start()
+        defer { input.focusLost() }
+        #expect(input.mode == .camera && environment.hidden)
+        _ = input.modifier(code: 0x3A, pressed: true, flags: 0)
+        _ = input.modifier(code: 0x3A, pressed: false, flags: 0)
+        #expect(input.mode == .camera && environment.hidden)
+        #expect(input.mouseButton(2, pressed: true) && input.mouseButton(2, pressed: false))
+        #expect(input.mode == .camera && environment.hidden)
+        _ = input.mouseMoved(dx: 3, dy: 1); input.frameStarts()
+        #expect(views > 0, "Mouse look keeps working")
+        #expect(environment.captureChanges == [true])
+    }
+
     @Test("Combat holds keep the view finger; after release real motion reacquires the camera")
     func viewFingerSurvivesTapsAndPauses() async throws {
         let dispatcher = ActionDispatcher(), injector = RecordingInjector()
