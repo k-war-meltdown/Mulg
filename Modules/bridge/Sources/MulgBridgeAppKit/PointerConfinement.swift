@@ -4,11 +4,11 @@ import ApplicationServices
 import CoreGraphics
 import os
 
-/// Keeps the visible pointer, clicks and drags inside the game while it is being played and the
-/// player has shown the cursor with Alt or a middle click (`engine.confinePointer`). The captured camera cursor is already locked by
-/// `CGAssociateMouseAndMouseCursorPosition`; this covers the shown cursor (the cursor key,
-/// pointer maps, menus), which could otherwise leave the window and click another app or the
-/// desktop in the middle of a fight. Windowed and full screen, on one display or several.
+/// Keeps the hidden 3D camera mouse, its clicks and the game's keybinds inside the game while it is being
+/// played (`engine.confinePointer`); the visible cursor for menus is never held (2026-11-28 user request).
+/// The camera mouse is normally locked by `CGAssociateMouseAndMouseCursorPosition`; the border below catches
+/// it when that capture was refused, so it cannot leave the window and click another app or the desktop in
+/// the middle of a fight. Windowed and full screen, on one display or several.
 ///
 /// Two layers:
 /// - a main-run-loop poll (and the mouse monitors) moves the cursor back to the nearest point
@@ -18,7 +18,7 @@ import os
 ///   mouse event before the window server delivers it, so even a flick-and-click faster than
 ///   one poll lands in the game. Without that access the tap is simply not used (no prompt).
 ///
-/// While the pointer is confined, ⌘Tab and ⌘H are blocked too (the keybind lock); ⌘Q still quits the
+/// While the mouse is hidden for 3D control, ⌘Tab and ⌘H are blocked too (the keybind lock); ⌘Q still quits the
 /// game as in any Mac app, and Force Quit stays. Hiding or minimising the game, a native window drag or
 /// resize and a full-screen transition free the pointer; other ⌘ shortcuts and ⌘-clicks stay in the game.
 enum PointerConfinement {
@@ -54,8 +54,8 @@ enum PointerConfinement {
         CGPoint(x: point.x, y: firstScreenMaxY - point.y)
     }
 
-    /// The presentation options the keybind lock adds while the pointer is confined (2026-11-28 user request:
-    /// in Alt/middle-click cursor mode, shortcuts must not switch to or hide behind another app). ⌘Tab and ⌘H
+    /// The presentation options the keybind lock adds while the mouse is hidden for 3D control (2026-11-28
+    /// user request: shortcuts must not switch to or hide behind another app). ⌘Tab and ⌘H
     /// are blocked; ⌘Q and Force Quit stay. AppKit raises on an invalid combination, so this only adds what
     /// it allows: process switching and hiding need the Dock hidden or auto-hidden, and full screen already
     /// auto-hides it (there nothing is added unless it does).
@@ -84,13 +84,23 @@ enum PointerConfinement {
 
     /// Whether confinement applies now. Everything that hands the pointer back to macOS on
     /// purpose wins over it.
-    /// `released`: the player showed the cursor (Alt or a middle click). Camera mode, a hidden
-    /// game pointer included, is never confined or warped, so 3D rotation keeps its raw motion.
-    static func applies(requested: Bool, released: Bool, active: Bool, hidden: Bool, gameKey: Bool, minimized: Bool,
+    /// `mouseLook`: Mulg's hidden 3D camera mouse is on (Alt or a middle click switches to it). Only that
+    /// mouse is locked to the game (2026-11-28 user request): the visible cursor for menus is never held, and
+    /// a game's own hidden pointer is never warped, so its 3D rotation keeps its raw motion. Normally the
+    /// window server already holds the camera mouse (`captured`); the border only catches it when that
+    /// capture was refused.
+    static func applies(requested: Bool, mouseLook: Bool, active: Bool, hidden: Bool, gameKey: Bool, minimized: Bool,
                         onActiveSpace: Bool, windowInteraction: Bool, resizing: Bool, transitioning: Bool,
                         captured: Bool) -> Bool {
-        requested && released && active && !hidden && gameKey && !minimized && onActiveSpace
+        requested && mouseLook && active && !hidden && gameKey && !minimized && onActiveSpace
             && !windowInteraction && !resizing && !transitioning && !captured
+    }
+
+    /// Whether ⌘Tab and ⌘H are kept in the game: while the mouse is hidden for 3D control, by Mulg's camera
+    /// or the game's own pointer lock, and the game is in use. The visible cursor leaves them to macOS.
+    static func locksKeybinds(requested: Bool, mouseHidden: Bool, active: Bool, hidden: Bool, gameKey: Bool,
+                              minimized: Bool, onActiveSpace: Bool, transitioning: Bool) -> Bool {
+        requested && mouseHidden && active && !hidden && gameKey && !minimized && onActiveSpace && !transitioning
     }
 }
 

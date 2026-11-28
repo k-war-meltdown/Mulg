@@ -172,11 +172,11 @@ struct ControlsTab: View {
                 Toggle(isOn: controls.cursorKeySwitchesCamera) {
                     OptionLabel("Cursor key and middle click switch mouse look", .live, key: "mulg.controls.cursorKeySwitchesCamera", owner: .controls)
                 }
-                .help("On: ⌥ Option or a middle click switches between mouse look (cursor hidden) and the cursor. Off: mouse look always stays on with a camera keymap, and they only switch the edge lock.")
+                .help("On: ⌥ Option or a middle click switches between mouse look (cursor hidden) and the cursor. Off: mouse look always stays on with a camera keymap.")
                 Toggle(isOn: $settings.mulg.engine.confinePointer) {
                     OptionLabel("Keep mouse inside the game", .live, key: "mulg.engine.confinePointer", owner: .engine)
                 }
-                .help("When ⌥ Option (Alt) or a middle click shows the cursor or switches the edge lock, the cursor stops at the edge of the game window, windowed or full screen, so clicks, drags and keybinds never land on the desktop or another app. Mouse look is never affected. ⌘Tab and ⌘H stay in the game meanwhile; hold ⌘ and press Q to quit the game.")
+                .help("While the mouse is hidden to turn the 3D camera (switched with ⌥ Option (Alt) or a middle click), it, your clicks and ⌘Tab or ⌘H stay in the game, windowed or full screen. The visible cursor for menus moves freely. Hold ⌘ and press Q to quit the game.")
             } header: {
                 Text("Input", bundle: .module)
             } footer: {

@@ -1064,7 +1064,8 @@ public final class AppKitBridge: NSObject, MacBridge {
     // MARK: Pointer confinement
 
     private var confinementRequested = false
-    /// The player showed the cursor (Alt or a middle click). Nothing is confined otherwise.
+    /// The player showed the cursor (Alt or a middle click). The visible cursor is never confined and leaves
+    /// ⌘Tab and ⌘H to macOS (2026-11-28 user request); this also covers a pointer the game draws itself.
     private var cursorReleasedByPlayer = false
     private var confinementTimer: Timer?
     private var confinementMonitor: Any?
@@ -1093,7 +1094,6 @@ public final class AppKitBridge: NSObject, MacBridge {
     public func setCursorReleasedByPlayer(_ released: Bool) {
         guard released != cursorReleasedByPlayer else { return }
         cursorReleasedByPlayer = released
-        if confinementRequested { enforcePointerConfinement() }
     }
 
     /// See `MacBridge.confinePointer` and `PointerConfinement`.
@@ -1157,8 +1157,8 @@ public final class AppKitBridge: NSObject, MacBridge {
         let app = NSApplication.shared
         guard confinementRequested, let window = gameWindow else { return nil }
         let transitioning = windowStates.object(forKey: window)?.fullscreen?.isTransitioning == true
-        guard PointerConfinement.applies(requested: true, released: cursorReleasedByPlayer && !pointerCursorHiddenRequested
-                    && !cursorCaptureRequested, active: app.isActive, hidden: app.isHidden,
+        guard PointerConfinement.applies(requested: true, mouseLook: cursorCaptureRequested, active: app.isActive,
+                hidden: app.isHidden,
                 gameKey: window.isKeyWindow, minimized: window.isMiniaturized, onActiveSpace: window.isOnActiveSpace,
                 windowInteraction: !nativeWindowButtons.isEmpty,
                 resizing: window.inLiveResize || !resizingWindows.allObjects.isEmpty,
@@ -1170,13 +1170,24 @@ public final class AppKitBridge: NSObject, MacBridge {
                                          fullscreen: window.styleMask.contains(.fullScreen))
     }
 
+    /// ⌘Tab and ⌘H stay in the game while the mouse is hidden for 3D control (`PointerConfinement.locksKeybinds`).
+    private var keybindLockApplies: Bool {
+        let app = NSApplication.shared
+        guard confinementRequested, let window = gameWindow else { return false }
+        return PointerConfinement.locksKeybinds(requested: true,
+            mouseHidden: (cursorCaptureRequested || pointerCursorHiddenRequested) && !cursorReleasedByPlayer,
+            active: app.isActive,
+            hidden: app.isHidden, gameKey: window.isKeyWindow, minimized: window.isMiniaturized,
+            onActiveSpace: window.isOnActiveSpace,
+            transitioning: windowStates.object(forKey: window)?.fullscreen?.isTransitioning == true)
+    }
+
     private func enforcePointerConfinement() {
+        setKeybindLock(keybindLockApplies)
         guard let region = pointerConfinementRegion, let firstScreen = NSScreen.screens.first else {
             confinementTap.setRegion(nil)
-            setKeybindLock(false)
             return
         }
-        setKeybindLock(true)
         let top = firstScreen.frame.maxY
         confinementTap.setRegion(PointerConfinement.flipped(region, firstScreenMaxY: top))
         let mouse = NSEvent.mouseLocation

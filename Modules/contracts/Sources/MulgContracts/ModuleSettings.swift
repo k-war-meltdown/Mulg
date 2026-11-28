@@ -407,8 +407,8 @@ public struct ControlsSettings: Codable, Sendable, Equatable {
     /// sticks, so a press registers at once. On by default.
     public var smoothMovement: Bool = true
     /// Whether a tap of the cursor key (Alt) or a middle click switches between mouse look (hidden cursor) and
-    /// the shown cursor, whose window-edge lock is `engine.confinePointer`. On by default. Off (2026-11-28 user
-    /// request): with a camera keymap mouse look always stays on and both only switch the edge lock.
+    /// the shown cursor. On by default. Off (2026-11-28 user request): with a camera keymap mouse look always
+    /// stays on.
     public var cursorKeySwitchesCamera: Bool = true
 
     public init() {}
@@ -483,11 +483,10 @@ public struct EngineSettings: Codable, Sendable, Equatable {
     /// The game is silent while its window is not the one in use (another app or window in front, hidden,
     /// minimised); sound returns the moment it is. Off by default; also switchable from the in-game menu.
     public var muteWhenUnfocused: Bool = false
-    /// While the game window is in use (the active app's key window, windowed or full screen) and the
-    /// player has shown the cursor with the cursor key (Alt) or a middle click, the cursor, clicks and
-    /// drags stay inside the game: the cursor stops at the edge instead of clicking the desktop or
-    /// another app. Camera mode (mouse look) is never touched (2026-11-28). ⌘Tab and ⌘H are blocked meanwhile
-    /// (keybind lock, 2026-11-28); ⌘Q quits the game. On by default (2026-11-27, user request).
+    /// While the game window is in use (the active app's key window, windowed or full screen) and the mouse is
+    /// hidden for 3D control (mouse look, switched with Alt or a middle click), it, its clicks and ⌘Tab/⌘H stay
+    /// in the game. The visible cursor for menus is never held (2026-11-28 user request). ⌘Q quits the game.
+    /// On by default (2026-11-27, user request).
     public var confinePointer: Bool = true
     /// Environment variables set in the game process before any module prepares, so Metal, Unity and
     /// other switches read at start-up can be tried per game. `DYLD_` names are ignored.
